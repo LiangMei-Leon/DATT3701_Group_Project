@@ -8,11 +8,16 @@ public class ScriptTest : MonoBehaviour
     void Start()
     {
         //Liang Mei added a line.
+        // Jingwei added a line
     }
 
     // Update is called once per frame
     void Update()
     {
+        
+    }
+
+    void testMethod(){
         
     }
 }
