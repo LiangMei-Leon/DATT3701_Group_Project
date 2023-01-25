@@ -7,7 +7,7 @@ public class ScriptTest : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        //Liang Mei added a line.
     }
 
     // Update is called once per frame
