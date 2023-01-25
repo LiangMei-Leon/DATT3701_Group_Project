@@ -18,6 +18,6 @@ public class ScriptTest : MonoBehaviour
     }
 
     void testMethod(){
-        
+        print("hello world");
     }
 }
