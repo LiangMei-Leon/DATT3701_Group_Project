@@ -3,8 +3,8 @@ using UnityEngine.Events;
 
 public class CharacterController2D : MonoBehaviour
 {
-	[SerializeField] private float m_JumpForce = 15f;							// Amount of force added when the player jumps.
-	[SerializeField] private float runAcceleration = 0.5f;
+	[SerializeField] private float m_JumpForce = 13.5f;							// Amount of force added when the player jumps.
+	[SerializeField] private float runAcceleration = 0.2f;
 	[SerializeField] private float runDecceleration = 0.5f;
 	[SerializeField] private float runMaxSpeed = 3f;
 	[HideInInspector] private float runAccelAmount;
@@ -89,8 +89,8 @@ public class CharacterController2D : MonoBehaviour
 
 	public void Move(float move, bool jump)
 	{
-		//only control the player if grounded or airControl is turned on
-		if (m_Grounded || m_AirControl)
+		//only control the player if grounded or airControl is turned on m_Grounded || 
+		if (m_AirControl)
 		{
 			/*
 			// Move the character by finding the target velocity
@@ -115,13 +115,7 @@ public class CharacterController2D : MonoBehaviour
 
 			//Convert this to a vector and apply to rigidbody
 			m_Rigidbody2D.AddForce(movement * Vector2.right, ForceMode2D.Force);
-			Debug.Log("targetspeed" + targetSpeed);
-			Debug.Log("accelRate" + accelRate);
-
-
-
-
-
+			
 			// If the input is moving the player right and the player is facing left...
 			if (move > 0 && !m_FacingRight)
 			{
