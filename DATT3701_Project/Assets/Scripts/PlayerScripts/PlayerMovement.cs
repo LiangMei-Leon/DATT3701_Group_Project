@@ -7,7 +7,7 @@ public class PlayerMovement : MonoBehaviour
 
     public CharacterController2D controller;
 
-    public float runSpeed = 20f;
+    public float runSpeed = 3f;
 
     float horizontalMove = 0f;
     bool jump = false;
@@ -31,7 +31,7 @@ public class PlayerMovement : MonoBehaviour
     }
 
     void FixedUpdate() {
-        controller.Move(horizontalMove * Time.fixedDeltaTime, false, jump);
+        controller.Move(horizontalMove, jump);
         jump = false;
     }
 }
