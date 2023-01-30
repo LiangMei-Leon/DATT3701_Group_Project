@@ -3,32 +3,31 @@ using UnityEngine.Events;
 
 public class CharacterController2D : MonoBehaviour
 {
-	[SerializeField] private float m_JumpForce = 400f;							// Amount of force added when the player jumps.
-	[Range(0, 1)] [SerializeField] private float m_CrouchSpeed = .36f;			// Amount of maxSpeed applied to crouching movement. 1 = 100%
-	[Range(0, .3f)] [SerializeField] private float m_MovementSmoothing = .05f;	// How much to smooth out the movement
-	[SerializeField] private bool m_AirControl = false;							// Whether or not a player can steer while jumping;
+	[SerializeField] private float m_JumpForce = 15f;							// Amount of force added when the player jumps.
+	[SerializeField] private float runAcceleration = 0.5f;
+	[SerializeField] private float runDecceleration = 0.5f;
+	[SerializeField] private float runMaxSpeed = 3f;
+	[HideInInspector] private float runAccelAmount;
+	[HideInInspector] private float runDeccelAmount;
+
+	[SerializeField] private bool m_AirControl = true;							// Whether or not a player can steer while jumping;
 	[SerializeField] private LayerMask m_WhatIsGround;							// A mask determining what is ground to the character
 	[SerializeField] private Transform m_GroundCheck;							// A position marking where to check if the player is grounded.
-	[SerializeField] private Transform m_CeilingCheck;							// A position marking where to check for ceilings
-	[SerializeField] private Collider2D m_CrouchDisableCollider;				// A collider that will be disabled when crouching
+	[SerializeField] private float LastOnGroundTime;
+	[SerializeField] private float LastPressedJumpTime;
+	[SerializeField] private bool IsJumping;
+	[SerializeField] public float coyoteTime = 0.2f;
+	[SerializeField] public float jumpInputBufferTime = 0.2f;
 
 	const float k_GroundedRadius = .2f; // Radius of the overlap circle to determine if grounded
 	private bool m_Grounded;            // Whether or not the player is grounded.
-	const float k_CeilingRadius = .2f; // Radius of the overlap circle to determine if the player can stand up
 	private Rigidbody2D m_Rigidbody2D;
 	private bool m_FacingRight = true;  // For determining which way the player is currently facing.
 	private Vector3 m_Velocity = Vector3.zero;
 
 	[Header("Events")]
 	[Space]
-
 	public UnityEvent OnLandEvent;
-
-	[System.Serializable]
-	public class BoolEvent : UnityEvent<bool> { }
-
-	public BoolEvent OnCrouchEvent;
-	private bool m_wasCrouching = false;
 
 	private void Awake()
 	{
@@ -37,9 +36,36 @@ public class CharacterController2D : MonoBehaviour
 		if (OnLandEvent == null)
 			OnLandEvent = new UnityEvent();
 
-		if (OnCrouchEvent == null)
-			OnCrouchEvent = new BoolEvent();
 	}
+
+	private void Update()
+	{	
+        LastOnGroundTime -= Time.deltaTime;
+		LastPressedJumpTime -= Time.deltaTime;
+		
+		if(!IsJumping)
+		{
+			Collider2D[] colliders = Physics2D.OverlapCircleAll(m_GroundCheck.position, k_GroundedRadius, m_WhatIsGround);
+			for (int i = 0; i < colliders.Length; i++)
+			{
+				if (colliders[i].gameObject != gameObject  && !IsJumping)
+				{
+					LastOnGroundTime = coyoteTime;
+				}
+			} 
+		}
+
+		if (IsJumping && m_Rigidbody2D.velocity.y < 0)
+		{
+			IsJumping = false;
+		}
+
+		if (CanJump() && LastPressedJumpTime > 0)
+		{
+			IsJumping = true;
+			Jump();
+		}
+    }
 
 	private void FixedUpdate()
 	{
@@ -61,54 +87,40 @@ public class CharacterController2D : MonoBehaviour
 	}
 
 
-	public void Move(float move, bool crouch, bool jump)
+	public void Move(float move, bool jump)
 	{
-		// If crouching, check to see if the character can stand up
-		if (!crouch)
-		{
-			// If the character has a ceiling preventing them from standing up, keep them crouching
-			if (Physics2D.OverlapCircle(m_CeilingCheck.position, k_CeilingRadius, m_WhatIsGround))
-			{
-				crouch = true;
-			}
-		}
-
 		//only control the player if grounded or airControl is turned on
 		if (m_Grounded || m_AirControl)
 		{
-
-			// If crouching
-			if (crouch)
-			{
-				if (!m_wasCrouching)
-				{
-					m_wasCrouching = true;
-					OnCrouchEvent.Invoke(true);
-				}
-
-				// Reduce the speed by the crouchSpeed multiplier
-				move *= m_CrouchSpeed;
-
-				// Disable one of the colliders when crouching
-				if (m_CrouchDisableCollider != null)
-					m_CrouchDisableCollider.enabled = false;
-			} else
-			{
-				// Enable the collider when not crouching
-				if (m_CrouchDisableCollider != null)
-					m_CrouchDisableCollider.enabled = true;
-
-				if (m_wasCrouching)
-				{
-					m_wasCrouching = false;
-					OnCrouchEvent.Invoke(false);
-				}
-			}
-
+			/*
 			// Move the character by finding the target velocity
 			Vector3 targetVelocity = new Vector2(move * 10f, m_Rigidbody2D.velocity.y);
 			// And then smoothing it out and applying it to the character
 			m_Rigidbody2D.velocity = Vector3.SmoothDamp(m_Rigidbody2D.velocity, targetVelocity, ref m_Velocity, m_MovementSmoothing);
+			*/
+			//Calculate the direction we want to move in and our desired velocity
+			float targetSpeed = move;
+			float accelRate = 0f;
+			//Calculate are run acceleration & deceleration forces using formula: amount = ((1 / Time.fixedDeltaTime) * acceleration) / runMaxSpeed
+			runAccelAmount = (50 * runAcceleration) / runMaxSpeed;
+			runDeccelAmount = (50 * runDecceleration) / runMaxSpeed;
+			
+			accelRate = (Mathf.Abs(targetSpeed) > 0.01f) ? runAccelAmount : runDeccelAmount;
+			
+			//Calculate difference between current velocity and desired velocity
+			float speedDif = targetSpeed - m_Rigidbody2D.velocity.x;
+			//Calculate force along x-axis to apply to thr player
+
+			float movement = speedDif * accelRate;
+
+			//Convert this to a vector and apply to rigidbody
+			m_Rigidbody2D.AddForce(movement * Vector2.right, ForceMode2D.Force);
+			Debug.Log("targetspeed" + targetSpeed);
+			Debug.Log("accelRate" + accelRate);
+
+
+
+
 
 			// If the input is moving the player right and the player is facing left...
 			if (move > 0 && !m_FacingRight)
@@ -124,14 +136,29 @@ public class CharacterController2D : MonoBehaviour
 			}
 		}
 		// If the player should jump...
-		if (m_Grounded && jump)
+		if (jump)
 		{
-			// Add a vertical force to the player.
-			m_Grounded = false;
-			m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce));
+			LastPressedJumpTime = jumpInputBufferTime;
 		}
 	}
+	private void Jump()
+    {
+		LastPressedJumpTime = 0;
+		LastOnGroundTime = 0;
+		//We increase the force applied if we are falling
+		//This means we'll always feel like we jump the same amount 
+		//(setting the player's Y velocity to 0 beforehand will likely work the same, but I find this more elegant :D)
+		float force = m_JumpForce;
+		if (m_Rigidbody2D.velocity.y < 0)
+			force -= m_Rigidbody2D.velocity.y;
 
+		m_Rigidbody2D.AddForce(Vector2.up * force, ForceMode2D.Impulse);
+    }
+
+	private bool CanJump()
+    {
+		return LastOnGroundTime > 0 && !IsJumping;
+    }
 
 	private void Flip()
 	{
@@ -142,5 +169,11 @@ public class CharacterController2D : MonoBehaviour
 		Vector3 theScale = transform.localScale;
 		theScale.x *= -1;
 		transform.localScale = theScale;
+	}
+
+	private void OnDrawGizmosSelected()
+    {
+		Gizmos.color = Color.red;
+		Gizmos.DrawWireSphere(m_GroundCheck.position, k_GroundedRadius);
 	}
 }
