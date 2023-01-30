@@ -10,7 +10,7 @@ public class PlayerEmotionStatus : MonoBehaviour
     const float RAGE_MAX_VALUE = 100.0f;
     const float FEAR_MAX_VALUE = 100.0f;
 
-
+    public MeterUI Needle;
 
     // Start is called before the first frame update
     void Start()
@@ -27,12 +27,15 @@ public class PlayerEmotionStatus : MonoBehaviour
             IncreaseRage(10f);
             Debug.Log("Increase Rage for 10");
             Debug.Log("current value: " + emotionStatus);
+            Needle.setEmo(emotionStatus);
+            
         }
         if(Input.GetKeyDown("q"))
         {
             IncreaseSerenity(10f);
             Debug.Log("Increase Serenity for 10");
             Debug.Log("current value: " + emotionStatus);
+            Needle.setEmo(emotionStatus);
         }
     }
 
