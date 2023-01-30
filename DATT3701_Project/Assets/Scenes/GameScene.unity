@@ -988,8 +988,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca6d21b3cdf1ad748b8bd321c8472024, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_JumpForce: 15
-  runAcceleration: 0.1
+  m_JumpForce: 13.5
+  runAcceleration: 0.2
   runDecceleration: 0.5
   runMaxSpeed: 3
   m_AirControl: 1
