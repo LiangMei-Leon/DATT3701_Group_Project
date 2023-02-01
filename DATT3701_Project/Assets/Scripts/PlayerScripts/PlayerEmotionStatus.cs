@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class PlayerEmotionStatus : MonoBehaviour
 {
-    [SerializeField] public float initialValue = 0f;
+    [SerializeField] public float initialValue = 0.0f;
     [SerializeField] private float emotionStatus;
-    const float SERENITY_MAX_VALUE = -100.0f;
-    const float RAGE_MAX_VALUE = 100.0f;
+    const float SERENITY_MAX_VALUE = 0.0f;
+    const float RAGE_MAX_VALUE = 200.0f;
     const float FEAR_MAX_VALUE = 100.0f;
 
-
+    public MeterUI Needle;
 
     // Start is called before the first frame update
     void Start()
@@ -27,12 +27,15 @@ public class PlayerEmotionStatus : MonoBehaviour
             IncreaseRage(10f);
             Debug.Log("Increase Rage for 10");
             Debug.Log("current value: " + emotionStatus);
+            Needle.setEmo(emotionStatus);
+            
         }
         if(Input.GetKeyDown("q"))
         {
             IncreaseSerenity(10f);
             Debug.Log("Increase Serenity for 10");
             Debug.Log("current value: " + emotionStatus);
+            Needle.setEmo(emotionStatus);
         }
     }
 
