@@ -3,10 +3,10 @@ using UnityEngine.Events;
 
 public class CharacterController2D : MonoBehaviour
 {
-	[SerializeField] private float m_JumpForce = 13.5f;							// Amount of force added when the player jumps.
-	[SerializeField] private float runAcceleration = 0.2f;
-	[SerializeField] private float runDecceleration = 0.5f;
-	[SerializeField] private float runMaxSpeed = 3f;
+	[SerializeField] private float m_JumpForce = 18f;							// Amount of force added when the player jumps.
+	[SerializeField] private float runAcceleration = 1f;
+	[SerializeField] private float runDecceleration = 2f;
+	[SerializeField] private float runMaxSpeed = 5f;
 	[HideInInspector] private float runAccelAmount;
 	[HideInInspector] private float runDeccelAmount;
 
@@ -16,8 +16,8 @@ public class CharacterController2D : MonoBehaviour
 	[SerializeField] private float LastOnGroundTime;
 	[SerializeField] private float LastPressedJumpTime;
 	[SerializeField] private bool IsJumping;
-	[SerializeField] public float coyoteTime = 0.2f;
-	[SerializeField] public float jumpInputBufferTime = 0.2f;
+	[SerializeField] public float coyoteTime = 0.1f;
+	[SerializeField] public float jumpInputBufferTime = 0.1f;
 
 	const float k_GroundedRadius = .2f; // Radius of the overlap circle to determine if grounded
 	private Rigidbody2D m_Rigidbody2D;
@@ -39,6 +39,7 @@ public class CharacterController2D : MonoBehaviour
 
 	private void Update()
 	{	
+		//Debug.Log(m_Rigidbody2D.velocity);
         LastOnGroundTime -= Time.deltaTime;
 		LastPressedJumpTime -= Time.deltaTime;
 		
