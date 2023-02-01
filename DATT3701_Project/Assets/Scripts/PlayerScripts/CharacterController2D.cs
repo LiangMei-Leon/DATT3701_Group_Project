@@ -3,7 +3,7 @@ using UnityEngine.Events;
 
 public class CharacterController2D : MonoBehaviour
 {
-	[SerializeField] private float m_JumpForce = 20f;							// Amount of force added when the player jumps.
+	[SerializeField] private float m_JumpForce = 18f;							// Amount of force added when the player jumps.
 	[SerializeField] private float runAcceleration = 1f;
 	[SerializeField] private float runDecceleration = 2f;
 	[SerializeField] private float runMaxSpeed = 5f;
