@@ -25,4 +25,9 @@ public class GhostMovement : MonoBehaviour
         rb2d.velocity = moveInput* flySpeed;
     }
 
+    public void Chagenlocation(Vector3 t)
+    {
+        transform.position = t;
+    }
+
 }
