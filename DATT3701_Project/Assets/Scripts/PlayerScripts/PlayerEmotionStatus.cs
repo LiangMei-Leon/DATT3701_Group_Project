@@ -6,6 +6,11 @@ public class PlayerEmotionStatus : MonoBehaviour
 {
     [SerializeField] public float initialValue = 0.0f;
     [SerializeField] private float emotionStatus;
+    [SerializeField] private float fearStatus;
+    public GameObject normalPlayer;
+    public GameObject ghostPlayer;
+    private CharacterController2D normalPlayerData;
+    private GhostMovement ghostPlayerData;
     const float SERENITY_MAX_VALUE = 0.0f;
     const float RAGE_MAX_VALUE = 200.0f;
     const float FEAR_MAX_VALUE = 100.0f;
@@ -16,6 +21,9 @@ public class PlayerEmotionStatus : MonoBehaviour
     void Start()
     {
         emotionStatus = initialValue;
+        fearStatus = 0f;
+        normalPlayerData = normalPlayer.GetComponent<CharacterController2D>();
+        ghostPlayerData = ghostPlayer.GetComponent<GhostMovement>();
     }
 
     // Update is called once per frame
@@ -37,6 +45,13 @@ public class PlayerEmotionStatus : MonoBehaviour
             Debug.Log("current value: " + emotionStatus);
             Needle.setEmo(emotionStatus);
         }
+        if(Input.GetKeyDown("f"))
+        {
+            IncreaseFear(10f);
+            Debug.Log("Increase Serenity for 10");
+            Debug.Log("current fear value: " + fearStatus);
+            
+        }
     }
 
     public void ChangeInitialValue(float changeValue)
@@ -57,6 +72,16 @@ public class PlayerEmotionStatus : MonoBehaviour
         emotionStatus += value;
         if(emotionStatus > RAGE_MAX_VALUE){
             emotionStatus = RAGE_MAX_VALUE;
+        }
+    }
+
+    public void IncreaseFear(float value)
+    {
+        fearStatus += value;
+        if(fearStatus >= FEAR_MAX_VALUE){
+            normalPlayer.SetActive(false);
+            ghostPlayerData.Chagenlocation(normalPlayer.transform.position);
+            ghostPlayer.SetActive(true);
         }
     }
 
