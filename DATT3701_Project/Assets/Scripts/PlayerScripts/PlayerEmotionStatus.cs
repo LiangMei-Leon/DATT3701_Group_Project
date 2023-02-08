@@ -9,6 +9,9 @@ public class PlayerEmotionStatus : MonoBehaviour
     [SerializeField] private float fearStatus;
     public GameObject normalPlayer;
     public GameObject ghostPlayer;
+    public Sprite serenitySprite;
+    public Sprite rageSprite;
+    private SpriteRenderer normalPlayerSprite;
     private CharacterController2D normalPlayerData;
     private GhostMovement ghostPlayerData;
     const float SERENITY_MAX_VALUE = 0.0f;
@@ -24,6 +27,7 @@ public class PlayerEmotionStatus : MonoBehaviour
         fearStatus = 0f;
         normalPlayerData = normalPlayer.GetComponent<CharacterController2D>();
         ghostPlayerData = ghostPlayer.GetComponent<GhostMovement>();
+        normalPlayerSprite = normalPlayer.GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
@@ -48,9 +52,14 @@ public class PlayerEmotionStatus : MonoBehaviour
         if(Input.GetKeyDown("f"))
         {
             IncreaseFear(10f);
-            Debug.Log("Increase Serenity for 10");
+            Debug.Log("Increase Fear for 10");
             Debug.Log("current fear value: " + fearStatus);
             
+        }
+        if(emotionStatus <= 100){
+            ToSerenityFace();
+        }else{
+            ToRageFace();
         }
     }
 
@@ -65,6 +74,8 @@ public class PlayerEmotionStatus : MonoBehaviour
         if(emotionStatus < SERENITY_MAX_VALUE){
             emotionStatus = SERENITY_MAX_VALUE;
         }
+        Debug.Log("Increase Serenity for 10");
+        Debug.Log("current value: " + emotionStatus);
     }
 
     public void IncreaseRage(float value)
@@ -73,6 +84,8 @@ public class PlayerEmotionStatus : MonoBehaviour
         if(emotionStatus > RAGE_MAX_VALUE){
             emotionStatus = RAGE_MAX_VALUE;
         }
+        Debug.Log("Increase Rage for 10");
+        Debug.Log("current value: " + emotionStatus);
     }
 
     public void IncreaseFear(float value)
@@ -87,5 +100,13 @@ public class PlayerEmotionStatus : MonoBehaviour
 
     public float getEmotionStatus(){
         return emotionStatus;
+    }
+
+    void ToSerenityFace(){
+        normalPlayerSprite.sprite = serenitySprite;
+    }
+
+    void ToRageFace(){
+        normalPlayerSprite.sprite = rageSprite;
     }
 }
