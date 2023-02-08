@@ -24,7 +24,7 @@ public class playerSmash : MonoBehaviour
         emotionStatus = playerEmotion.getEmotionStatus();
         Physics2D.queriesStartInColliders = false;
         RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.right * transform.localScale.x, Mathf.Abs(transform.localScale.x) * distance, boxMask);
-        if (hit.collider != null && emotionStatus > 100){
+        if (hit.collider != null && emotionStatus > 0){  // change 100 to 0--- jingwei
             object1 = hit.collider.gameObject;
              Destroy(object1, 0.2f);
             //object1.SetActive(false);
