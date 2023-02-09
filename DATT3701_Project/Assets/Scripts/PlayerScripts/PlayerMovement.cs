@@ -31,7 +31,7 @@ public class PlayerMovement : MonoBehaviour
         //horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
         if(!fearStatus)
         {
-            if(emotionStatus > 100){
+            if(emotionStatus > 0){
                 horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed * -1;
             }else{
                 horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
