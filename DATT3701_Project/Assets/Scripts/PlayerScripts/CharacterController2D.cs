@@ -15,7 +15,7 @@ public class CharacterController2D : MonoBehaviour
 	[SerializeField] private Transform m_GroundCheck;							// A position marking where to check if the player is grounded.
 	[SerializeField] private float LastOnGroundTime;
 	[SerializeField] private float LastPressedJumpTime;
-	[SerializeField] private bool IsJumping;
+	[SerializeField] public bool IsJumping;
 	[SerializeField] public float coyoteTime = 0.1f;
 	[SerializeField] public float jumpInputBufferTime = 0.1f;
 
