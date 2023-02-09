@@ -13,10 +13,13 @@ public class MeterUI : MonoBehaviour
 
    
    //variable for controlling meter needle speed
-   public float currentEmoStatus = 0;
-   public float targetEmoStatus = 0;
+   public float currentEmoStatus;
+   public float targetEmoStatus;
    public float needleSpeed = 100f;
    
+
+
+
     // Update is called once per frame
     void Update()
     {
@@ -38,11 +41,11 @@ public class MeterUI : MonoBehaviour
     void UpdateEmo(){
         if(targetEmoStatus > currentEmoStatus){
             currentEmoStatus += Time.deltaTime * needleSpeed;
-            currentEmoStatus = Mathf.Clamp(currentEmoStatus, 0.0f, targetEmoStatus);
+            currentEmoStatus = Mathf.Clamp(currentEmoStatus, -100.0f, targetEmoStatus);
         }else if(targetEmoStatus < currentEmoStatus)
         {
             currentEmoStatus -= Time.deltaTime * needleSpeed;
-            currentEmoStatus = Mathf.Clamp(currentEmoStatus, targetEmoStatus,200.0f); 
+            currentEmoStatus = Mathf.Clamp(currentEmoStatus, targetEmoStatus,100.0f); 
         }
 
         SetNeedle();
@@ -50,7 +53,7 @@ public class MeterUI : MonoBehaviour
     }
 
     void SetNeedle(){
-        imageNeedle.transform.localEulerAngles = new Vector3(0, 0, (currentEmoStatus / 200.0f * 94.0f - 47.0f)* -1.0f);
+        imageNeedle.transform.localPosition = new Vector3(((currentEmoStatus / 200.0f * 292 - 243.01f)* 1.0f), 228.97f, 0);
     }
 
 
