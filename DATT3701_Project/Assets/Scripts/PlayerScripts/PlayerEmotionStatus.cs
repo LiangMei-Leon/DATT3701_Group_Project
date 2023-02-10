@@ -7,6 +7,10 @@ public class PlayerEmotionStatus : MonoBehaviour
     [SerializeField] public float initialValue = 0.0f;
     [SerializeField] private float emotionStatus;
     [SerializeField] private float fearStatus;
+    [SerializeField] private bool isGhost;
+    [SerializeField] public float fearCountDown = 10.0f;
+    [SerializeField] public bool respawnable = false;
+    [SerializeField] public bool respawnUsed = false;
     [SerializeField] GhostMeterUI ghostmeter;    // add ghostMeter UI  jingwei
     public GameObject normalPlayer;
     public GameObject ghostPlayer;
@@ -28,6 +32,7 @@ public class PlayerEmotionStatus : MonoBehaviour
         Needle.setEmo(emotionStatus); // add this to set default value when start game   jingwei
         
         fearStatus = 0f;
+        isGhost = false;
         ghostmeter.setFear(fearStatus); // set fear value to ghost bar default   jingwei
 
         normalPlayerData = normalPlayer.GetComponent<CharacterController2D>();
@@ -66,6 +71,21 @@ public class PlayerEmotionStatus : MonoBehaviour
             ToSerenityFace();
         }else{
             ToRageFace();
+        }
+        if(fearStatus >= 100 && !respawnUsed){
+            isGhost = true;
+        }else if(fearStatus >= 100 && respawnUsed){
+            Debug.Log("YOU LOST. RESTART THE LEVEL........");
+        }
+        if(respawnable){
+            isGhost = false;
+            respawnUsed = true;
+        }
+        if(isGhost && !respawnable){
+            fearCountDown = fearCountDown - 0.1f;
+            if(fearCountDown < 0f && !respawnable){
+                Debug.Log("YOU LOST. RESTART THE LEVEL........");
+            }
         }
     }
 
@@ -112,6 +132,10 @@ public class PlayerEmotionStatus : MonoBehaviour
 
     public float getEmotionStatus(){
         return emotionStatus;
+    }
+
+    public bool getFearStatus(){
+        return isGhost;
     }
 
     void ToSerenityFace(){
