@@ -11,22 +11,29 @@ public class MeterUI : MonoBehaviour
     [SerializeField] 
     private Slider slider;
 
+
+
    
    //variable for controlling meter needle speed
    public float currentEmoStatus;
    public float targetEmoStatus;
    public float needleSpeed = 100f;
-   
+
 
 
 
     // Update is called once per frame
     void Update()
     {
+        
         if(targetEmoStatus != currentEmoStatus){
             UpdateEmo();
         }
     }
+
+
+    //Method for calculate Meter distacne
+   
 
     // Method for testing UI with the Slider
     public void SetEmoFromSlider(){
@@ -53,7 +60,8 @@ public class MeterUI : MonoBehaviour
     }
 
     void SetNeedle(){
-        imageNeedle.transform.localPosition = new Vector3(((currentEmoStatus / 200.0f * 292 - 243.01f)* 1.0f), 228.97f, 0);
+        imageNeedle.transform.localPosition = new Vector3(((currentEmoStatus / 200.0f * 432 - 401.0f)* 1.0f), 342.0f, 0);
+                                                            // currentEmoStatus / 200.0f *   总长  -   初始X位置
     }
 
 
