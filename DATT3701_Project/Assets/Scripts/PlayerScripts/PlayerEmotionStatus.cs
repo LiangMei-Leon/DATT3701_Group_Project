@@ -1,17 +1,29 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using TMPro;
 
 public class PlayerEmotionStatus : MonoBehaviour
 {
     [SerializeField] public float initialValue = 0.0f;
     [SerializeField] private float emotionStatus;
     [SerializeField] private float fearStatus;
+    [SerializeField] private bool isGhost;
+    [SerializeField] public float fearCountDown = 10.0f;
+    private float fearTimer = 0f;
+    [SerializeField] public bool respawnable = false;
+    [SerializeField] public bool respawnUsed = false;
     [SerializeField] GhostMeterUI ghostmeter;    // add ghostMeter UI  jingwei
     public GameObject normalPlayer;
     public GameObject ghostPlayer;
     public Sprite serenitySprite;
     public Sprite rageSprite;
+    public GameObject LemonAngel;
+
+    public GameObject TEXT1;
+    public GameObject TEXT2;
+    public TextMeshProUGUI tmp;
     private SpriteRenderer normalPlayerSprite;
     private CharacterController2D normalPlayerData;
     private GhostMovement ghostPlayerData;
@@ -28,24 +40,30 @@ public class PlayerEmotionStatus : MonoBehaviour
         Needle.setEmo(emotionStatus); // add this to set default value when start game   jingwei
         
         fearStatus = 0f;
+        isGhost = false;
         ghostmeter.setFear(fearStatus); // set fear value to ghost bar default   jingwei
 
         normalPlayerData = normalPlayer.GetComponent<CharacterController2D>();
         ghostPlayerData = ghostPlayer.GetComponent<GhostMovement>();
         normalPlayerSprite = normalPlayer.GetComponent<SpriteRenderer>();
+
+        //only for playtesting pause and restart
+        Time.timeScale = 1;
     }
 
     // Update is called once per frame
     void Update()
     {
         //only for testing
+        if(Input.GetKeyDown("r")){
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
         if(Input.GetKeyDown("e"))
         {
             IncreaseRage(10f);
             Debug.Log("Increase Rage for 10");
             Debug.Log("current value: " + emotionStatus);
             Needle.setEmo(emotionStatus);
-            
         }
         if(Input.GetKeyDown("q"))
         {
@@ -66,6 +84,24 @@ public class PlayerEmotionStatus : MonoBehaviour
             ToSerenityFace();
         }else{
             ToRageFace();
+        }
+        if(fearStatus >= 100 && respawnUsed){
+            TEXT1.SetActive(true);
+            Time.timeScale = 0;
+            Debug.Log("YOU LOST. RESTART THE LEVEL........");
+        }
+        if(isGhost && !respawnable){
+            fearTimer += Time.deltaTime;
+            if(fearTimer >= 1){
+                fearCountDown -= 1f;
+                tmp.text = fearCountDown.ToString();
+                fearTimer = 0;
+            }
+            if(fearCountDown < 0f && !respawnable){
+                TEXT1.SetActive(true);
+                Time.timeScale = 0;
+                Debug.Log("YOU LOST. RESTART THE LEVEL........");
+            }
         }
     }
 
@@ -103,8 +139,19 @@ public class PlayerEmotionStatus : MonoBehaviour
     public void IncreaseFear(float value)
     {
         fearStatus += value;
-        if(fearStatus >= FEAR_MAX_VALUE){
-            normalPlayer.SetActive(false);
+        if(fearStatus >= 100 && !respawnUsed){
+            isGhost = true;
+        }
+        if(isGhost && !respawnUsed){
+            foreach (Collider2D c in normalPlayer.GetComponents<Collider2D>())
+            {
+                if(c.enabled == true)
+                    c.enabled = false;
+                else
+                    c.enabled = true;
+            }
+            TEXT2.SetActive(true);
+            LemonAngel.SetActive(true);
             ghostPlayerData.Chagenlocation(normalPlayer.transform.position);
             ghostPlayer.SetActive(true);
         }
@@ -114,11 +161,31 @@ public class PlayerEmotionStatus : MonoBehaviour
         return emotionStatus;
     }
 
+    public bool getFearStatus(){
+        return isGhost;
+    }
+
     void ToSerenityFace(){
         normalPlayerSprite.sprite = serenitySprite;
     }
 
     void ToRageFace(){
         normalPlayerSprite.sprite = rageSprite;
+    }
+
+    public void ReturnNormal(){
+        fearStatus = 0;
+        respawnable = true;
+        isGhost = false;
+        respawnUsed = true;
+        TEXT2.SetActive(false);
+        foreach (Collider2D c in normalPlayer.GetComponents<Collider2D>())
+            {
+                if(c.enabled == true)
+                    c.enabled = false;
+                else
+                    c.enabled = true;
+            }
+        ghostPlayer.SetActive(false);
     }
 }

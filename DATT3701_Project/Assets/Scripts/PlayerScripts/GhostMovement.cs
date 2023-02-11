@@ -4,20 +4,24 @@ using UnityEngine;
 
 public class GhostMovement : MonoBehaviour
 {
-
-     public float flySpeed = 3.0f;
-     public Rigidbody2D rb2d;
-     private Vector2 moveInput;
+    // private GameObject playerManager;
+    // private PlayerEmotionStatus playerEmotion;
+    // private float emotionStatus;
+    public float flySpeed = 3.0f;
+    public Rigidbody2D rb2d;
+    private Vector2 moveInput;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        // playerManager = GameObject.FindWithTag("PlayerManager");
+        // playerEmotion= playerManager.GetComponent<PlayerEmotionStatus>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        //emotionStatus = playerEmotion.getFearStatus();
         moveInput.x = Input.GetAxisRaw("Horizontal");
         moveInput.y = Input.GetAxisRaw("Vertical");
 
