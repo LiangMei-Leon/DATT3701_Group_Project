@@ -40,6 +40,8 @@ public class PlayerMovement : MonoBehaviour
             {
                 jump = true;
             }
+        }else{
+            horizontalMove = 0;
         }
     }
 
