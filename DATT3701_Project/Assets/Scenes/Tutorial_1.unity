@@ -4350,6 +4350,7 @@ MonoBehaviour:
   IsJumping: 0
   coyoteTime: 0.1
   jumpInputBufferTime: 0.1
+  jumpable: 0
   OnLandEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -4446,6 +4447,7 @@ MonoBehaviour:
   boxMask:
     serializedVersion: 2
     m_Bits: 128
+  normalPlayer: {fileID: 627218905}
 --- !u!70 &627218915
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
