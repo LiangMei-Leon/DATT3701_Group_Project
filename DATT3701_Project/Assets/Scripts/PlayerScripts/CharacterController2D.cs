@@ -23,6 +23,7 @@ public class CharacterController2D : MonoBehaviour
 	private Rigidbody2D m_Rigidbody2D;
 	private bool m_FacingRight = true;  // For determining which way the player is currently facing.
 	private Vector3 m_Velocity = Vector3.zero;
+	public bool jumpable = false;
 
 	[Header("Events")]
 	[Space]
@@ -42,7 +43,7 @@ public class CharacterController2D : MonoBehaviour
 		//Debug.Log(m_Rigidbody2D.velocity);
         LastOnGroundTime -= Time.deltaTime;
 		LastPressedJumpTime -= Time.deltaTime;
-		
+		jumpable = CanJump();
 		if(!IsJumping)
 		{
 			Collider2D[] colliders = Physics2D.OverlapCircleAll(m_GroundCheck.position, k_GroundedRadius, m_WhatIsGround);
