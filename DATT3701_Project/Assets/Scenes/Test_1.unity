@@ -5678,6 +5678,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   normalPlayer: {fileID: 627218905}
+  smashTime: 0.25
 --- !u!70 &627218915
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
