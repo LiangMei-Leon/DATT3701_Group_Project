@@ -77,7 +77,7 @@ public class BoxFunctions : MonoBehaviour
             this.GetComponent<Rigidbody2D>().mass = 1f;
         }
         if(BoxNearby || (emotionStatus > 0)){
-            this.GetComponent<Rigidbody2D>().mass = 100f;
+            this.GetComponent<Rigidbody2D>().mass = 25f;
         }
         // RaycastHit2D hitPlayerRight = Physics2D.Raycast((Vector2)transform.position + Vector2.down * 0.3f, Vector2.right, distance_right, playerMask);
         // if (hitPlayerRight.collider != null){
@@ -127,6 +127,18 @@ public class BoxFunctions : MonoBehaviour
         //         object1.GetComponent<FixedJoint2D>().enabled = false;
         //     }
         // }
+    }
+
+    void FixedUpdate()
+     {
+        Vector2 currentVelocity = GetComponent<Rigidbody2D>().velocity;
+  
+        if (currentVelocity.y <= 0f) 
+             return;
+          
+        currentVelocity.y = 0f;
+          
+        GetComponent<Rigidbody2D>().velocity = currentVelocity;
     }
 
     public void Smash(){
