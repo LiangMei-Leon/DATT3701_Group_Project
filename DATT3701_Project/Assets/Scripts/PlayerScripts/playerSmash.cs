@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class playerSmash : MonoBehaviour
 {
-    public float distance = 3f;
+    public float distance = 0.45f;
     public LayerMask boxMask;
     GameObject object1;
     private GameObject playerManager;
@@ -29,7 +29,7 @@ public class playerSmash : MonoBehaviour
     {
         emotionStatus = playerEmotion.getEmotionStatus();
         Physics2D.queriesStartInColliders = false;
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.right * transform.localScale.x, Mathf.Abs(transform.localScale.x) * distance, boxMask);
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.right * Mathf.Sign(transform.localScale.x), distance, boxMask);
         if (hit.collider != null && emotionStatus > 0 && normalPlayerData.jumpable){  // change 100 to 0--- jingwei
             object1 = hit.collider.gameObject;
             boxfunction = object1.GetComponent<BoxFunctions>();
@@ -50,6 +50,6 @@ public class playerSmash : MonoBehaviour
     void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawLine(transform.position, (Vector2)transform.position + Vector2.right * transform.localScale.x * distance);
+        Gizmos.DrawLine(transform.position, (Vector2)transform.position + Vector2.right * distance * Mathf.Sign(transform.localScale.x));
     }
 }

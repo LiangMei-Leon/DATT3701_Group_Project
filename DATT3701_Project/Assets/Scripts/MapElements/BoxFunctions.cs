@@ -19,7 +19,10 @@ public class BoxFunctions : MonoBehaviour
     public LayerMask playerMask;
     public LayerMask Mask;
     private SpriteRenderer boxSprite;
-    // GameObject object1;
+
+    public bool stackable = false;
+    private GameObject object1;
+
     // public bool playerNearby = false;
     // private bool playerOnRight = false;
     // private bool playerOnLeft = false;
@@ -134,7 +137,7 @@ public class BoxFunctions : MonoBehaviour
         Vector2 currentVelocity = GetComponent<Rigidbody2D>().velocity;
   
         if (currentVelocity.y <= 0f) 
-             return;
+            return;
           
         currentVelocity.y = 0f;
           
@@ -145,6 +148,37 @@ public class BoxFunctions : MonoBehaviour
         boxLifespan--;
     }
 
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if(stackable){
+            if(other.gameObject.CompareTag("Player"))
+            {
+                other.transform.SetParent(transform);
+            }
+            if(other.gameObject.CompareTag("Boxes"))
+            {
+                other.transform.SetParent(transform);
+                object1 = other.gameObject;
+                BoxFunctions objectData = object1.GetComponent<BoxFunctions>();
+                objectData.stackable = true;
+            }
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if(other.gameObject.CompareTag("Player"))
+        {
+            other.transform.SetParent(playerManager.transform);
+        }
+        if(other.gameObject.CompareTag("Boxes"))
+        {
+            other.transform.SetParent(null);
+            object1 = other.gameObject;
+            BoxFunctions objectData = object1.GetComponent<BoxFunctions>();
+            objectData.stackable = false;
+        }
+    }
     void OnDrawGizmos()
     {
         // Gizmos.color = Color.red;
