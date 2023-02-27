@@ -33,6 +33,7 @@ public class TurtleScript : MonoBehaviour
             Flip();
             facingLeft = !facingLeft;
         }
+
         if(facingLeft){
             RaycastHit2D hitLeft = Physics2D.Raycast(transform.position, Vector2.left, gizmosLength, Mask);
             if(hitLeft.collider != null){
@@ -49,11 +50,12 @@ public class TurtleScript : MonoBehaviour
                 obstacleAhead = false;
             }
         }
+        
     }
 
     void FixedUpdate()
     {
-        if(!obstacleAhead){
+        if(!obstacleAhead && emotionStatus <= 0){
             if(facingLeft){
                 transform.Translate(Vector2.left * movingSpeed * Time.deltaTime);
             }else{
