@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 
 public class MeterUI : MonoBehaviour
@@ -15,6 +16,14 @@ public class MeterUI : MonoBehaviour
     [SerializeField] 
     private Slider slider;
 
+    
+    
+    
+    //Variable for MeterUI Number
+    public TMP_Text Meter_NumberText;
+    public string Meter_NumberString;
+    private TextMeshPro = gameObject.GetComponent<TextMeshPro>()?? gameObject.AddComponent<TextMeshPro>();
+
 
 
    
@@ -24,7 +33,9 @@ public class MeterUI : MonoBehaviour
    public float needleSpeed = 100f;
 
 
-
+    void Start(){
+        Meter_NumberText.text = "0";
+    }
 
     // Update is called once per frame
     void Update()
@@ -33,6 +44,8 @@ public class MeterUI : MonoBehaviour
         if(targetEmoStatus != currentEmoStatus){
             UpdateEmo();
         }
+        
+    
     }
 
 
@@ -60,13 +73,28 @@ public class MeterUI : MonoBehaviour
         }
 
         SetNeedle();
+        SetNumber();
+       
     
     }
 
     void SetNeedle(){
         imageNeedle.transform.localPosition = new Vector3((((currentEmoStatus / 200.0f * (rightmax.transform.localPosition.x - leftmax.transform.localPosition.x)) - myXposition) * 1.0f), gameObject.transform.localPosition.y, 0);
                                                             // currentEmoStatus / 200.0f *   总长  -   初始X位置                                                 
+    
+         
     }
 
+    void SetNumber(){
+        int number = (int)currentEmoStatus;
+        Meter_NumberString = number.ToString();
+        Meter_NumberText.text = Meter_NumberString;
+       
+        if(number <= 0){  
+            Meter_NumberText.Verte = new Color(248, 213, 137, 255);
+        }else if(number > 0){
+            Meter_NumberText.GetComponent<TextMeshProUGUI>().faceColor = new Color(227, 74, 68, 255);
+        }
+    }
 
 }
