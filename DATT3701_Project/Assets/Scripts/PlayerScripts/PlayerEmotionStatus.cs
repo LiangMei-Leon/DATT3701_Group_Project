@@ -155,6 +155,8 @@ public class PlayerEmotionStatus : MonoBehaviour
             ghostPlayerData.Chagenlocation(normalPlayer.transform.position);
             ghostPlayer.SetActive(true);
         }
+
+        ghostmeter.setFear(fearStatus);
     }
 
     public float getEmotionStatus(){
@@ -180,12 +182,13 @@ public class PlayerEmotionStatus : MonoBehaviour
         respawnUsed = true;
         TEXT2.SetActive(false);
         foreach (Collider2D c in normalPlayer.GetComponents<Collider2D>())
-            {
-                if(c.enabled == true)
-                    c.enabled = false;
-                else
-                    c.enabled = true;
-            }
+        {
+            if(c.enabled == true)
+                c.enabled = false;
+            else
+                c.enabled = true;
+        }
         ghostPlayer.SetActive(false);
     }
+
 }

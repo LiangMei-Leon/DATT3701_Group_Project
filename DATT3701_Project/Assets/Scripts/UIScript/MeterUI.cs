@@ -6,6 +6,10 @@ using UnityEngine.UI;
 
 public class MeterUI : MonoBehaviour
 {
+    public GameObject leftmax;
+    public GameObject rightmax;
+    [Tooltip("put the absolute value of my x position in the inspector here")]
+    public float myXposition;
     [SerializeField] 
     private Image imageNeedle;
     [SerializeField] 
@@ -60,8 +64,8 @@ public class MeterUI : MonoBehaviour
     }
 
     void SetNeedle(){
-        imageNeedle.transform.localPosition = new Vector3(((currentEmoStatus / 200.0f * 432 - 401.0f)* 1.0f), 342.0f, 0);
-                                                            // currentEmoStatus / 200.0f *   总长  -   初始X位置
+        imageNeedle.transform.localPosition = new Vector3((((currentEmoStatus / 200.0f * (rightmax.transform.localPosition.x - leftmax.transform.localPosition.x)) - myXposition) * 1.0f), gameObject.transform.localPosition.y, 0);
+                                                            // currentEmoStatus / 200.0f *   总长  -   初始X位置                                                 
     }
 
 

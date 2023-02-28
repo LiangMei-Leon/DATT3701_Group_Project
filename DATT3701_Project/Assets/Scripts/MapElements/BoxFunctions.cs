@@ -4,20 +4,25 @@ using UnityEngine;
 
 public class BoxFunctions : MonoBehaviour
 {
+    public float boxLifespan = 2f;
     // public float distance_down = 0.425f;
     // public float distance_right = 0.5f;
     // public float distance_left = 0.5f;
     public float distanceBox_right = 0.4f;
     public float distanceBox_left = 0.4f;
-    // private GameObject playerManager;
-    // private PlayerEmotionStatus playerEmotion;
-    // private float emotionStatus;
+    private GameObject playerManager;
+    private PlayerEmotionStatus playerEmotion;
+    private float emotionStatus;
     private GameObject normalplayer;
     private CharacterController2D playerData;
     public LayerMask boxMask;
     public LayerMask playerMask;
     public LayerMask Mask;
-    // GameObject object1;
+    private SpriteRenderer boxSprite;
+
+    public bool stackable = false;
+    private GameObject object1;
+
     // public bool playerNearby = false;
     // private bool playerOnRight = false;
     // private bool playerOnLeft = false;
@@ -32,16 +37,25 @@ public class BoxFunctions : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        // playerManager = GameObject.FindWithTag("PlayerManager");
-        // playerEmotion= playerManager.GetComponent<PlayerEmotionStatus>();
+        playerManager = GameObject.FindWithTag("PlayerManager");
+        playerEmotion= playerManager.GetComponent<PlayerEmotionStatus>();
         normalplayer = GameObject.FindWithTag("Player");
         playerData = normalplayer.GetComponent<CharacterController2D>();
+        boxSprite = gameObject.GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        // emotionStatus = playerEmotion.getEmotionStatus();
+        if(boxLifespan == 1)
+        {
+            boxSprite.color = Color.red;
+        }
+        if(boxLifespan <= 0)
+        {
+            Destroy(gameObject);
+        }
+        emotionStatus = playerEmotion.getEmotionStatus();
         Physics2D.queriesStartInColliders = false;
         RaycastHit2D hitBoxRight = Physics2D.Raycast(transform.position, Vector2.right, distanceBox_right, boxMask);
         if (hitBoxRight.collider != null){
@@ -61,12 +75,12 @@ public class BoxFunctions : MonoBehaviour
             BoxNearby = false;
         }
         if(playerData.IsJumping){
-            this.GetComponent<Rigidbody2D>().mass = 2.5f;
+            this.GetComponent<Rigidbody2D>().mass = 2f;
         }else{
-            this.GetComponent<Rigidbody2D>().mass = 1;
+            this.GetComponent<Rigidbody2D>().mass = 1f;
         }
-        if(BoxNearby){
-            this.GetComponent<Rigidbody2D>().mass = 100;
+        if(BoxNearby || (emotionStatus > 0)){
+            this.GetComponent<Rigidbody2D>().mass = 25f;
         }
         // RaycastHit2D hitPlayerRight = Physics2D.Raycast((Vector2)transform.position + Vector2.down * 0.3f, Vector2.right, distance_right, playerMask);
         // if (hitPlayerRight.collider != null){
@@ -118,6 +132,53 @@ public class BoxFunctions : MonoBehaviour
         // }
     }
 
+    void FixedUpdate()
+     {
+        Vector2 currentVelocity = GetComponent<Rigidbody2D>().velocity;
+  
+        if (currentVelocity.y <= 0f) 
+            return;
+          
+        currentVelocity.y = 0f;
+          
+        GetComponent<Rigidbody2D>().velocity = currentVelocity;
+    }
+
+    public void Smash(){
+        boxLifespan--;
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if(stackable){
+            if(other.gameObject.CompareTag("Player"))
+            {
+                other.transform.SetParent(transform);
+            }
+            if(other.gameObject.CompareTag("Boxes"))
+            {
+                other.transform.SetParent(transform);
+                object1 = other.gameObject;
+                BoxFunctions objectData = object1.GetComponent<BoxFunctions>();
+                objectData.stackable = true;
+            }
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if(other.gameObject.CompareTag("Player"))
+        {
+            other.transform.SetParent(playerManager.transform);
+        }
+        if(other.gameObject.CompareTag("Boxes"))
+        {
+            other.transform.SetParent(null);
+            object1 = other.gameObject;
+            BoxFunctions objectData = object1.GetComponent<BoxFunctions>();
+            objectData.stackable = false;
+        }
+    }
     void OnDrawGizmos()
     {
         // Gizmos.color = Color.red;
