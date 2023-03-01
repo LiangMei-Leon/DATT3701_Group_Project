@@ -16,13 +16,16 @@ public class MeterUI : MonoBehaviour
     [SerializeField] 
     private Slider slider;
 
-    
+    //Variable to get emotionSTtatus
+    private GameObject playerManager;
+    private PlayerEmotionStatus playerEmotion;
+    private float emotionStatus;
     
     
     //Variable for MeterUI Number
     public TMP_Text Meter_NumberText;
     public string Meter_NumberString;
-    private TextMeshPro = gameObject.GetComponent<TextMeshPro>()?? gameObject.AddComponent<TextMeshPro>();
+    //private TextMeshPro = gameObject.GetComponent<TextMeshPro>()?? gameObject.AddComponent<TextMeshPro>();
 
 
 
@@ -35,6 +38,8 @@ public class MeterUI : MonoBehaviour
 
     void Start(){
         Meter_NumberText.text = "0";
+        playerManager = GameObject.FindWithTag("PlayerManager");
+        playerEmotion= playerManager.GetComponent<PlayerEmotionStatus>();
     }
 
     // Update is called once per frame
@@ -86,14 +91,19 @@ public class MeterUI : MonoBehaviour
     }
 
     void SetNumber(){
-        int number = (int)currentEmoStatus;
-        Meter_NumberString = number.ToString();
-        Meter_NumberText.text = Meter_NumberString;
-       
-        if(number <= 0){  
-            Meter_NumberText.Verte = new Color(248, 213, 137, 255);
-        }else if(number > 0){
-            Meter_NumberText.GetComponent<TextMeshProUGUI>().faceColor = new Color(227, 74, 68, 255);
+        
+        emotionStatus = playerEmotion.getEmotionStatus();
+    
+        if(emotionStatus <= 0){  
+            emotionStatus = 0 - emotionStatus;
+            Meter_NumberString = emotionStatus.ToString();
+            Meter_NumberText.text = Meter_NumberString; 
+            Meter_NumberText.color = new Color32(248, 213, 137, 255);
+            
+        }else if(emotionStatus > 0){
+            Meter_NumberString = emotionStatus.ToString();
+            Meter_NumberText.text = Meter_NumberString;
+             Meter_NumberText.color = new Color32(219, 76, 70, 255);
         }
     }
 
