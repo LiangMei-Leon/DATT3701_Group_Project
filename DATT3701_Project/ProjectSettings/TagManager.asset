@@ -6,6 +6,7 @@ TagManager:
   tags:
   - PlayerManager
   - Boxes
+  - Ground
   layers:
   - Default
   - TransparentFX
