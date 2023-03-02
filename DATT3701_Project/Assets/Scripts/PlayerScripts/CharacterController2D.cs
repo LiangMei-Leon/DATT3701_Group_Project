@@ -25,6 +25,10 @@ public class CharacterController2D : MonoBehaviour
 	private Vector3 m_Velocity = Vector3.zero;
 	public bool jumpable = false;
 
+	[Header("VFX")]
+	private ParticleSystem movingVFX;
+
+
 	[Header("Events")]
 	[Space]
 	public UnityEvent OnLandEvent;
@@ -32,6 +36,7 @@ public class CharacterController2D : MonoBehaviour
 	private void Awake()
 	{
 		m_Rigidbody2D = GetComponent<Rigidbody2D>();
+		movingVFX = this.gameObject.transform.GetChild(0).gameObject.GetComponent<ParticleSystem>();
 
 		if (OnLandEvent == null)
 			OnLandEvent = new UnityEvent();
@@ -70,6 +75,10 @@ public class CharacterController2D : MonoBehaviour
 
 	public void Move(float move, bool jump)
 	{
+		if(LastOnGroundTime >= 0 && move != 0f)
+		{
+			movingVFX.Play();
+		}
 		//only control the player if grounded or airControl is turned on 
 		if (m_AirControl)
 		{
