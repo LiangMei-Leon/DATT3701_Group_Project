@@ -7410,11 +7410,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1dbf55919f25134693d0bf6ebd5d31f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  leftmax: {fileID: 0}
-  rightmax: {fileID: 0}
+  leftmax: {fileID: 1953952571}
+  rightmax: {fileID: 1731515871}
   myXposition: 0
   imageNeedle: {fileID: 870065238}
   slider: {fileID: 0}
+  Meter_NumberText: {fileID: 0}
+  Meter_NumberString: 
   currentEmoStatus: 0
   targetEmoStatus: 100
   needleSpeed: 100
