@@ -21,9 +21,18 @@ public class CharacterController2D : MonoBehaviour
 
 	const float k_GroundedRadius = .2f; // Radius of the overlap circle to determine if grounded
 	private Rigidbody2D m_Rigidbody2D;
+	private bool isGrounded = false;
 	private bool m_FacingRight = true;  // For determining which way the player is currently facing.
 	private Vector3 m_Velocity = Vector3.zero;
 	public bool jumpable = false;
+	public bool readyToFall = false;
+
+	[Header("VFX")]
+	public float interval = 1f;
+	private float vfxTimer1;
+	private ParticleSystem movingVFX;
+	private ParticleSystem landingVFX;
+
 
 	[Header("Events")]
 	[Space]
@@ -32,6 +41,8 @@ public class CharacterController2D : MonoBehaviour
 	private void Awake()
 	{
 		m_Rigidbody2D = GetComponent<Rigidbody2D>();
+		movingVFX = this.gameObject.transform.GetChild(0).GetChild(0).gameObject.GetComponent<ParticleSystem>();
+		landingVFX = this.gameObject.transform.GetChild(0).GetChild(1).gameObject.GetComponent<ParticleSystem>();
 
 		if (OnLandEvent == null)
 			OnLandEvent = new UnityEvent();
@@ -52,6 +63,9 @@ public class CharacterController2D : MonoBehaviour
 				if (colliders[i].gameObject != gameObject  && !IsJumping)
 				{
 					LastOnGroundTime = coyoteTime;
+					isGrounded = true;
+				}else{
+					isGrounded = false;
 				}
 			} 
 		}
@@ -66,10 +80,38 @@ public class CharacterController2D : MonoBehaviour
 			IsJumping = true;
 			Jump();
 		}
+
+		if(m_Rigidbody2D.velocity.y < -5f)
+		{
+			readyToFall = true;
+		}
+
+		if(readyToFall)
+		{
+			Collider2D[] colliders2 = Physics2D.OverlapCircleAll(m_GroundCheck.position, k_GroundedRadius, m_WhatIsGround);
+			for (int i = 0; i < colliders2.Length; i++)
+			{
+				if (colliders2[i].gameObject != gameObject  && !IsJumping)
+				{
+					landingVFX.Play();
+					readyToFall = false;
+				}
+			} 
+		}
+
     }
 
 	public void Move(float move, bool jump)
 	{
+		if(LastOnGroundTime >= 0 && move != 0f)
+		{
+			vfxTimer1 -= Time.deltaTime;
+			if(vfxTimer1 <= 0)
+			{
+				movingVFX.Play();
+				vfxTimer1 = interval;
+			}
+		}
 		//only control the player if grounded or airControl is turned on 
 		if (m_AirControl)
 		{
@@ -114,6 +156,7 @@ public class CharacterController2D : MonoBehaviour
 		if (jump)
 		{
 			LastPressedJumpTime = jumpInputBufferTime;
+			readyToFall = true;
 		}
 	}
 	private void Jump()
