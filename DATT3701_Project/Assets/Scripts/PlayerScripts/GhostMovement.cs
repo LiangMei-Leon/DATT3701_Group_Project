@@ -29,6 +29,7 @@ public class GhostMovement : MonoBehaviour
         rb2d.velocity = moveInput* flySpeed;
         Physics2D.IgnoreLayerCollision(7, 9, true);
         Physics2D.IgnoreLayerCollision(6, 9, true);
+        Physics2D.IgnoreLayerCollision(0, 9, true);
     }
 
     public void Chagenlocation(Vector3 t)
