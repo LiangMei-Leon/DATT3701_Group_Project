@@ -29,7 +29,11 @@ public class playerSmash : MonoBehaviour
     {
         emotionStatus = playerEmotion.getEmotionStatus();
         Physics2D.queriesStartInColliders = false;
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.right * Mathf.Sign(transform.localScale.x), distance, boxMask);
+        RaycastHit2D hit;
+        if(!normalPlayerData.fliped)
+            hit = Physics2D.Raycast(transform.position, Vector2.right, distance, boxMask);
+        else
+            hit = Physics2D.Raycast(transform.position, Vector2.left, distance, boxMask);
         if (hit.collider != null && emotionStatus > 0 && normalPlayerData.jumpable){  // change 100 to 0--- jingwei
             object1 = hit.collider.gameObject;
             boxfunction = object1.GetComponent<BoxFunctions>();
