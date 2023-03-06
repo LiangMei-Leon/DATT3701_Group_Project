@@ -17,6 +17,9 @@ public class LemonSqueezer : MonoBehaviour
 
     public float force = 5f;
 
+    private AudioManager audioManager;
+    private GameObject dialogText;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -24,6 +27,9 @@ public class LemonSqueezer : MonoBehaviour
         playerEmotion= playerManager.GetComponent<PlayerEmotionStatus>();
         normalPlayer = GameObject.FindWithTag("Player");
         m_Rigidbody2D = normalPlayer.GetComponent<Rigidbody2D>();
+        audioManager = FindObjectOfType<AudioManager>();
+        //dialogText = normalPlayer.transform.GetChild(1).GetChild(0).gameObject;
+        dialogText = normalPlayer.transform.GetChild(1).GetChild(1).gameObject;
     }
 
     // Update is called once per frame
@@ -52,10 +58,21 @@ public class LemonSqueezer : MonoBehaviour
     {
         if(col.gameObject.CompareTag("Player")){
             if(isAbleToHit){
+                audioManager.randomVolumeAndPitch("LemonSqueezed");
+                audioManager.Play("LemonSqueezed");
                 playerEmotion.IncreaseRage(IncreaseAmount);
                 timer = cooldown;
                 //Debug.Log("hit");
+                if(dialogText != null){
+                    dialogText.SetActive(true);
+                    Invoke("Cancel", 1f);
+                }
             }
         }
+    }
+
+    void Cancel()
+    {
+        dialogText.SetActive(false);
     }
 }

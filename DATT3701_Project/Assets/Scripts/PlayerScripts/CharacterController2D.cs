@@ -18,10 +18,11 @@ public class CharacterController2D : MonoBehaviour
 	[SerializeField] public bool IsJumping;
 	[SerializeField] public float coyoteTime = 0.1f;
 	[SerializeField] public float jumpInputBufferTime = 0.1f;
+	private SpriteRenderer playerSprite;
+	public bool fliped = false;
 
 	const float k_GroundedRadius = .2f; // Radius of the overlap circle to determine if grounded
 	private Rigidbody2D m_Rigidbody2D;
-	private bool isGrounded = false;
 	private bool m_FacingRight = true;  // For determining which way the player is currently facing.
 	private Vector3 m_Velocity = Vector3.zero;
 	public bool jumpable = false;
@@ -33,6 +34,7 @@ public class CharacterController2D : MonoBehaviour
 	private ParticleSystem movingVFX;
 	private ParticleSystem landingVFX;
 
+	private AudioManager audioManager;
 
 	[Header("Events")]
 	[Space]
@@ -43,6 +45,9 @@ public class CharacterController2D : MonoBehaviour
 		m_Rigidbody2D = GetComponent<Rigidbody2D>();
 		movingVFX = this.gameObject.transform.GetChild(0).GetChild(0).gameObject.GetComponent<ParticleSystem>();
 		landingVFX = this.gameObject.transform.GetChild(0).GetChild(1).gameObject.GetComponent<ParticleSystem>();
+		playerSprite = gameObject.GetComponent<SpriteRenderer>();
+
+		audioManager = FindObjectOfType<AudioManager>();
 
 		if (OnLandEvent == null)
 			OnLandEvent = new UnityEvent();
@@ -63,9 +68,6 @@ public class CharacterController2D : MonoBehaviour
 				if (colliders[i].gameObject != gameObject  && !IsJumping)
 				{
 					LastOnGroundTime = coyoteTime;
-					isGrounded = true;
-				}else{
-					isGrounded = false;
 				}
 			} 
 		}
@@ -112,6 +114,19 @@ public class CharacterController2D : MonoBehaviour
 				vfxTimer1 = interval;
 			}
 		}
+
+		if(LastOnGroundTime >= 0 && move != 0f && !audioManager.checkIsPlaying("LemonWalking") && !audioManager.checkIsPlaying("LemonWalking02")&& !audioManager.checkIsPlaying("LemonWalking03")){
+			//audioManager.randomVolumeAndPitch("LemonWalking");
+			float random = Random.Range(-6f,6f);
+			if(random >= -6f && random < -2f)
+				audioManager.Play("LemonWalking");
+			else if(random >= -2f && random < 2f)
+				audioManager.Play("LemonWalking02");
+			else
+				audioManager.Play("LemonWalking03");
+		}
+
+
 		//only control the player if grounded or airControl is turned on 
 		if (m_AirControl)
 		{
@@ -180,13 +195,13 @@ public class CharacterController2D : MonoBehaviour
 
 	private void Flip()
 	{
-		// Switch the way the player is labelled as facing.
 		m_FacingRight = !m_FacingRight;
-
-		// Multiply the player's x local scale by -1.
-		Vector3 theScale = transform.localScale;
-		theScale.x *= -1;
-		transform.localScale = theScale;
+		fliped = !fliped;
+		if(playerSprite.flipX == false)
+		    playerSprite.flipX = true;
+        else
+            playerSprite.flipX = false;
+		
 	}
 
 	private void OnDrawGizmosSelected()

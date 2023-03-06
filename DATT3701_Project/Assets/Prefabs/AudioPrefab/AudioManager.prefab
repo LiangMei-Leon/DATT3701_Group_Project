@@ -45,9 +45,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sounds:
-  - name: test
-    clip: {fileID: 8300000, guid: 621c92ce7be75b94d9f87e2bc5229a05, type: 3}
-    volume: 0.509
+  - name: LemonWalking
+    clip: {fileID: 8300000, guid: 4c5b65687c6f31849a85077458d54752, type: 3}
+    volume: 0.5
+    pitch: 1
+    source: {fileID: 0}
+    loop: 0
+  - name: LemonWalking02
+    clip: {fileID: 8300000, guid: 3503ed058ed78f34bb36d68771d19920, type: 3}
+    volume: 0.5
+    pitch: 1
+    source: {fileID: 0}
+    loop: 0
+  - name: LemonWalking03
+    clip: {fileID: 8300000, guid: 694da2857a8367142a219b7f75582be6, type: 3}
+    volume: 0.5
+    pitch: 1
+    source: {fileID: 0}
+    loop: 0
+  - name: LemonSqueezed
+    clip: {fileID: 8300000, guid: 45baa5749e5950d439aa84520ed73f9d, type: 3}
+    volume: 0.5
     pitch: 1
     source: {fileID: 0}
     loop: 0
