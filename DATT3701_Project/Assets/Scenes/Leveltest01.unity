@@ -5708,7 +5708,10 @@ MonoBehaviour:
   IsJumping: 0
   coyoteTime: 0.1
   jumpInputBufferTime: 0.1
+  fliped: 0
   jumpable: 0
+  readyToFall: 0
+  interval: 1
   OnLandEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -7338,6 +7341,8 @@ MonoBehaviour:
   myXposition: 485.27
   imageNeedle: {fileID: 870065238}
   slider: {fileID: 0}
+  Meter_NumberText: {fileID: 0}
+  Meter_NumberString: 
   currentEmoStatus: 0
   targetEmoStatus: 100
   needleSpeed: 100
@@ -12750,6 +12755,10 @@ PrefabInstance:
       value: -2.2500029
       objectReference: {fileID: 0}
     - target: {fileID: 6561189154955013799, guid: c3a3bfd182ccfd049a5a05738037a94b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -6.750009
+      objectReference: {fileID: 0}
+    - target: {fileID: 6561189154955013799, guid: c3a3bfd182ccfd049a5a05738037a94b, type: 3}
       propertyPath: m_LocalRotation.w
       value: 1
       objectReference: {fileID: 0}
@@ -13914,6 +13923,10 @@ PrefabInstance:
     - target: {fileID: 6561189154955013799, guid: c3a3bfd182ccfd049a5a05738037a94b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 2.2500033
+      objectReference: {fileID: 0}
+    - target: {fileID: 6561189154955013799, guid: c3a3bfd182ccfd049a5a05738037a94b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -6.750009
       objectReference: {fileID: 0}
     - target: {fileID: 6561189154955013799, guid: c3a3bfd182ccfd049a5a05738037a94b, type: 3}
       propertyPath: m_LocalRotation.w
