@@ -69,3 +69,15 @@ MonoBehaviour:
     pitch: 1
     source: {fileID: 0}
     loop: 0
+  - name: BoxCracked01
+    clip: {fileID: 8300000, guid: a262c832c10f3b0409f1c79133fe95f6, type: 3}
+    volume: 0.5
+    pitch: 1
+    source: {fileID: 0}
+    loop: 0
+  - name: BoxCracked02
+    clip: {fileID: 8300000, guid: 1aa8b7c19a1bee2439daed0d9cd9c2ab, type: 3}
+    volume: 0.5
+    pitch: 1
+    source: {fileID: 0}
+    loop: 0
