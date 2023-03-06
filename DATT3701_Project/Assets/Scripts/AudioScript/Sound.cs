@@ -7,17 +7,17 @@ public class Sound
 
   public string name;
 
- public AudioClip clip;
+  public AudioClip clip;
 
- [Range(0f, 1f)]
- public float volume;
- 
- [Range(0f, 1f)]
- public float pitch;
+  [Range(0f, 1f)]
+  public float volume;
+  
+  [Range(0f, 2f)]
+  public float pitch;
 
-[HideInInspector]
- public AudioSource source;
+  [HideInInspector]
+  public AudioSource source;
 
 
- public bool loop;
+  public bool loop;
 }

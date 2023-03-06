@@ -32,6 +32,8 @@ public class BoxFunctions : MonoBehaviour
     // private bool floatingL = false;
     // private bool floatingR = false;
     // public bool floating = false;
+    private AudioManager audioManager;
+    private bool audioPlayed01 = false;
 
 
     // Start is called before the first frame update
@@ -42,17 +44,21 @@ public class BoxFunctions : MonoBehaviour
         normalplayer = GameObject.FindWithTag("Player");
         playerData = normalplayer.GetComponent<CharacterController2D>();
         boxSprite = gameObject.GetComponent<SpriteRenderer>();
+        audioManager = FindObjectOfType<AudioManager>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(boxLifespan == 1)
+        if(boxLifespan == 1 && !audioPlayed01)
         {
+            audioPlayed01 = true;
             boxSprite.color = Color.red;
+            audioManager.Play("BoxCracked01");
         }
         if(boxLifespan <= 0)
         {
+            audioManager.Play("BoxCracked02");
             Destroy(gameObject);
         }
         emotionStatus = playerEmotion.getEmotionStatus();

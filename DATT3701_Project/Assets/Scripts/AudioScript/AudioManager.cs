@@ -1,6 +1,7 @@
 using UnityEngine.Audio;
 using UnityEngine;
 using System;
+using Random=UnityEngine.Random;
 
 
 
@@ -12,7 +13,7 @@ public class AudioManager : MonoBehaviour
     public static AudioManager instance;
    
    void Start(){
-    Play("test");
+    
    }
    
     // Start is called before the first frame update
@@ -37,18 +38,47 @@ public class AudioManager : MonoBehaviour
         }
     }
 
-   public void Play(String name){
-    Sound s = Array.Find(sounds, sound => sound.name== name);
+   public void Play(String name)
+   {
+        Sound s = Array.Find(sounds, sound => sound.name== name);
+        
+        if(s == null ){
+            Debug.LogWarning("Sound:" + name+ " not found");
+            return;
+        }
+        
+        s.source.Play();
     
-    if(s == null ){
-        Debug.LogWarning("Sound:" + name+ " not found");
+        //FindObjectOfType<AudioManager>().Play("");
+   
+   
+   }
+
+   public bool checkIsPlaying(String name)
+   {
+        Sound s = Array.Find(sounds, sound => sound.name== name);
+        
+        if(s == null ){
+            Debug.LogWarning("Sound:" + name+ " not found");
+            return false;
+        }
+        
+        return s.source.isPlaying;
+   
+   }
+
+   public void randomVolumeAndPitch(String name)
+   {
+        Sound s = Array.Find(sounds, sound => sound.name== name);
+        
+        if(s == null ){
+            Debug.LogWarning("Sound:" + name+ " not found");
+            return;
+        }
+        
+        s.volume = Random.Range(0.5f, 1f);
+        s.pitch = Random.Range(0.2f, 1.8f);
+
         return;
-    }
-    
-    s.source.Play();
-   
-    //FindObjectOfType<AudioManager>().Play("");
-   
-   
    }
 }
