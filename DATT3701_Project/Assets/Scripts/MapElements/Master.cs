@@ -8,12 +8,16 @@ public class Master : MonoBehaviour
    public GameObject TutorialPanel;
    public bool playerIsClose;
 
+   public Dialogue dialogue;
+
+
     // Update is called once per frame
     void Update()
     {
         if(Input.GetKeyDown(KeyCode.I) &&  playerIsClose ){
            
-                TutorialPanel.SetActive(true);
+                //TutorialPanel.SetActive(true);
+                TriggerDialogue();
             }    
         
         
@@ -22,7 +26,9 @@ public class Master : MonoBehaviour
 
 
 
-
+    public void TriggerDialogue(){
+        FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
+    }
 
     private void OnTriggerEnter2D(Collider2D other){
         if(other.CompareTag("Player")){
@@ -35,6 +41,7 @@ public class Master : MonoBehaviour
             playerIsClose = false;
         }
     }
+
 
 
 
