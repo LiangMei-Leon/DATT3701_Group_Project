@@ -2378,8 +2378,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: How to play
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: f4d286f0d91cc934aa9ef1e0d74541a1, type: 2}
+  m_sharedMaterial: {fileID: 2764615322432867899, guid: f4d286f0d91cc934aa9ef1e0d74541a1, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -10437,7 +10437,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1169509653
 RectTransform:
   m_ObjectHideFlags: 0
@@ -14261,6 +14261,14 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 483.05002
       objectReference: {fileID: 0}
+    - target: {fileID: 4168837303972166200, guid: 38b0d93b6e72d464a910b06e7dc067af, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: f4d286f0d91cc934aa9ef1e0d74541a1, type: 2}
+    - target: {fileID: 4168837303972166200, guid: 38b0d93b6e72d464a910b06e7dc067af, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2764615322432867899, guid: f4d286f0d91cc934aa9ef1e0d74541a1, type: 2}
     - target: {fileID: 4168837304376152124, guid: 38b0d93b6e72d464a910b06e7dc067af, type: 3}
       propertyPath: m_IsActive
       value: 0
