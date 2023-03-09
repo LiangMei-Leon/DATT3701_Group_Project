@@ -35,6 +35,9 @@ public class BoxFunctions : MonoBehaviour
     private AudioManager audioManager;
     private bool audioPlayed01 = false;
 
+    private ParticleSystem redVFX;
+	private ParticleSystem breakVFX;
+    private bool used = false;
 
     // Start is called before the first frame update
     void Start()
@@ -45,6 +48,9 @@ public class BoxFunctions : MonoBehaviour
         playerData = normalplayer.GetComponent<CharacterController2D>();
         boxSprite = gameObject.GetComponent<SpriteRenderer>();
         audioManager = FindObjectOfType<AudioManager>();
+
+        redVFX = this.gameObject.transform.GetChild(0).gameObject.GetComponent<ParticleSystem>();
+		breakVFX = this.gameObject.transform.GetChild(1).gameObject.GetComponent<ParticleSystem>();
     }
 
     // Update is called once per frame
@@ -55,11 +61,20 @@ public class BoxFunctions : MonoBehaviour
             audioPlayed01 = true;
             boxSprite.color = Color.red;
             audioManager.Play("BoxCracked01");
+            redVFX.Play();
         }
-        if(boxLifespan <= 0)
+        if(boxLifespan <= 0 && !used)
         {
+            used = true;
             audioManager.Play("BoxCracked02");
-            Destroy(gameObject);
+            breakVFX.Play();
+            boxSprite.color = new Color(1,1,1,0);
+            foreach (Collider2D c in this.GetComponents<Collider2D>())
+            {
+                if(c.enabled == true)
+                    c.enabled = false;
+            }
+            Destroy(gameObject, 0.5f);
         }
         emotionStatus = playerEmotion.getEmotionStatus();
         Physics2D.queriesStartInColliders = false;

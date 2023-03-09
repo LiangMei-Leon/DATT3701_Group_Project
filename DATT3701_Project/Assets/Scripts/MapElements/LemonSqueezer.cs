@@ -20,6 +20,9 @@ public class LemonSqueezer : MonoBehaviour
     private AudioManager audioManager;
     private GameObject dialogText;
 
+    private ParticleSystem juiceVFX;
+	private ParticleSystem angryVFX;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -30,6 +33,9 @@ public class LemonSqueezer : MonoBehaviour
         audioManager = FindObjectOfType<AudioManager>();
         //dialogText = normalPlayer.transform.GetChild(1).GetChild(0).gameObject;
         dialogText = normalPlayer.transform.GetChild(1).GetChild(1).gameObject;
+
+        juiceVFX = normalPlayer.gameObject.transform.GetChild(0).GetChild(2).GetChild(0).gameObject.GetComponent<ParticleSystem>();
+		angryVFX = normalPlayer.gameObject.transform.GetChild(0).GetChild(2).GetChild(1).gameObject.GetComponent<ParticleSystem>();
     }
 
     // Update is called once per frame
@@ -58,6 +64,8 @@ public class LemonSqueezer : MonoBehaviour
     {
         if(col.gameObject.CompareTag("Player")){
             if(isAbleToHit){
+                juiceVFX.Play();
+                angryVFX.Play();
                 audioManager.randomVolumeAndPitch("LemonSqueezed");
                 audioManager.Play("LemonSqueezed");
                 playerEmotion.IncreaseRage(IncreaseAmount);
