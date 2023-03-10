@@ -15,14 +15,11 @@ public class PlayerMovement : MonoBehaviour
     float horizontalMove = 0f;
     bool jump = false;
 
-    private Animator animator;
-
     // Start is called before the first frame update
     void Start()
     {
         playerManager = GameObject.FindWithTag("PlayerManager");
         playerEmotion= playerManager.GetComponent<PlayerEmotionStatus>();
-        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -39,7 +36,6 @@ public class PlayerMovement : MonoBehaviour
             }else{
                 horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
             }
-            animator.SetFloat("Speed", Mathf.Abs(horizontalMove));
             if(Input.GetButtonDown("Jump") || Input.GetKeyDown("w"))
             {
                 jump = true;
