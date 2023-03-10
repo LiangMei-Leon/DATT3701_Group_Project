@@ -14,6 +14,7 @@ public class LemonSlice : MonoBehaviour
 
     private AudioManager audioManager;
     private GameObject dialogText;
+    private ParticleSystem sliceVFX1;
 
     // Start is called before the first frame update
     void Start()
@@ -23,7 +24,8 @@ public class LemonSlice : MonoBehaviour
         normalPlayer = GameObject.FindWithTag("Player");
         slice = GetComponent<SpriteRenderer>();
         audioManager = FindObjectOfType<AudioManager>();
-        dialogText = normalPlayer.transform.GetChild(1).GetChild(2).gameObject;
+        dialogText = normalPlayer.transform.GetChild(1).GetChild(1).gameObject;
+        sliceVFX1 = this.gameObject.transform.GetChild(0).gameObject.GetComponent<ParticleSystem>();
     }
 
     // Update is called once per frame
@@ -37,6 +39,7 @@ public class LemonSlice : MonoBehaviour
         if(col.gameObject.CompareTag("Player") && !used){
             used = true;
             playerEmotion.IncreaseSerenity(IncreaseAmount);
+            sliceVFX1.Play();
             if(dialogText != null){
                 dialogText.SetActive(true);
                 Invoke("Cancel2", 1.5f);
