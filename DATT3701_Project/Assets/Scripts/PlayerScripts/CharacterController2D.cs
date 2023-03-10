@@ -56,7 +56,6 @@ public class CharacterController2D : MonoBehaviour
 
 	private void Update()
 	{	
-		//Debug.Log(m_Rigidbody2D.velocity);
         LastOnGroundTime -= Time.deltaTime;
 		LastPressedJumpTime -= Time.deltaTime;
 		jumpable = CanJump();
