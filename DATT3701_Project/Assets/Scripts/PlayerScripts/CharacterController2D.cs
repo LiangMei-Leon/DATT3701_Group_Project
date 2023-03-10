@@ -92,9 +92,16 @@ public class CharacterController2D : MonoBehaviour
 			Collider2D[] colliders2 = Physics2D.OverlapCircleAll(m_GroundCheck.position, k_GroundedRadius, m_WhatIsGround);
 			for (int i = 0; i < colliders2.Length; i++)
 			{
-				if (colliders2[i].gameObject != gameObject  && !IsJumping)
+				if (colliders2[i].gameObject != gameObject  && !IsJumping && !audioManager.checkIsPlaying("LemonWalking") && !audioManager.checkIsPlaying("LemonWalking02")&& !audioManager.checkIsPlaying("LemonWalking03"))
 				{
 					landingVFX.Play();
+					float random = Random.Range(-6f,6f);
+					if(random >= -6f && random < -2f)
+						audioManager.Play("LemonWalking");
+					else if(random >= -2f && random < 2f)
+						audioManager.Play("LemonWalking02");
+					else
+						audioManager.Play("LemonWalking03");
 					readyToFall = false;
 				}
 			} 
