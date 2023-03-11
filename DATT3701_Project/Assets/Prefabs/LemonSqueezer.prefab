@@ -131,6 +131,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47e7fa01c365be3438040a6f0f40e42e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IncreaseAmount: 5
+  IncreaseAmount: 10
   cooldown: 1.5
   force: 5
