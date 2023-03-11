@@ -43,7 +43,7 @@ public class TurtleScript : MonoBehaviour
             }
         }
         if(!facingLeft){
-            RaycastHit2D hitRight = Physics2D.Raycast(transform.position, Vector2.right, gizmosLength, Mask);
+            RaycastHit2D hitRight = Physics2D.Raycast(transform.position, Vector2.right, gizmosLength + 0.05f, Mask);
             if(hitRight.collider != null){
                 obstacleAhead = true;
             }else{
@@ -83,6 +83,6 @@ public class TurtleScript : MonoBehaviour
         if(facingLeft)
             Gizmos.DrawLine(transform.position, (Vector2)transform.position + Vector2.left * gizmosLength);
         else
-            Gizmos.DrawLine(transform.position, (Vector2)transform.position + Vector2.right * gizmosLength);
+            Gizmos.DrawLine(transform.position, (Vector2)transform.position + Vector2.right * (gizmosLength + 0.05f));
     }
 }

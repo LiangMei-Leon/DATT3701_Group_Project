@@ -125,7 +125,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6260d3b24af30124596a3d0d45786a5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IncreaseAmount: 2.5
+  IncreaseAmount: 5
   cooldown: 1
 --- !u!1 &7543891970797181134
 GameObject:
