@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class Master : MonoBehaviour
 {
-   public GameObject TutorialPanel;
+   public GameObject DialoguePanel;
    public bool playerIsClose;
 
    public Dialogue dialogue;
