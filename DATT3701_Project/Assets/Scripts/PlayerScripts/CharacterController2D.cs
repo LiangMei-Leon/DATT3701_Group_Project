@@ -1,5 +1,7 @@
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class CharacterController2D : MonoBehaviour
 {
@@ -98,8 +100,14 @@ public class CharacterController2D : MonoBehaviour
 				}
 			} 
 		}
+        if (ispengdao)
+        {
+			Timing();
+		}
+		
 
-    }
+	}
+	public bool ispengdao = false;
 
 	public void Move(float move, bool jump)
 	{
@@ -108,7 +116,7 @@ public class CharacterController2D : MonoBehaviour
 			vfxTimer1 -= Time.deltaTime;
 			if(vfxTimer1 <= 0)
 			{
-				movingVFX.Play();
+				//movingVFX.Play();
 				vfxTimer1 = interval;
 			}
 		}
@@ -193,5 +201,71 @@ public class CharacterController2D : MonoBehaviour
     {
 		Gizmos.color = Color.red;
 		Gizmos.DrawWireSphere(m_GroundCheck.position, k_GroundedRadius);
+	}
+	public GameObject 提示, 设置;
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.name=="开始")
+        {
+			ispengdao = true;
+			a = "开始";
+		}
+		if (collision.gameObject.name == "退出")
+		{
+			ispengdao = true;
+			a = "退出";
+		}
+
+		if (collision.gameObject.name == "credits")
+		{
+			提示.SetActive(true);
+		}
+		if (collision.gameObject.name == "setting")
+		{
+			设置.SetActive(true);
+		}
+	}
+
+    public void OnTriggerExit2D(Collider2D collision)
+    {
+
+		if (collision.gameObject.name == "credits")
+		{
+			提示.SetActive(false);
+		}
+		if (collision.gameObject.name == "setting")
+		{
+			设置.SetActive(false);
+		}
+	}
+
+    public string a = "";
+	public float secound = 5;
+	private float nextTime = 1;
+	public Text txtTimer;
+	private void Timing()
+	{
+		if (secound <= 0)
+		{
+			Debug.Log(a);
+			if (a== "开始")
+            {
+				SceneManager.LoadScene("2");
+			}
+			if (a == "退出")
+			{
+				Application.Quit();
+			}
+			return;
+		}
+		
+		if (Time.time >= nextTime)
+		{
+			secound -= 1;
+			Debug.Log(secound);
+			nextTime = Time.time + 1;
+			txtTimer.text=""+ secound;
+		}
 	}
 }

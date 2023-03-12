@@ -37,11 +37,11 @@ public class PlayerEmotionStatus : MonoBehaviour
     void Start()
     {
         emotionStatus = initialValue;
-        Needle.setEmo(emotionStatus); // add this to set default value when start game   jingwei
+    //    Needle.setEmo(emotionStatus); // add this to set default value when start game   jingwei
         
         fearStatus = 0f;
         isGhost = false;
-        ghostmeter.setFear(fearStatus); // set fear value to ghost bar default   jingwei
+       // ghostmeter.setFear(fearStatus); // set fear value to ghost bar default   jingwei
 
         normalPlayerData = normalPlayer.GetComponent<CharacterController2D>();
         ghostPlayerData = ghostPlayer.GetComponent<GhostMovement>();
@@ -168,7 +168,7 @@ public class PlayerEmotionStatus : MonoBehaviour
     }
 
     void ToSerenityFace(){
-        normalPlayerSprite.sprite = serenitySprite;
+        //normalPlayerSprite.sprite = serenitySprite;
     }
 
     void ToRageFace(){
