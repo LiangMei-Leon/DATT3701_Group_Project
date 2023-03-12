@@ -6,9 +6,16 @@ using UnityEngine.UI;
 public class Master : MonoBehaviour
 {
    public GameObject TutorialPanel;
+   public GameObject DialoguePanel;
+
+   public Dialogue dialogue;
+   
+   
    public bool playerIsClose;
    private bool panelActiving = false;
    private bool triggerEnable = true;
+   
+   
     // Update is called once per frame
     void Update()
     {
@@ -16,7 +23,7 @@ public class Master : MonoBehaviour
         {
             panelActiving = false;
             playerIsClose = false;
-            TutorialPanel.SetActive(false);
+            //TutorialPanel.SetActive(false);
         }else if(Input.GetKeyDown(KeyCode.I) && panelActiving == false)
         {
             panelActiving = true;
@@ -24,7 +31,7 @@ public class Master : MonoBehaviour
 
         if(panelActiving || playerIsClose)
         {
-            TutorialPanel.SetActive(true);
+            //TutorialPanel.SetActive(true);
         }    
     }
 
@@ -33,6 +40,8 @@ public class Master : MonoBehaviour
             triggerEnable = false;
             panelActiving = true;
             playerIsClose = true;
+            TriggerDialogue();
+            
             //TutorialPanel.SetActive(true);
         }
     }
@@ -42,8 +51,14 @@ public class Master : MonoBehaviour
             triggerEnable = true;
             panelActiving = false;
             playerIsClose = false;
-            TutorialPanel.SetActive(false);
+            //TutorialPanel.SetActive(false);
         }
     }
+
+    public void TriggerDialogue(){
+        FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
+    }
+
+
 
 }
