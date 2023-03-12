@@ -12,6 +12,8 @@ public class CharacterController2D : MonoBehaviour
 
 	[SerializeField] private bool m_AirControl = true;							// Whether or not a player can steer while jumping;
 	[SerializeField] private LayerMask m_WhatIsGround;							// A mask determining what is ground to the character
+	[SerializeField] private LayerMask m_Box;
+	[SerializeField] private LayerMask m_NormalGround;							
 	[SerializeField] private Transform m_GroundCheck;							// A position marking where to check if the player is grounded.
 	[SerializeField] private float LastOnGroundTime;
 	[SerializeField] private float LastPressedJumpTime;
@@ -89,7 +91,7 @@ public class CharacterController2D : MonoBehaviour
 
 		if(readyToFall)
 		{
-			Collider2D[] colliders2 = Physics2D.OverlapCircleAll(m_GroundCheck.position, k_GroundedRadius, m_WhatIsGround);
+			Collider2D[] colliders2 = Physics2D.OverlapCircleAll(m_GroundCheck.position, k_GroundedRadius, m_NormalGround);
 			for (int i = 0; i < colliders2.Length; i++)
 			{
 				if (colliders2[i].gameObject != gameObject  && !IsJumping && !audioManager.checkIsPlaying("LemonWalking") && !audioManager.checkIsPlaying("LemonWalking02")&& !audioManager.checkIsPlaying("LemonWalking03"))
@@ -102,6 +104,22 @@ public class CharacterController2D : MonoBehaviour
 						audioManager.Play("LemonWalking02");
 					else
 						audioManager.Play("LemonWalking03");
+					readyToFall = false;
+				}
+			}
+			Collider2D[] colliders3 = Physics2D.OverlapCircleAll(m_GroundCheck.position, k_GroundedRadius, m_Box);
+			for (int i = 0; i < colliders3.Length; i++)
+			{
+				if (colliders3[i].gameObject != gameObject  && !IsJumping && !audioManager.checkIsPlaying("BoxStep01") && !audioManager.checkIsPlaying("BoxStep02") && !audioManager.checkIsPlaying("BoxStep03"))
+				{
+					landingVFX.Play();
+					float random = Random.Range(-6f,6f);
+					if(random >= -6f && random < -2f)
+						audioManager.Play("BoxStep01");
+					else if(random >= -2f && random < 2f)
+						audioManager.Play("BoxStep02");
+					else
+						audioManager.Play("BoxStep03");
 					readyToFall = false;
 				}
 			} 
@@ -121,16 +139,43 @@ public class CharacterController2D : MonoBehaviour
 			}
 		}
 
-		if(LastOnGroundTime >= 0 && move != 0f && !audioManager.checkIsPlaying("LemonWalking") && !audioManager.checkIsPlaying("LemonWalking02")&& !audioManager.checkIsPlaying("LemonWalking03")){
-			//audioManager.randomVolumeAndPitch("LemonWalking");
-			float random = Random.Range(-6f,6f);
-			if(random >= -6f && random < -2f)
-				audioManager.Play("LemonWalking");
-			else if(random >= -2f && random < 2f)
-				audioManager.Play("LemonWalking02");
-			else
-				audioManager.Play("LemonWalking03");
-		}
+		Collider2D[] colliders = Physics2D.OverlapCircleAll(m_GroundCheck.position, k_GroundedRadius, m_NormalGround);
+			for (int i = 0; i < colliders.Length; i++)
+			{
+				if (colliders[i].gameObject != gameObject  && !IsJumping)
+				{
+					if(LastOnGroundTime >= 0 && move != 0f && !audioManager.checkIsPlaying("LemonWalking") && !audioManager.checkIsPlaying("LemonWalking02")&& !audioManager.checkIsPlaying("LemonWalking03"))
+					{
+						//audioManager.randomVolumeAndPitch("LemonWalking");
+						float random = Random.Range(-6f,6f);
+						if(random >= -6f && random < -2f)
+							audioManager.Play("LemonWalking");
+						else if(random >= -2f && random < 2f)
+							audioManager.Play("LemonWalking02");
+						else
+							audioManager.Play("LemonWalking03");
+					}
+				}
+			}
+		
+		Collider2D[] colliders2 = Physics2D.OverlapCircleAll(m_GroundCheck.position, k_GroundedRadius, m_Box);
+			for (int i = 0; i < colliders2.Length; i++)
+			{
+				if (colliders2[i].gameObject != gameObject  && !IsJumping)
+				{
+					if(LastOnGroundTime >= 0 && move != 0f && !audioManager.checkIsPlaying("BoxStep01") && !audioManager.checkIsPlaying("BoxStep02") && !audioManager.checkIsPlaying("BoxStep03"))
+					{
+						//audioManager.randomVolumeAndPitch("LemonWalking");
+						float random = Random.Range(-6f,6f);
+						if(random >= -6f && random < -2f)
+							audioManager.Play("BoxStep01");
+						else if(random >= -2f && random < 2f)
+							audioManager.Play("BoxStep02");
+						else
+							audioManager.Play("BoxStep03");
+					}
+				}
+			}
 
 
 		//only control the player if grounded or airControl is turned on 
