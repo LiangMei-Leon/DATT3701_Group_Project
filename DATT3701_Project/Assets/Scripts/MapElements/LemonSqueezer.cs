@@ -19,6 +19,10 @@ public class LemonSqueezer : MonoBehaviour
 
     private AudioManager audioManager;
     private GameObject dialogText;
+    private GameObject dialogText2;
+
+    private ParticleSystem juiceVFX1;
+	private ParticleSystem juiceVFX2; 
 
     // Start is called before the first frame update
     void Start()
@@ -28,8 +32,11 @@ public class LemonSqueezer : MonoBehaviour
         normalPlayer = GameObject.FindWithTag("Player");
         m_Rigidbody2D = normalPlayer.GetComponent<Rigidbody2D>();
         audioManager = FindObjectOfType<AudioManager>();
-        //dialogText = normalPlayer.transform.GetChild(1).GetChild(0).gameObject;
-        dialogText = normalPlayer.transform.GetChild(1).GetChild(1).gameObject;
+        dialogText = normalPlayer.transform.GetChild(1).GetChild(0).GetChild(0).gameObject;
+        dialogText2 = normalPlayer.transform.GetChild(1).GetChild(0).GetChild(1).gameObject;
+
+        juiceVFX1 = normalPlayer.gameObject.transform.GetChild(0).GetChild(2).GetChild(0).gameObject.GetComponent<ParticleSystem>();
+		juiceVFX2 = normalPlayer.gameObject.transform.GetChild(0).GetChild(2).GetChild(1).gameObject.GetComponent<ParticleSystem>();
     }
 
     // Update is called once per frame
@@ -58,14 +65,24 @@ public class LemonSqueezer : MonoBehaviour
     {
         if(col.gameObject.CompareTag("Player")){
             if(isAbleToHit){
+                float random = Random.Range(-10f,10f);
                 audioManager.randomVolumeAndPitch("LemonSqueezed");
                 audioManager.Play("LemonSqueezed");
+                juiceVFX1.Play();
+                juiceVFX2.Play();
                 playerEmotion.IncreaseRage(IncreaseAmount);
                 timer = cooldown;
-                //Debug.Log("hit");
-                if(dialogText != null){
-                    dialogText.SetActive(true);
-                    Invoke("Cancel", 1f);
+                if(random >= 0f)
+                {
+                    if(dialogText != null){
+                        dialogText.SetActive(true);
+                        Invoke("Cancel", 1f);
+                    }
+                }else{
+                    if(dialogText2 != null){
+                        dialogText2.SetActive(true);
+                        Invoke("Cancel2", 1f);
+                    }
                 }
             }
         }
@@ -74,5 +91,10 @@ public class LemonSqueezer : MonoBehaviour
     void Cancel()
     {
         dialogText.SetActive(false);
+    }
+
+    void Cancel2()
+    {
+        dialogText2.SetActive(false);
     }
 }
