@@ -12,6 +12,8 @@ public class DialogueManager : MonoBehaviour
     public TextMeshProUGUI dialogueText;
 
     public Animator animator;
+
+    public GameObject shade;
     
     
     
@@ -41,6 +43,7 @@ public class DialogueManager : MonoBehaviour
 
         Time.timeScale = 0;
         DisplayNextSentence();
+        shade.SetActive(true);
 
         
     }
@@ -68,7 +71,8 @@ public class DialogueManager : MonoBehaviour
     void EndDialogue(){
         Debug.Log("End of Concersation");
         animator.SetBool("isOpen", false);
-        Time.timeScale = 1;
+        //Time.timeScale = 1;
+        shade.SetActive(false);
     }
 
 
