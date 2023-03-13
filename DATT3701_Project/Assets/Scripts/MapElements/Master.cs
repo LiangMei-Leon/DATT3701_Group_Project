@@ -53,6 +53,7 @@ public class Master : MonoBehaviour
             triggerEnable = false;
             playerIsClose = true;
             TriggerDialogue();
+            
         }
     }
 
@@ -64,6 +65,7 @@ public class Master : MonoBehaviour
 
     public void TriggerDialogue(){
         FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
+        
     }
 
 }

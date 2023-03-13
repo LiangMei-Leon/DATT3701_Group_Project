@@ -26,6 +26,7 @@ public class DialogueManager : MonoBehaviour
 
     public void StartDialogue(Dialogue dialogue){
         
+    
         animator.SetBool("isOpen", true);
         
         Debug.Log ("Starting conversation with" + dialogue.name);
@@ -38,7 +39,10 @@ public class DialogueManager : MonoBehaviour
             sentences.Enqueue(sentence);
         }
 
+        Time.timeScale = 0;
         DisplayNextSentence();
+
+        
     }
 
     public void DisplayNextSentence(){
@@ -64,6 +68,11 @@ public class DialogueManager : MonoBehaviour
     void EndDialogue(){
         Debug.Log("End of Concersation");
         animator.SetBool("isOpen", false);
+        Time.timeScale = 1;
     }
+
+
+    
+
 
 }
