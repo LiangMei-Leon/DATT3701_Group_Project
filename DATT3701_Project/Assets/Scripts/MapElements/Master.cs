@@ -6,9 +6,21 @@ using UnityEngine.UI;
 public class Master : MonoBehaviour
 {
    public GameObject TutorialPanel;
-   public bool playerIsClose;
+   public GameObject DialoguePanel;
+
+   public Dialogue dialogue;
+   
+   
+   public bool playerIsClose = false;
    private bool panelActiving = false;
    private bool triggerEnable = true;
+   
+   private GameObject mark;
+   
+   void Start()
+   {
+        mark = this.gameObject.transform.GetChild(0).gameObject;
+   }
     // Update is called once per frame
     void Update()
     {
@@ -22,28 +34,36 @@ public class Master : MonoBehaviour
             panelActiving = true;
         }
 
-        if(panelActiving || playerIsClose)
+        if(playerIsClose)
+        {
+            mark.SetActive(false);
+        }
+
+        if(panelActiving)
         {
             TutorialPanel.SetActive(true);
+            Time.timeScale = 0;
+        }else{
+            Time.timeScale = 1;
         }    
     }
 
     private void OnTriggerEnter2D(Collider2D other){
         if(other.CompareTag("Player") && triggerEnable){
             triggerEnable = false;
-            panelActiving = true;
             playerIsClose = true;
-            //TutorialPanel.SetActive(true);
+            TriggerDialogue();
         }
     }
 
     private void OnTriggerExit2D(Collider2D other){
         if(other.CompareTag("Player")){
             triggerEnable = true;
-            panelActiving = false;
-            playerIsClose = false;
-            TutorialPanel.SetActive(false);
         }
+    }
+
+    public void TriggerDialogue(){
+        FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
     }
 
 }

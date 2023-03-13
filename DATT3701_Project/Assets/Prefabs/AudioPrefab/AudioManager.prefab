@@ -81,3 +81,21 @@ MonoBehaviour:
     pitch: 1
     source: {fileID: 0}
     loop: 0
+  - name: BoxStep01
+    clip: {fileID: 8300000, guid: b678eb98658a7044da9209f503956500, type: 3}
+    volume: 0.5
+    pitch: 1
+    source: {fileID: 0}
+    loop: 0
+  - name: BoxStep02
+    clip: {fileID: 8300000, guid: ff60bdd5bb4478e4592bd74f38e20b8c, type: 3}
+    volume: 0.5
+    pitch: 1
+    source: {fileID: 0}
+    loop: 0
+  - name: BoxStep03
+    clip: {fileID: 8300000, guid: a3b21210db870144b92a5021da40bbd2, type: 3}
+    volume: 0.5
+    pitch: 1
+    source: {fileID: 0}
+    loop: 0
