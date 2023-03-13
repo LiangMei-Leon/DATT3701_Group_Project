@@ -29,6 +29,7 @@ public class Master : MonoBehaviour
             panelActiving = false;
             playerIsClose = false;
             TutorialPanel.SetActive(false);
+            Time.timeScale = 1;
         }else if(Input.GetKeyDown(KeyCode.I) && panelActiving == false)
         {
             panelActiving = true;
@@ -43,8 +44,6 @@ public class Master : MonoBehaviour
         {
             TutorialPanel.SetActive(true);
             Time.timeScale = 0;
-        }else{
-            Time.timeScale = 1;
         }    
     }
 
