@@ -42,7 +42,7 @@ public class Master : MonoBehaviour
 
         if(panelActiving)
         {
-            TutorialPanel.SetActive(true);
+            //TutorialPanel.SetActive(true);
             Time.timeScale = 0;
         }    
     }
@@ -52,6 +52,7 @@ public class Master : MonoBehaviour
             triggerEnable = false;
             playerIsClose = true;
             TriggerDialogue();
+            
         }
     }
 
@@ -63,6 +64,7 @@ public class Master : MonoBehaviour
 
     public void TriggerDialogue(){
         FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
+        
     }
 
 }
