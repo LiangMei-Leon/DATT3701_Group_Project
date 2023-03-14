@@ -42,7 +42,7 @@ public class Master : MonoBehaviour
 
         if(panelActiving)
         {
-            //TutorialPanel.SetActive(true);
+            TutorialPanel.SetActive(true);
             Time.timeScale = 0;
         }    
     }
