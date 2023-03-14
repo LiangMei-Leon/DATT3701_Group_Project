@@ -33,10 +33,14 @@ public class PlayerEmotionStatus : MonoBehaviour
 
     public MeterUI Needle;
 
+    private Animator _animator;
+
     // Start is called before the first frame update
     void Start()
     {
         emotionStatus = initialValue;
+        _animator = normalPlayer.GetComponent<Animator>();
+
         if(Needle != null)
             Needle.setEmo(emotionStatus); // add this to set default value when start game   jingwei
         
@@ -56,6 +60,7 @@ public class PlayerEmotionStatus : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        _animator.SetFloat("Emotion", emotionStatus);
         //only for testing
         if(Input.GetKeyDown("r")){
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
