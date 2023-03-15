@@ -41,7 +41,6 @@ public class DialogueManager : MonoBehaviour
             sentences.Enqueue(sentence);
         }
 
-        Time.timeScale = 0;
         DisplayNextSentence();
         shade.SetActive(true);
 
@@ -71,7 +70,6 @@ public class DialogueManager : MonoBehaviour
     void EndDialogue(){
         Debug.Log("End of Concersation");
         animator.SetBool("isOpen", false);
-        //Time.timeScale = 1;
         shade.SetActive(false);
     }
 

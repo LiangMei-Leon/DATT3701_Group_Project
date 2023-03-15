@@ -1338,7 +1338,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6561189154955013799, guid: c3a3bfd182ccfd049a5a05738037a94b, type: 3}
       propertyPath: m_RootOrder
-      value: 94
+      value: 93
       objectReference: {fileID: 0}
     - target: {fileID: 6561189154955013799, guid: c3a3bfd182ccfd049a5a05738037a94b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -5689,6 +5689,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   controller: {fileID: 627218908}
   runSpeed: 5
+  horizontalMove: 0
 --- !u!70 &627218912
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -5747,7 +5748,6 @@ MonoBehaviour:
   boxMask:
     serializedVersion: 2
     m_Bits: 128
-  normalPlayer: {fileID: 627218905}
   smashTime: 0.25
 --- !u!70 &627218915
 CapsuleCollider2D:
@@ -13631,7 +13631,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6561189154955013799, guid: c3a3bfd182ccfd049a5a05738037a94b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -5.250008
+      value: -5.250007
       objectReference: {fileID: 0}
     - target: {fileID: 6561189154955013799, guid: c3a3bfd182ccfd049a5a05738037a94b, type: 3}
       propertyPath: m_LocalPosition.y
