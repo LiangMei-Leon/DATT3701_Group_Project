@@ -12062,8 +12062,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8628835094925779113, guid: 29a02dc0859b5374fad4c214b9cd8b31, type: 3}
       propertyPath: dialogue.sentences.Array.data[3]
-      value: "But don't be afraid, they won\\u2019t hurt you. They will just\r be
-        a little bit annoying to you."
+      value: But don't be afraid, they wont hurt you. They will be a little bit annoying
+        to you.
       objectReference: {fileID: 0}
     - target: {fileID: 8628835094925779113, guid: 29a02dc0859b5374fad4c214b9cd8b31, type: 3}
       propertyPath: dialogue.sentences.Array.data[4]
@@ -12071,16 +12071,20 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8628835094925779113, guid: 29a02dc0859b5374fad4c214b9cd8b31, type: 3}
       propertyPath: dialogue.sentences.Array.data[5]
-      value: "Remember, sometimes you need anger to motivate you, but sometimes you\r
-        have to keep serenity to think!"
+      value: Remember, sometimes you need anger to motivate you, but sometimes you
+        have to keep serenity to think!
       objectReference: {fileID: 0}
     - target: {fileID: 8628835094925779113, guid: 29a02dc0859b5374fad4c214b9cd8b31, type: 3}
       propertyPath: dialogue.sentences.Array.data[6]
-      value: "If you get through those squeezers, you can have some Lemon Slices
-        for\r snacks!"
+      value: 'If you get through those squeezers, you can have some Lemon Slices
+        for snacks! '
       objectReference: {fileID: 0}
     - target: {fileID: 8628835094925779113, guid: 29a02dc0859b5374fad4c214b9cd8b31, type: 3}
       propertyPath: dialogue.sentences.Array.data[7]
+      value: hahahahahahahahahahahahahahahahaha
+      objectReference: {fileID: 0}
+    - target: {fileID: 8628835094925779113, guid: 29a02dc0859b5374fad4c214b9cd8b31, type: 3}
+      propertyPath: dialogue.sentences.Array.data[8]
       value: hahahahahahahahahahahahahahahahaha
       objectReference: {fileID: 0}
     - target: {fileID: 8628835094925779118, guid: 29a02dc0859b5374fad4c214b9cd8b31, type: 3}
