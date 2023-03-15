@@ -10475,23 +10475,37 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8628835094925779113, guid: 29a02dc0859b5374fad4c214b9cd8b31, type: 3}
       propertyPath: dialogue.sentences.Array.size
-      value: 4
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 8628835094925779113, guid: 29a02dc0859b5374fad4c214b9cd8b31, type: 3}
       propertyPath: dialogue.sentences.Array.data[0]
-      value: Hello!!!!!!!!
+      value: 'Welcome, welcome!
+
+        What brings you here, my child?'
       objectReference: {fileID: 0}
     - target: {fileID: 8628835094925779113, guid: 29a02dc0859b5374fad4c214b9cd8b31, type: 3}
       propertyPath: dialogue.sentences.Array.data[1]
-      value: I am Lemon Master
+      value: Wanna become stronger, huh?
       objectReference: {fileID: 0}
     - target: {fileID: 8628835094925779113, guid: 29a02dc0859b5374fad4c214b9cd8b31, type: 3}
       propertyPath: dialogue.sentences.Array.data[2]
-      value: This will be the tutorial dialogue
+      value: Then you need wisdom, couragement, and a good wife...
       objectReference: {fileID: 0}
     - target: {fileID: 8628835094925779113, guid: 29a02dc0859b5374fad4c214b9cd8b31, type: 3}
       propertyPath: dialogue.sentences.Array.data[3]
-      value: hahahahahahahahahahahahahahahahahahhhhhhahahahaaaaahhhahahah
+      value: hahahahahahahahahahahahahahahahaha
+      objectReference: {fileID: 0}
+    - target: {fileID: 8628835094925779113, guid: 29a02dc0859b5374fad4c214b9cd8b31, type: 3}
+      propertyPath: dialogue.sentences.Array.data[4]
+      value: Finish this level I made for you!
+      objectReference: {fileID: 0}
+    - target: {fileID: 8628835094925779113, guid: 29a02dc0859b5374fad4c214b9cd8b31, type: 3}
+      propertyPath: dialogue.sentences.Array.data[5]
+      value: Remember, if you wanna get higher, then you need to step on something!
+      objectReference: {fileID: 0}
+    - target: {fileID: 8628835094925779113, guid: 29a02dc0859b5374fad4c214b9cd8b31, type: 3}
+      propertyPath: dialogue.sentences.Array.data[6]
+      value: Don't ask, just do it!
       objectReference: {fileID: 0}
     - target: {fileID: 8628835094925779118, guid: 29a02dc0859b5374fad4c214b9cd8b31, type: 3}
       propertyPath: m_LocalPosition.x

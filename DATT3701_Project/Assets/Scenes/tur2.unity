@@ -12044,23 +12044,44 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8628835094925779113, guid: 29a02dc0859b5374fad4c214b9cd8b31, type: 3}
       propertyPath: dialogue.sentences.Array.size
-      value: 4
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 8628835094925779113, guid: 29a02dc0859b5374fad4c214b9cd8b31, type: 3}
       propertyPath: dialogue.sentences.Array.data[0]
-      value: Hello!!!!!!!!
+      value: 'Good job!
+
+        Seems you have some potential.'
       objectReference: {fileID: 0}
     - target: {fileID: 8628835094925779113, guid: 29a02dc0859b5374fad4c214b9cd8b31, type: 3}
       propertyPath: dialogue.sentences.Array.data[1]
-      value: I am Lemon Master
+      value: But the trail is not over yet.
       objectReference: {fileID: 0}
     - target: {fileID: 8628835094925779113, guid: 29a02dc0859b5374fad4c214b9cd8b31, type: 3}
       propertyPath: dialogue.sentences.Array.data[2]
-      value: This will be the tutorial dialogue
+      value: Do you see those ugly triangle stuff? Yes, those are LEMON SQUEEZERS.
       objectReference: {fileID: 0}
     - target: {fileID: 8628835094925779113, guid: 29a02dc0859b5374fad4c214b9cd8b31, type: 3}
       propertyPath: dialogue.sentences.Array.data[3]
-      value: hahahahahahahahahahahahahahahahahahhhhhhahahahaaaaahhhahahah
+      value: "But don't be afraid, they won\\u2019t hurt you. They will just\r be
+        a little bit annoying to you."
+      objectReference: {fileID: 0}
+    - target: {fileID: 8628835094925779113, guid: 29a02dc0859b5374fad4c214b9cd8b31, type: 3}
+      propertyPath: dialogue.sentences.Array.data[4]
+      value: hahahahahahahahahahahahahahahahaha
+      objectReference: {fileID: 0}
+    - target: {fileID: 8628835094925779113, guid: 29a02dc0859b5374fad4c214b9cd8b31, type: 3}
+      propertyPath: dialogue.sentences.Array.data[5]
+      value: "Remember, sometimes you need anger to motivate you, but sometimes you\r
+        have to keep serenity to think!"
+      objectReference: {fileID: 0}
+    - target: {fileID: 8628835094925779113, guid: 29a02dc0859b5374fad4c214b9cd8b31, type: 3}
+      propertyPath: dialogue.sentences.Array.data[6]
+      value: "If you get through those squeezers, you can have some Lemon Slices
+        for\r snacks!"
+      objectReference: {fileID: 0}
+    - target: {fileID: 8628835094925779113, guid: 29a02dc0859b5374fad4c214b9cd8b31, type: 3}
+      propertyPath: dialogue.sentences.Array.data[7]
+      value: hahahahahahahahahahahahahahahahaha
       objectReference: {fileID: 0}
     - target: {fileID: 8628835094925779118, guid: 29a02dc0859b5374fad4c214b9cd8b31, type: 3}
       propertyPath: m_LocalPosition.x
@@ -16964,29 +16985,29 @@ Transform:
   - {fileID: 1424823966}
   - {fileID: 1725291536}
   - {fileID: 1252621601}
-  - {fileID: 1032283859}
   - {fileID: 582737777}
   - {fileID: 3792508}
-  - {fileID: 1719780160}
   - {fileID: 185919619}
-  - {fileID: 1338259483}
   - {fileID: 676861004}
   - {fileID: 1751730478}
   - {fileID: 2033078555}
   - {fileID: 1851373269}
-  - {fileID: 2027785101}
   - {fileID: 325085006}
-  - {fileID: 1288571164}
   - {fileID: 283478717}
   - {fileID: 1556663900}
   - {fileID: 702753718}
+  - {fileID: 1032283859}
   - {fileID: 1727108557}
+  - {fileID: 1288571164}
   - {fileID: 63609020}
+  - {fileID: 1338259483}
   - {fileID: 1016916594}
-  - {fileID: 2064605143}
-  - {fileID: 1181854182}
-  - {fileID: 1656084784}
   - {fileID: 1652262878}
+  - {fileID: 2064605143}
+  - {fileID: 1656084784}
+  - {fileID: 1181854182}
+  - {fileID: 1719780160}
+  - {fileID: 2027785101}
   - {fileID: 1019352643}
   - {fileID: 863056756}
   m_Father: {fileID: 17199242}
