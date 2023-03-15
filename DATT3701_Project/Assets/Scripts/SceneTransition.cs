@@ -9,6 +9,7 @@ public class SceneTransition : MonoBehaviour
     public string sceneName;
 
     public int sceneBuildIndex;
+    public GameObject text;
 
     void Update(){
         if(Input.GetKeyDown(KeyCode.T)){
@@ -18,7 +19,8 @@ public class SceneTransition : MonoBehaviour
 
     IEnumerator LoadScene(){
         transitionAnim.SetTrigger("end");
-        yield return new WaitForSeconds(1.5f);
+        text.SetActive(true);
+        yield return new WaitForSeconds(5f);
         SceneManager.LoadScene(sceneName);
     }
 

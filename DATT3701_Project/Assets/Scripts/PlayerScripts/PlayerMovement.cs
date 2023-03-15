@@ -12,7 +12,7 @@ public class PlayerMovement : MonoBehaviour
 
     public float runSpeed = 5f;
 
-    float horizontalMove = 0f;
+    public float horizontalMove = 0f;
     bool jump = false;
 
     private Animator animator;

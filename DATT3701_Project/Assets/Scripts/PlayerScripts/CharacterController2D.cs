@@ -142,9 +142,9 @@ public class CharacterController2D : MonoBehaviour
 		Collider2D[] colliders = Physics2D.OverlapCircleAll(m_GroundCheck.position, k_GroundedRadius, m_NormalGround);
 			for (int i = 0; i < colliders.Length; i++)
 			{
-				if (colliders[i].gameObject != gameObject  && !IsJumping)
+				if (colliders[i].gameObject != gameObject  && !IsJumping && !audioManager.checkIsPlaying("LemonWalking") && !audioManager.checkIsPlaying("LemonWalking02") && !audioManager.checkIsPlaying("LemonWalking03"))
 				{
-					if(LastOnGroundTime >= 0 && move != 0f && !audioManager.checkIsPlaying("LemonWalking") && !audioManager.checkIsPlaying("LemonWalking02")&& !audioManager.checkIsPlaying("LemonWalking03"))
+					if(LastOnGroundTime >= 0 && move != 0f)
 					{
 						//audioManager.randomVolumeAndPitch("LemonWalking");
 						float random = Random.Range(-6f,6f);
@@ -161,9 +161,9 @@ public class CharacterController2D : MonoBehaviour
 		Collider2D[] colliders2 = Physics2D.OverlapCircleAll(m_GroundCheck.position, k_GroundedRadius, m_Box);
 			for (int i = 0; i < colliders2.Length; i++)
 			{
-				if (colliders2[i].gameObject != gameObject  && !IsJumping)
+				if (colliders2[i].gameObject != gameObject  && !IsJumping && !audioManager.checkIsPlaying("BoxStep01") && !audioManager.checkIsPlaying("BoxStep02") && !audioManager.checkIsPlaying("BoxStep03"))
 				{
-					if(LastOnGroundTime >= 0 && move != 0f && !audioManager.checkIsPlaying("BoxStep01") && !audioManager.checkIsPlaying("BoxStep02") && !audioManager.checkIsPlaying("BoxStep03"))
+					if(LastOnGroundTime >= 0 && move != 0f)
 					{
 						//audioManager.randomVolumeAndPitch("LemonWalking");
 						float random = Random.Range(-6f,6f);
