@@ -34,12 +34,15 @@ public class PlayerEmotionStatus : MonoBehaviour
     public MeterUI Needle;
 
     private Animator _animator;
+    private AudioManager audioManager;
 
     // Start is called before the first frame update
     void Start()
     {
         emotionStatus = initialValue;
         _animator = normalPlayer.GetComponent<Animator>();
+        audioManager = FindObjectOfType<AudioManager>();
+        audioManager.Play("SerenityTheme");
 
         if(Needle != null)
             Needle.setEmo(emotionStatus); // add this to set default value when start game   jingwei

@@ -99,3 +99,9 @@ MonoBehaviour:
     pitch: 1
     source: {fileID: 0}
     loop: 0
+  - name: SerenityTheme
+    clip: {fileID: 8300000, guid: cbb4c9e22b8fc0447a9404c4ba159829, type: 3}
+    volume: 0.3
+    pitch: 1
+    source: {fileID: 0}
+    loop: 1
