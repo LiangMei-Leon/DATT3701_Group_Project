@@ -4210,6 +4210,7 @@ MonoBehaviour:
   transitionAnim: {fileID: 0}
   sceneName: Test_1
   sceneBuildIndex: 0
+  text: {fileID: 0}
 --- !u!4 &461371848
 Transform:
   m_ObjectHideFlags: 0
@@ -5868,6 +5869,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   controller: {fileID: 627218908}
   runSpeed: 5
+  horizontalMove: 0
 --- !u!114 &627218914
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5884,7 +5886,6 @@ MonoBehaviour:
   boxMask:
     serializedVersion: 2
     m_Bits: 128
-  normalPlayer: {fileID: 627218905}
   smashTime: 0.25
 --- !u!61 &627218916
 BoxCollider2D:
@@ -6114,7 +6115,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 519223945
-  m_SortingLayer: -1
+  m_SortingLayer: -2
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 10329865b52c98847b0b2a5139e5ef00, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -10457,23 +10458,41 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8628835094925779113, guid: 29a02dc0859b5374fad4c214b9cd8b31, type: 3}
       propertyPath: dialogue.sentences.Array.size
-      value: 4
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 8628835094925779113, guid: 29a02dc0859b5374fad4c214b9cd8b31, type: 3}
       propertyPath: dialogue.sentences.Array.data[0]
-      value: Hello!!!!!!!!
+      value: "Welcome, welcome!\r \nWhat brings you here, my child?\r\n"
       objectReference: {fileID: 0}
     - target: {fileID: 8628835094925779113, guid: 29a02dc0859b5374fad4c214b9cd8b31, type: 3}
       propertyPath: dialogue.sentences.Array.data[1]
-      value: I am Lemon Master
+      value: "\u2026\u2026"
       objectReference: {fileID: 0}
     - target: {fileID: 8628835094925779113, guid: 29a02dc0859b5374fad4c214b9cd8b31, type: 3}
       propertyPath: dialogue.sentences.Array.data[2]
-      value: This will be the tutorial dialogue
+      value: Ah, I see, I see.
       objectReference: {fileID: 0}
     - target: {fileID: 8628835094925779113, guid: 29a02dc0859b5374fad4c214b9cd8b31, type: 3}
       propertyPath: dialogue.sentences.Array.data[3]
-      value: hahahahahahahahahahahahahahahahahahhhhhhahahahaaaaahhhahahah
+      value: Wanna become stronger, huh?
+      objectReference: {fileID: 0}
+    - target: {fileID: 8628835094925779113, guid: 29a02dc0859b5374fad4c214b9cd8b31, type: 3}
+      propertyPath: dialogue.sentences.Array.data[4]
+      value: "Then you need wisdom, couragement, and a good wife\u2026Anyway."
+      objectReference: {fileID: 0}
+    - target: {fileID: 8628835094925779113, guid: 29a02dc0859b5374fad4c214b9cd8b31, type: 3}
+      propertyPath: dialogue.sentences.Array.data[5]
+      value: Finish this level I made for you!
+      objectReference: {fileID: 0}
+    - target: {fileID: 8628835094925779113, guid: 29a02dc0859b5374fad4c214b9cd8b31, type: 3}
+      propertyPath: dialogue.sentences.Array.data[6]
+      value: 'Remember, if you wanna get higher, then you need to step on something!
+
+'
+      objectReference: {fileID: 0}
+    - target: {fileID: 8628835094925779113, guid: 29a02dc0859b5374fad4c214b9cd8b31, type: 3}
+      propertyPath: dialogue.sentences.Array.data[7]
+      value: "Don\u2019t ask, just do it!"
       objectReference: {fileID: 0}
     - target: {fileID: 8628835094925779118, guid: 29a02dc0859b5374fad4c214b9cd8b31, type: 3}
       propertyPath: m_LocalPosition.x
@@ -12839,7 +12858,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3194615617521985877, guid: d3f49c78a9d05a644a1421b85b0443cc, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -36.909912
+      value: -36.90982
       objectReference: {fileID: 0}
     - target: {fileID: 3194615617521985877, guid: d3f49c78a9d05a644a1421b85b0443cc, type: 3}
       propertyPath: m_AnchoredPosition.y
