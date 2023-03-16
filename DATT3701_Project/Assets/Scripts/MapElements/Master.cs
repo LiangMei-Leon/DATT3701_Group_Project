@@ -16,6 +16,7 @@ public class Master : MonoBehaviour
    private bool triggerEnable = true;
    
    private GameObject mark;
+   public GameObject shade;
    
    void Start()
    {
@@ -29,7 +30,7 @@ public class Master : MonoBehaviour
             panelActiving = false;
             playerIsClose = false;
             TutorialPanel.SetActive(false);
-            Time.timeScale = 1;
+            shade.SetActive(false);
         }else if(Input.GetKeyDown(KeyCode.I) && panelActiving == false)
         {
             panelActiving = true;
@@ -43,7 +44,7 @@ public class Master : MonoBehaviour
         if(panelActiving)
         {
             TutorialPanel.SetActive(true);
-            Time.timeScale = 0;
+            shade.SetActive(true);
         }    
     }
 
@@ -52,7 +53,6 @@ public class Master : MonoBehaviour
             triggerEnable = false;
             playerIsClose = true;
             TriggerDialogue();
-            
         }
     }
 
@@ -64,7 +64,6 @@ public class Master : MonoBehaviour
 
     public void TriggerDialogue(){
         FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
-        
     }
 
 }
