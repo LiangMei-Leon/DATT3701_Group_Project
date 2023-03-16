@@ -3389,6 +3389,63 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c3a3bfd182ccfd049a5a05738037a94b, type: 3}
+--- !u!1001 &324014075
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4949417056480626190, guid: 1996f1c5238b0a947b708f44142960c6, type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4949417056480626190, guid: 1996f1c5238b0a947b708f44142960c6, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4949417056480626190, guid: 1996f1c5238b0a947b708f44142960c6, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4949417056480626190, guid: 1996f1c5238b0a947b708f44142960c6, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4949417056480626190, guid: 1996f1c5238b0a947b708f44142960c6, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4949417056480626190, guid: 1996f1c5238b0a947b708f44142960c6, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4949417056480626190, guid: 1996f1c5238b0a947b708f44142960c6, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4949417056480626190, guid: 1996f1c5238b0a947b708f44142960c6, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4949417056480626190, guid: 1996f1c5238b0a947b708f44142960c6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4949417056480626190, guid: 1996f1c5238b0a947b708f44142960c6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4949417056480626190, guid: 1996f1c5238b0a947b708f44142960c6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4949417056480626191, guid: 1996f1c5238b0a947b708f44142960c6, type: 3}
+      propertyPath: m_Name
+      value: AudioManager
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 1996f1c5238b0a947b708f44142960c6, type: 3}
 --- !u!1001 &324545903
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12062,8 +12119,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8628835094925779113, guid: 29a02dc0859b5374fad4c214b9cd8b31, type: 3}
       propertyPath: dialogue.sentences.Array.data[3]
-      value: "But don't be afraid, they won\\u2019t hurt you. They will just\r be
-        a little bit annoying to you."
+      value: But don't be afraid, they wont hurt you. They will be a little bit annoying
+        to you.
       objectReference: {fileID: 0}
     - target: {fileID: 8628835094925779113, guid: 29a02dc0859b5374fad4c214b9cd8b31, type: 3}
       propertyPath: dialogue.sentences.Array.data[4]
@@ -12071,16 +12128,20 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8628835094925779113, guid: 29a02dc0859b5374fad4c214b9cd8b31, type: 3}
       propertyPath: dialogue.sentences.Array.data[5]
-      value: "Remember, sometimes you need anger to motivate you, but sometimes you\r
-        have to keep serenity to think!"
+      value: Remember, sometimes you need anger to motivate you, but sometimes you
+        have to keep serenity to think!
       objectReference: {fileID: 0}
     - target: {fileID: 8628835094925779113, guid: 29a02dc0859b5374fad4c214b9cd8b31, type: 3}
       propertyPath: dialogue.sentences.Array.data[6]
-      value: "If you get through those squeezers, you can have some Lemon Slices
-        for\r snacks!"
+      value: 'If you get through those squeezers, you can have some Lemon Slices
+        for snacks! '
       objectReference: {fileID: 0}
     - target: {fileID: 8628835094925779113, guid: 29a02dc0859b5374fad4c214b9cd8b31, type: 3}
       propertyPath: dialogue.sentences.Array.data[7]
+      value: hahahahahahahahahahahahahahahahaha
+      objectReference: {fileID: 0}
+    - target: {fileID: 8628835094925779113, guid: 29a02dc0859b5374fad4c214b9cd8b31, type: 3}
+      propertyPath: dialogue.sentences.Array.data[8]
       value: hahahahahahahahahahahahahahahahaha
       objectReference: {fileID: 0}
     - target: {fileID: 8628835094925779118, guid: 29a02dc0859b5374fad4c214b9cd8b31, type: 3}
