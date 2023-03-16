@@ -16,6 +16,7 @@ public class PlayerMovement : MonoBehaviour
     bool jump = false;
 
     private Animator animator;
+    public GameObject pauseShade;
 
     // Start is called before the first frame update
     void Start()
@@ -31,9 +32,10 @@ public class PlayerMovement : MonoBehaviour
     {
         emotionStatus = playerEmotion.getEmotionStatus();
         fearStatus = playerEmotion.getFearStatus();
+        
         //get keyboard/controller input:left as -1 and right as 1
         //horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
-        if(!fearStatus)
+        if(!fearStatus && !pauseShade.activeSelf)
         {
             if(emotionStatus > 0){
                 horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed * -1;
@@ -47,6 +49,7 @@ public class PlayerMovement : MonoBehaviour
             }
         }else{
             horizontalMove = 0;
+            animator.SetFloat("Speed", Mathf.Abs(horizontalMove));
         }
     }
 
