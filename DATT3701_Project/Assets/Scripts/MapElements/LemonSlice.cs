@@ -10,6 +10,7 @@ public class LemonSlice : MonoBehaviour
     private float emotionStatus;
     private GameObject normalPlayer;
     private bool used = false;
+    private bool savedUsed = false;
     private SpriteRenderer slice;
 
     private AudioManager audioManager;
@@ -45,12 +46,26 @@ public class LemonSlice : MonoBehaviour
                 Invoke("Cancel2", 1.5f);
             }
             slice.color = new Color(1,1,1,0);
-            Destroy(gameObject,1.5f);
+            //Destroy(gameObject,1.5f);
         }
     }
 
     void Cancel2()
     {
         dialogText.SetActive(false);
+    }
+
+    public void UpdateSliceStatus()
+    {
+        savedUsed = used;
+    }
+
+    public void RewindSlice()
+    {
+        if(savedUsed == false && used == true){
+            slice.color = Color.white;
+            used = false;
+        }
+
     }
 }

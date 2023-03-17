@@ -14,7 +14,7 @@ public class PlayerMovement : MonoBehaviour
 
     public float horizontalMove = 0f;
     bool jump = false;
-
+    private Vector3 player_Savedlocation;
     private Animator animator;
     public GameObject pauseShade;
 
@@ -51,10 +51,21 @@ public class PlayerMovement : MonoBehaviour
             horizontalMove = 0;
             animator.SetFloat("Speed", Mathf.Abs(horizontalMove));
         }
+        
     }
 
     void FixedUpdate() {
         controller.Move(horizontalMove, jump);
         jump = false;
+    }
+
+    public void UpdatePlayerLocation()
+    {
+        player_Savedlocation = this.transform.position;
+    }
+
+    public void RewindPlayerLocation()
+    {
+        this.transform.position = player_Savedlocation;
     }
 }
