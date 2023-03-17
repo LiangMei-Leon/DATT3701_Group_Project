@@ -39,6 +39,9 @@ public class BoxFunctions : MonoBehaviour
 	private ParticleSystem breakVFX2;
     private bool used = false;
 
+    private Vector3 savedBoxLoaction;
+    private float savedBoxLife = 2;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -74,7 +77,7 @@ public class BoxFunctions : MonoBehaviour
             }
             breakVFX2.Play();
             audioManager.Play("BoxCracked02");
-            Destroy(gameObject, 0.5f);
+            //Destroy(gameObject, 0.5f);
         }
         emotionStatus = playerEmotion.getEmotionStatus();
         Physics2D.queriesStartInColliders = false;
@@ -168,6 +171,48 @@ public class BoxFunctions : MonoBehaviour
     public void Smash(){
         boxLifespan--;
     }
+    
+    public void UpdateBoxStatus()
+    {
+        savedBoxLoaction = this.transform.position;
+        savedBoxLife = boxLifespan;
+    }
+
+    public void RewindBox()
+    {
+        if(this.boxLifespan == 0 && savedBoxLife == 1){
+            this.boxLifespan = savedBoxLife;
+            audioPlayed01 = true;
+            used = false;
+            boxSprite.color = Color.red;
+            foreach (Collider2D c in this.GetComponents<Collider2D>())
+            {
+                if(c.enabled == false)
+                    c.enabled = true;
+            }
+            this.transform.position = savedBoxLoaction;
+        }else if(this.boxLifespan == 0 && savedBoxLife == 2){
+            this.boxLifespan = savedBoxLife;
+            audioPlayed01 = false;
+            used = false;
+            boxSprite.color = Color.white;
+            foreach (Collider2D c in this.GetComponents<Collider2D>())
+            {
+                if(c.enabled == false)
+                    c.enabled = true;
+            }
+            this.transform.position = savedBoxLoaction;
+        }else if(this.boxLifespan == 1 && savedBoxLife == 2){
+            this.boxLifespan = savedBoxLife;
+            audioPlayed01 = false;
+            boxSprite.color = Color.white;
+            this.transform.position = savedBoxLoaction;
+        }else if(this.boxLifespan == savedBoxLife){
+            this.transform.position = savedBoxLoaction;
+        }
+
+    }
+    
 
     private void OnTriggerEnter2D(Collider2D other)
     {

@@ -6893,7 +6893,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 627218905}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -9.000012, y: -5.906, z: 0}
+  m_LocalPosition: {x: -9.000012, y: -6.000008, z: 0}
   m_LocalScale: {x: 0.1324351, y: 0.14022541, z: 0.42034608}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -8271,6 +8271,7 @@ GameObject:
   m_Component:
   - component: {fileID: 759416901}
   - component: {fileID: 759416902}
+  - component: {fileID: 759416903}
   m_Layer: 6
   m_Name: PlayerManager
   m_TagString: PlayerManager
@@ -8324,6 +8325,18 @@ MonoBehaviour:
   TEXT2: {fileID: 107473635}
   tmp: {fileID: 107473637}
   Needle: {fileID: 1041577721}
+--- !u!114 &759416903
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 759416900}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1385615bf12aa14da4b13d6ef798829, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &766268685
 PrefabInstance:
   m_ObjectHideFlags: 0
