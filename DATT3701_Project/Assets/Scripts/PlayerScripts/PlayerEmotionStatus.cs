@@ -186,7 +186,7 @@ public class PlayerEmotionStatus : MonoBehaviour
     }
 
     void ToSerenityFace(){
-        //normalPlayerSprite.sprite = serenitySprite;
+        normalPlayerSprite.sprite = serenitySprite;
     }
 
     void ToRageFace(){
