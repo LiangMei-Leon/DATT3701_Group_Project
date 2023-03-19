@@ -47,6 +47,7 @@ public class ProgressRewind : MonoBehaviour
         }
         if(Input.GetKeyDown("v"))
         {
+            playerEmotion.IncreaseFear(30);
             if(player_Savedemotion <= emotionStatus){
                 playerEmotion.IncreaseSerenity(emotionStatus - player_Savedemotion);
             }else{
