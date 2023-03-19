@@ -1338,7 +1338,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6561189154955013799, guid: c3a3bfd182ccfd049a5a05738037a94b, type: 3}
       propertyPath: m_RootOrder
-      value: 94
+      value: 93
       objectReference: {fileID: 0}
     - target: {fileID: 6561189154955013799, guid: c3a3bfd182ccfd049a5a05738037a94b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -5635,13 +5635,22 @@ MonoBehaviour:
   m_WhatIsGround:
     serializedVersion: 2
     m_Bits: 439
+  m_Box:
+    serializedVersion: 2
+    m_Bits: 0
+  m_NormalGround:
+    serializedVersion: 2
+    m_Bits: 0
   m_GroundCheck: {fileID: 545936127}
   LastOnGroundTime: 0
   LastPressedJumpTime: 0
   IsJumping: 0
   coyoteTime: 0.1
   jumpInputBufferTime: 0.1
+  fliped: 0
   jumpable: 0
+  readyToFall: 0
+  interval: 1
   OnLandEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -5680,6 +5689,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   controller: {fileID: 627218908}
   runSpeed: 5
+  horizontalMove: 0
 --- !u!70 &627218912
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -5738,7 +5748,6 @@ MonoBehaviour:
   boxMask:
     serializedVersion: 2
     m_Bits: 128
-  normalPlayer: {fileID: 627218905}
   smashTime: 0.25
 --- !u!70 &627218915
 CapsuleCollider2D:
@@ -6059,6 +6068,7 @@ Transform:
   - {fileID: 1862133635}
   - {fileID: 1326221251}
   - {fileID: 1578623044}
+  - {fileID: 935104919}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -13621,7 +13631,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6561189154955013799, guid: c3a3bfd182ccfd049a5a05738037a94b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -5.250008
+      value: -5.250007
       objectReference: {fileID: 0}
     - target: {fileID: 6561189154955013799, guid: c3a3bfd182ccfd049a5a05738037a94b, type: 3}
       propertyPath: m_LocalPosition.y
@@ -14652,7 +14662,7 @@ SpriteRenderer:
   m_Size: {x: 19.2, y: 10.8}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1001 &1722368564

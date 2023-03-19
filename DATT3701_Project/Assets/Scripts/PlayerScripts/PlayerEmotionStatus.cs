@@ -33,15 +33,24 @@ public class PlayerEmotionStatus : MonoBehaviour
 
     public MeterUI Needle;
 
+    private Animator _animator;
+    private AudioManager audioManager;
+
     // Start is called before the first frame update
     void Start()
     {
         emotionStatus = initialValue;
-    //    Needle.setEmo(emotionStatus); // add this to set default value when start game   jingwei
+        _animator = normalPlayer.GetComponent<Animator>();
+        audioManager = FindObjectOfType<AudioManager>();
+        audioManager.Play("SerenityTheme");
+
+        if(Needle != null)
+            Needle.setEmo(emotionStatus); // add this to set default value when start game   jingwei
         
         fearStatus = 0f;
         isGhost = false;
-       // ghostmeter.setFear(fearStatus); // set fear value to ghost bar default   jingwei
+        if(ghostmeter != null)
+            ghostmeter.setFear(fearStatus); // set fear value to ghost bar default   jingwei
 
         normalPlayerData = normalPlayer.GetComponent<CharacterController2D>();
         ghostPlayerData = ghostPlayer.GetComponent<GhostMovement>();
@@ -54,6 +63,7 @@ public class PlayerEmotionStatus : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        _animator.SetFloat("Emotion", emotionStatus);
         //only for testing
         if(Input.GetKeyDown("r")){
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
@@ -63,21 +73,24 @@ public class PlayerEmotionStatus : MonoBehaviour
             IncreaseRage(10f);
             Debug.Log("Increase Rage for 10");
             Debug.Log("current value: " + emotionStatus);
-            Needle.setEmo(emotionStatus);
+            if(Needle != null)
+                Needle.setEmo(emotionStatus);
         }
         if(Input.GetKeyDown("q"))
         {
             IncreaseSerenity(10f);
             Debug.Log("Increase Serenity for 10");
             Debug.Log("current value: " + emotionStatus);
-            Needle.setEmo(emotionStatus);
+            if(Needle != null)
+                Needle.setEmo(emotionStatus);
         }
         if(Input.GetKeyDown("f"))
         {
             IncreaseFear(10f);
             Debug.Log("Increase Fear for 10");
             Debug.Log("current fear value: " + fearStatus);
-            ghostmeter.setFear(fearStatus);   // set ghostmeter value   jingwei
+            if(ghostmeter != null)
+                ghostmeter.setFear(fearStatus);   // set ghostmeter value   jingwei
             
         }
         if(emotionStatus <= 0){
@@ -86,7 +99,8 @@ public class PlayerEmotionStatus : MonoBehaviour
             ToRageFace();
         }
         if(fearStatus >= 100 && respawnUsed){
-            TEXT1.SetActive(true);
+            if(TEXT1 != null)
+                TEXT1.SetActive(true);
             Time.timeScale = 0;
             Debug.Log("YOU LOST. RESTART THE LEVEL........");
         }
@@ -98,7 +112,8 @@ public class PlayerEmotionStatus : MonoBehaviour
                 fearTimer = 0;
             }
             if(fearCountDown < 0f && !respawnable){
-                TEXT1.SetActive(true);
+                if(TEXT1 != null)
+                    TEXT1.SetActive(true);
                 Time.timeScale = 0;
                 Debug.Log("YOU LOST. RESTART THE LEVEL........");
             }
@@ -119,8 +134,9 @@ public class PlayerEmotionStatus : MonoBehaviour
         Debug.Log("Increase Serenity for 10");
         Debug.Log("current value: " + emotionStatus);
 
-        //add setEmo method -- Jingwei 
-        Needle.setEmo(emotionStatus);
+        //add setEmo method -- Jingwei
+        if(Needle != null)
+            Needle.setEmo(emotionStatus);
     }
 
     public void IncreaseRage(float value)
@@ -132,8 +148,9 @@ public class PlayerEmotionStatus : MonoBehaviour
         Debug.Log("Increase Rage for 10");
         Debug.Log("current value: " + emotionStatus);
 
-         //add setEmo method -- Jingwei 
-        Needle.setEmo(emotionStatus);
+         //add setEmo method -- Jingwei
+        if(Needle != null)
+            Needle.setEmo(emotionStatus);
     }
 
     public void IncreaseFear(float value)
@@ -150,13 +167,14 @@ public class PlayerEmotionStatus : MonoBehaviour
                 else
                     c.enabled = true;
             }
-            TEXT2.SetActive(true);
+            if(TEXT2 != null)
+                TEXT2.SetActive(true);
             LemonAngel.SetActive(true);
             ghostPlayerData.Chagenlocation(normalPlayer.transform.position);
             ghostPlayer.SetActive(true);
         }
-
-        ghostmeter.setFear(fearStatus);
+        if(ghostmeter != null)
+            ghostmeter.setFear(fearStatus);
     }
 
     public float getEmotionStatus(){
@@ -180,7 +198,8 @@ public class PlayerEmotionStatus : MonoBehaviour
         respawnable = true;
         isGhost = false;
         respawnUsed = true;
-        TEXT2.SetActive(false);
+        if(TEXT2 != null)
+            TEXT2.SetActive(false);
         foreach (Collider2D c in normalPlayer.GetComponents<Collider2D>())
         {
             if(c.enabled == true)

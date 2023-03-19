@@ -14,16 +14,19 @@ public class CharacterController2D : MonoBehaviour
 
 	[SerializeField] private bool m_AirControl = true;							// Whether or not a player can steer while jumping;
 	[SerializeField] private LayerMask m_WhatIsGround;							// A mask determining what is ground to the character
+	[SerializeField] private LayerMask m_Box;
+	[SerializeField] private LayerMask m_NormalGround;							
 	[SerializeField] private Transform m_GroundCheck;							// A position marking where to check if the player is grounded.
 	[SerializeField] private float LastOnGroundTime;
 	[SerializeField] private float LastPressedJumpTime;
 	[SerializeField] public bool IsJumping;
 	[SerializeField] public float coyoteTime = 0.1f;
 	[SerializeField] public float jumpInputBufferTime = 0.1f;
+	private SpriteRenderer playerSprite;
+	public bool fliped = false;
 
 	const float k_GroundedRadius = .2f; // Radius of the overlap circle to determine if grounded
 	private Rigidbody2D m_Rigidbody2D;
-	private bool isGrounded = false;
 	private bool m_FacingRight = true;  // For determining which way the player is currently facing.
 	private Vector3 m_Velocity = Vector3.zero;
 	public bool jumpable = false;
@@ -35,6 +38,7 @@ public class CharacterController2D : MonoBehaviour
 	private ParticleSystem movingVFX;
 	private ParticleSystem landingVFX;
 
+	private AudioManager audioManager;
 
 	[Header("Events")]
 	[Space]
@@ -45,6 +49,9 @@ public class CharacterController2D : MonoBehaviour
 		m_Rigidbody2D = GetComponent<Rigidbody2D>();
 		movingVFX = this.gameObject.transform.GetChild(0).GetChild(0).gameObject.GetComponent<ParticleSystem>();
 		landingVFX = this.gameObject.transform.GetChild(0).GetChild(1).gameObject.GetComponent<ParticleSystem>();
+		playerSprite = gameObject.GetComponent<SpriteRenderer>();
+
+		audioManager = FindObjectOfType<AudioManager>();
 
 		if (OnLandEvent == null)
 			OnLandEvent = new UnityEvent();
@@ -53,7 +60,6 @@ public class CharacterController2D : MonoBehaviour
 
 	private void Update()
 	{	
-		//Debug.Log(m_Rigidbody2D.velocity);
         LastOnGroundTime -= Time.deltaTime;
 		LastPressedJumpTime -= Time.deltaTime;
 		jumpable = CanJump();
@@ -65,9 +71,6 @@ public class CharacterController2D : MonoBehaviour
 				if (colliders[i].gameObject != gameObject  && !IsJumping)
 				{
 					LastOnGroundTime = coyoteTime;
-					isGrounded = true;
-				}else{
-					isGrounded = false;
 				}
 			} 
 		}
@@ -90,12 +93,35 @@ public class CharacterController2D : MonoBehaviour
 
 		if(readyToFall)
 		{
-			Collider2D[] colliders2 = Physics2D.OverlapCircleAll(m_GroundCheck.position, k_GroundedRadius, m_WhatIsGround);
+			Collider2D[] colliders2 = Physics2D.OverlapCircleAll(m_GroundCheck.position, k_GroundedRadius, m_NormalGround);
 			for (int i = 0; i < colliders2.Length; i++)
 			{
-				if (colliders2[i].gameObject != gameObject  && !IsJumping)
+				if (colliders2[i].gameObject != gameObject  && !IsJumping && !audioManager.checkIsPlaying("LemonWalking") && !audioManager.checkIsPlaying("LemonWalking02")&& !audioManager.checkIsPlaying("LemonWalking03"))
 				{
 					landingVFX.Play();
+					float random = Random.Range(-6f,6f);
+					if(random >= -6f && random < -2f)
+						audioManager.Play("LemonWalking");
+					else if(random >= -2f && random < 2f)
+						audioManager.Play("LemonWalking02");
+					else
+						audioManager.Play("LemonWalking03");
+					readyToFall = false;
+				}
+			}
+			Collider2D[] colliders3 = Physics2D.OverlapCircleAll(m_GroundCheck.position, k_GroundedRadius, m_Box);
+			for (int i = 0; i < colliders3.Length; i++)
+			{
+				if (colliders3[i].gameObject != gameObject  && !IsJumping && !audioManager.checkIsPlaying("BoxStep01") && !audioManager.checkIsPlaying("BoxStep02") && !audioManager.checkIsPlaying("BoxStep03"))
+				{
+					landingVFX.Play();
+					float random = Random.Range(-6f,6f);
+					if(random >= -6f && random < -2f)
+						audioManager.Play("BoxStep01");
+					else if(random >= -2f && random < 2f)
+						audioManager.Play("BoxStep02");
+					else
+						audioManager.Play("BoxStep03");
 					readyToFall = false;
 				}
 			} 
@@ -120,6 +146,46 @@ public class CharacterController2D : MonoBehaviour
 				vfxTimer1 = interval;
 			}
 		}
+
+		Collider2D[] colliders = Physics2D.OverlapCircleAll(m_GroundCheck.position, k_GroundedRadius, m_NormalGround);
+			for (int i = 0; i < colliders.Length; i++)
+			{
+				if (colliders[i].gameObject != gameObject  && !IsJumping && !audioManager.checkIsPlaying("LemonWalking") && !audioManager.checkIsPlaying("LemonWalking02") && !audioManager.checkIsPlaying("LemonWalking03"))
+				{
+					if(LastOnGroundTime >= 0 && move != 0f)
+					{
+						//audioManager.randomVolumeAndPitch("LemonWalking");
+						float random = Random.Range(-6f,6f);
+						if(random >= -6f && random < -2f)
+							audioManager.Play("LemonWalking");
+						else if(random >= -2f && random < 2f)
+							audioManager.Play("LemonWalking02");
+						else
+							audioManager.Play("LemonWalking03");
+					}
+				}
+			}
+		
+		Collider2D[] colliders2 = Physics2D.OverlapCircleAll(m_GroundCheck.position, k_GroundedRadius, m_Box);
+			for (int i = 0; i < colliders2.Length; i++)
+			{
+				if (colliders2[i].gameObject != gameObject  && !IsJumping && !audioManager.checkIsPlaying("BoxStep01") && !audioManager.checkIsPlaying("BoxStep02") && !audioManager.checkIsPlaying("BoxStep03"))
+				{
+					if(LastOnGroundTime >= 0 && move != 0f)
+					{
+						//audioManager.randomVolumeAndPitch("LemonWalking");
+						float random = Random.Range(-6f,6f);
+						if(random >= -6f && random < -2f)
+							audioManager.Play("BoxStep01");
+						else if(random >= -2f && random < 2f)
+							audioManager.Play("BoxStep02");
+						else
+							audioManager.Play("BoxStep03");
+					}
+				}
+			}
+
+
 		//only control the player if grounded or airControl is turned on 
 		if (m_AirControl)
 		{
@@ -188,13 +254,13 @@ public class CharacterController2D : MonoBehaviour
 
 	private void Flip()
 	{
-		// Switch the way the player is labelled as facing.
 		m_FacingRight = !m_FacingRight;
-
-		// Multiply the player's x local scale by -1.
-		Vector3 theScale = transform.localScale;
-		theScale.x *= -1;
-		transform.localScale = theScale;
+		fliped = !fliped;
+		if(playerSprite.flipX == false)
+		    playerSprite.flipX = true;
+        else
+            playerSprite.flipX = false;
+		
 	}
 
 	private void OnDrawGizmosSelected()

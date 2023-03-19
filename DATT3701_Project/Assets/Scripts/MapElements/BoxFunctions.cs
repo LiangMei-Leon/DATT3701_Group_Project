@@ -32,7 +32,15 @@ public class BoxFunctions : MonoBehaviour
     // private bool floatingL = false;
     // private bool floatingR = false;
     // public bool floating = false;
+    private AudioManager audioManager;
+    private bool audioPlayed01 = false;
 
+    private ParticleSystem breakVFX1;
+	private ParticleSystem breakVFX2;
+    private bool used = false;
+
+    private Vector3 savedBoxLoaction;
+    private float savedBoxLife = 2;
 
     // Start is called before the first frame update
     void Start()
@@ -42,18 +50,34 @@ public class BoxFunctions : MonoBehaviour
         normalplayer = GameObject.FindWithTag("Player");
         playerData = normalplayer.GetComponent<CharacterController2D>();
         boxSprite = gameObject.GetComponent<SpriteRenderer>();
+        audioManager = FindObjectOfType<AudioManager>();
+
+        breakVFX1 = this.gameObject.transform.GetChild(0).gameObject.GetComponent<ParticleSystem>();
+		breakVFX2 = this.gameObject.transform.GetChild(1).gameObject.GetComponent<ParticleSystem>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(boxLifespan == 1)
+        if(boxLifespan == 1 && !audioPlayed01)
         {
+            audioPlayed01 = true;
             boxSprite.color = Color.red;
+            audioManager.Play("BoxCracked01");
+            breakVFX1.Play();
         }
-        if(boxLifespan <= 0)
+        if(boxLifespan <= 0 && !used)
         {
-            Destroy(gameObject);
+            used = true;
+            boxSprite.color = new Color(1,1,1,0);
+            foreach (Collider2D c in this.GetComponents<Collider2D>())
+            {
+                if(c.enabled == true)
+                    c.enabled = false;
+            }
+            breakVFX2.Play();
+            audioManager.Play("BoxCracked02");
+            //Destroy(gameObject, 0.5f);
         }
         emotionStatus = playerEmotion.getEmotionStatus();
         Physics2D.queriesStartInColliders = false;
@@ -147,6 +171,48 @@ public class BoxFunctions : MonoBehaviour
     public void Smash(){
         boxLifespan--;
     }
+    
+    public void UpdateBoxStatus()
+    {
+        savedBoxLoaction = this.transform.position;
+        savedBoxLife = boxLifespan;
+    }
+
+    public void RewindBox()
+    {
+        if(this.boxLifespan == 0 && savedBoxLife == 1){
+            this.boxLifespan = savedBoxLife;
+            audioPlayed01 = true;
+            used = false;
+            boxSprite.color = Color.red;
+            foreach (Collider2D c in this.GetComponents<Collider2D>())
+            {
+                if(c.enabled == false)
+                    c.enabled = true;
+            }
+            this.transform.position = savedBoxLoaction;
+        }else if(this.boxLifespan == 0 && savedBoxLife == 2){
+            this.boxLifespan = savedBoxLife;
+            audioPlayed01 = false;
+            used = false;
+            boxSprite.color = Color.white;
+            foreach (Collider2D c in this.GetComponents<Collider2D>())
+            {
+                if(c.enabled == false)
+                    c.enabled = true;
+            }
+            this.transform.position = savedBoxLoaction;
+        }else if(this.boxLifespan == 1 && savedBoxLife == 2){
+            this.boxLifespan = savedBoxLife;
+            audioPlayed01 = false;
+            boxSprite.color = Color.white;
+            this.transform.position = savedBoxLoaction;
+        }else if(this.boxLifespan == savedBoxLife){
+            this.transform.position = savedBoxLoaction;
+        }
+
+    }
+    
 
     private void OnTriggerEnter2D(Collider2D other)
     {

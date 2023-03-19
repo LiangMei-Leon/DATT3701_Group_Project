@@ -11,9 +11,18 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/Tutorial_2.unity
     guid: 6416836fd278df447bc1af74b89575d2
+  - enabled: 0
+    path: Assets/Scenes/tur1.unity
+    guid: 1a88e82407cdb8b45a75b07880725163
+  - enabled: 0
+    path: Assets/Scenes/tur2.unity
+    guid: b4c6f29eb1b55d845ada385203862be2
   - enabled: 1
     path: Assets/Scenes/Test_1.unity
     guid: 3404559358028384b94651904c9d4828
+  - enabled: 0
+    path: Assets/Scenes/Test_1b.unity
+    guid: a56d4131b90fde74d91b76ff63bfe602
   - enabled: 0
     path: Assets/Scenes/Level02.unity
     guid: 9ff50c4f9a3033842b3a3f970e8c3b85
@@ -23,4 +32,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/2.unity
     guid: ee4103029803453479305f792c918dfd
+  - enabled: 0
+    path: Assets/Scenes/Test_2.unity
+    guid: 1b9fec4bac9a2024c971b695e5b33289
   m_configObjects: {}

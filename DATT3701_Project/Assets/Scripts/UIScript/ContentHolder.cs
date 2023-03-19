@@ -7,7 +7,7 @@ public class ContentHolder : MonoBehaviour
 {
     
     public GameObject[] TutorialImages;
-    public int index;
+    public int index = 0;
     public int totalImages = 5;
     
     public GameObject TutorialPanel;
@@ -20,7 +20,7 @@ public class ContentHolder : MonoBehaviour
     void Start()
     {
         index = 0;
-        TutorialPanel.gameObject.SetActive(true);
+        //TutorialPanel.gameObject.SetActive(false);
     }
 
     // Update is called once per frame
@@ -71,6 +71,12 @@ public class ContentHolder : MonoBehaviour
 
 
     public void Close(){
+        index = 0;
+        CheckIndex();
+       for(int i=0; i< TutorialImages.Length; i++){
+            TutorialImages[i].gameObject.SetActive(false);
+            TutorialImages[index].gameObject.SetActive(true);
+        }
         TutorialPanel.gameObject.SetActive(false);
     }
 
