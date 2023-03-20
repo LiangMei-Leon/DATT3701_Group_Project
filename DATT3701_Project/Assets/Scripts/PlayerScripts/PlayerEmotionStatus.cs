@@ -42,7 +42,6 @@ public class PlayerEmotionStatus : MonoBehaviour
         emotionStatus = initialValue;
         _animator = normalPlayer.GetComponent<Animator>();
         audioManager = FindObjectOfType<AudioManager>();
-        audioManager.Play("SerenityTheme");
 
         if(Needle != null)
             Needle.setEmo(emotionStatus); // add this to set default value when start game   jingwei
@@ -64,6 +63,13 @@ public class PlayerEmotionStatus : MonoBehaviour
     void Update()
     {
         _animator.SetFloat("Emotion", emotionStatus);
+        if(emotionStatus <= 0 && !audioManager.checkIsPlaying("SerenityTheme")){
+            audioManager.Stop("RageTheme");
+            audioManager.Play("SerenityTheme");
+        }else if(emotionStatus > 0 && !audioManager.checkIsPlaying("RageTheme")){
+            audioManager.Stop("SerenityTheme");
+            audioManager.Play("RageTheme");
+        }
         //only for testing
         if(Input.GetKeyDown("r")){
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);

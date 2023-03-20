@@ -41,6 +41,7 @@ public class LemonSlice : MonoBehaviour
             used = true;
             playerEmotion.IncreaseSerenity(IncreaseAmount);
             sliceVFX1.Play();
+            audioManager.Play("LemonSlice");
             if(dialogText != null){
                 dialogText.SetActive(true);
                 Invoke("Cancel2", 1.5f);

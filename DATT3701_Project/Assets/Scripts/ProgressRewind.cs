@@ -12,6 +12,7 @@ public class ProgressRewind : MonoBehaviour
     private float player_Savedemotion;
     private GameObject[] boxes;
     private GameObject[] slices;
+    private bool saved = false;
 
     // Start is called before the first frame update
     void Start()
@@ -32,6 +33,7 @@ public class ProgressRewind : MonoBehaviour
         emotionStatus = playerEmotion.getEmotionStatus();
         if(Input.GetKeyDown("c"))
         {
+            saved = true;
             player_Savedemotion = playerEmotion.getEmotionStatus();
             playerInput.UpdatePlayerLocation();
             foreach (GameObject box in boxes)
@@ -45,7 +47,7 @@ public class ProgressRewind : MonoBehaviour
                 slicef.UpdateSliceStatus();
             }
         }
-        if(Input.GetKeyDown("v"))
+        if(Input.GetKeyDown("v") && saved)
         {
             playerEmotion.IncreaseFear(30);
             if(player_Savedemotion <= emotionStatus){
