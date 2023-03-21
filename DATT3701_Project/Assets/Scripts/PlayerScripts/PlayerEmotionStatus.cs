@@ -21,7 +21,8 @@ public class PlayerEmotionStatus : MonoBehaviour
     public Sprite rageSprite;
     public GameObject LemonAngel;
 
-    public GameObject TEXT1;
+    public GameObject Gameover;
+    public GameObject pauseShade;
     public GameObject TEXT2;
     public TextMeshProUGUI tmp;
     private SpriteRenderer normalPlayerSprite;
@@ -102,10 +103,8 @@ public class PlayerEmotionStatus : MonoBehaviour
             ToRageFace();
         }
         if(fearStatus >= 100 && respawnUsed){
-            if(TEXT1 != null)
-                TEXT1.SetActive(true);
-            Time.timeScale = 0;
-            Debug.Log("YOU LOST. RESTART THE LEVEL........");
+            pauseShade.SetActive(true);
+            Gameover.SetActive(true);
         }
         if(isGhost && !respawnable){
             fearTimer += Time.deltaTime;
@@ -115,10 +114,9 @@ public class PlayerEmotionStatus : MonoBehaviour
                 fearTimer = 0;
             }
             if(fearCountDown < 0f && !respawnable){
-                if(TEXT1 != null)
-                    TEXT1.SetActive(true);
-                Time.timeScale = 0;
-                Debug.Log("YOU LOST. RESTART THE LEVEL........");
+                TEXT2.SetActive(false);
+                pauseShade.SetActive(true);
+                Gameover.SetActive(true);
             }
         }
     }

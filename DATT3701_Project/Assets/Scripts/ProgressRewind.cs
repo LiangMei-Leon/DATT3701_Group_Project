@@ -8,6 +8,7 @@ public class ProgressRewind : MonoBehaviour
     private GameObject playerManager;
     private PlayerEmotionStatus playerEmotion;
     private float emotionStatus;
+    private bool isGhost;
     private GameObject player;
     private PlayerMovement playerInput;
     private float player_Savedemotion;
@@ -36,17 +37,17 @@ public class ProgressRewind : MonoBehaviour
     void Update()
     {
         emotionStatus = playerEmotion.getEmotionStatus();
-        if(Input.GetKeyDown("r") && !panelActivating){
+        if(Input.GetKeyDown("r") && !panelActivating && !playerEmotion.getFearStatus()){
             pauseShade.SetActive(true);
             reloadPanel.SetActive(true);
             panelActivating = true;
-        }else if(Input.GetKeyDown("r") && panelActivating){
+        }else if(Input.GetKeyDown("r") && panelActivating && !playerEmotion.getFearStatus()){
             pauseShade.SetActive(false);
             warning.SetActive(false);
             reloadPanel.SetActive(false);
             panelActivating = false;
         }
-        if(Input.GetKeyDown("c"))
+        if(Input.GetKeyDown("c") && !playerEmotion.getFearStatus())
         {
             saved = true;
             player_Savedemotion = playerEmotion.getEmotionStatus();
@@ -97,5 +98,10 @@ public class ProgressRewind : MonoBehaviour
     public void Restart()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    public void Back()
+    {
+        SceneManager.LoadScene("StartMenu");
     }
 }
