@@ -99,3 +99,21 @@ MonoBehaviour:
     pitch: 1
     source: {fileID: 0}
     loop: 0
+  - name: SerenityTheme
+    clip: {fileID: 8300000, guid: cbb4c9e22b8fc0447a9404c4ba159829, type: 3}
+    volume: 0.3
+    pitch: 1
+    source: {fileID: 0}
+    loop: 1
+  - name: RageTheme
+    clip: {fileID: 8300000, guid: 165c0cd9735fa15479087837057f2b96, type: 3}
+    volume: 0.3
+    pitch: 1
+    source: {fileID: 0}
+    loop: 1
+  - name: LemonSlice
+    clip: {fileID: 8300000, guid: 9eb966396b2667a488c992c31fbfb65f, type: 3}
+    volume: 0.5
+    pitch: 1
+    source: {fileID: 0}
+    loop: 0
