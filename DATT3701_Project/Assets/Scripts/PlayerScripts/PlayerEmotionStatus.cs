@@ -70,10 +70,7 @@ public class PlayerEmotionStatus : MonoBehaviour
             audioManager.Stop("SerenityTheme");
             audioManager.Play("RageTheme");
         }
-        //only for testing
-        if(Input.GetKeyDown("r")){
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-        }
+        
         if(Input.GetKeyDown("e"))
         {
             IncreaseRage(10f);
