@@ -120,6 +120,15 @@ public class ProgressRewind : MonoBehaviour
         SceneManager.LoadScene("StartMenu");
     }
 
+    public void Close()
+    {
+        audioManager.Play("PanelToggle");
+        pauseShade.SetActive(false);
+        warning.SetActive(false);
+        reloadPanel.SetActive(false);
+        panelActivating = false;
+    }
+
     void Cancel()
     {
         text.SetActive(false);
