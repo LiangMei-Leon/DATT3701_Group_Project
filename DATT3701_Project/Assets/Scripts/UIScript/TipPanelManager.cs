@@ -14,11 +14,16 @@ public class TipPanelManager : MonoBehaviour
 
     public GameObject CloseTipButton;
 
+    private AudioManager audioManager;
+
 
     private bool isPanelActive = false;
-    
+    void Start(){
+        audioManager = FindObjectOfType<AudioManager>();
+    }
     void Update(){
         if(Input.GetKeyDown(KeyCode.H) && isPanelActive == false ){
+            audioManager.Play("PanelToggle");
             OpenTipMenu();
         }else if(Input.GetKeyDown(KeyCode.H) && isPanelActive == true){
             CloseTipMenu();
@@ -34,7 +39,7 @@ public class TipPanelManager : MonoBehaviour
     }
 
     public void CloseTipMenu(){
-            
+            audioManager.Play("PanelToggle");
             if(TipMenu != null && isPanelActive == true){
                 TipMenu.SetActive(false);
                 isPanelActive = false;
@@ -48,6 +53,7 @@ public class TipPanelManager : MonoBehaviour
     }
 
     public void ShowTip1(){
+        audioManager.Play("ClickButton");
         bool isTipactive = Tip1.activeSelf;
         
         if(TipMenu != null && isTipactive == false){
@@ -60,6 +66,7 @@ public class TipPanelManager : MonoBehaviour
     }
 
     public void ShowTip2(){
+        audioManager.Play("ClickButton");
          bool isTipactive = Tip1.activeSelf;
         
         if(TipMenu != null && isTipactive == false){
@@ -71,6 +78,7 @@ public class TipPanelManager : MonoBehaviour
     }
 
     public void ShowTip3(){
+        audioManager.Play("ClickButton");
          bool isTipactive = Tip1.activeSelf;
         
         if(TipMenu != null && isTipactive == false){
