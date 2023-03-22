@@ -19,6 +19,9 @@ public class ProgressRewind : MonoBehaviour
     public GameObject pauseShade;
     public GameObject reloadPanel;
     public GameObject warning;
+    public GameObject text;
+
+    private AudioManager audioManager;
 
     // Start is called before the first frame update
     void Start()
@@ -27,6 +30,8 @@ public class ProgressRewind : MonoBehaviour
         playerEmotion= playerManager.GetComponent<PlayerEmotionStatus>();
         player = GameObject.FindWithTag("Player");
         playerInput = player.GetComponent<PlayerMovement>();
+        audioManager = FindObjectOfType<AudioManager>();
+
         if (boxes == null)
             boxes = GameObject.FindGameObjectsWithTag("Boxes");
         if (slices == null)
@@ -38,10 +43,12 @@ public class ProgressRewind : MonoBehaviour
     {
         emotionStatus = playerEmotion.getEmotionStatus();
         if(Input.GetKeyDown("r") && !panelActivating && !playerEmotion.getFearStatus()){
+            audioManager.Play("PanelToggle");
             pauseShade.SetActive(true);
             reloadPanel.SetActive(true);
             panelActivating = true;
         }else if(Input.GetKeyDown("r") && panelActivating && !playerEmotion.getFearStatus()){
+            audioManager.Play("PanelToggle");
             pauseShade.SetActive(false);
             warning.SetActive(false);
             reloadPanel.SetActive(false);
@@ -50,6 +57,11 @@ public class ProgressRewind : MonoBehaviour
         if(Input.GetKeyDown("c") && !playerEmotion.getFearStatus())
         {
             saved = true;
+            audioManager.Play("Save");
+            if(text != null){
+                text.SetActive(true);
+                Invoke("Cancel", 1f);
+            }
             player_Savedemotion = playerEmotion.getEmotionStatus();
             playerInput.UpdatePlayerLocation();
             foreach (GameObject box in boxes)
@@ -69,6 +81,7 @@ public class ProgressRewind : MonoBehaviour
     {
         if(saved)
         {
+            audioManager.Play("ClickButton");
             pauseShade.SetActive(false);
             warning.SetActive(false);
             reloadPanel.SetActive(false);
@@ -97,11 +110,18 @@ public class ProgressRewind : MonoBehaviour
 
     public void Restart()
     {
+        audioManager.Play("ClickButton");
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     public void Back()
     {
+        audioManager.Play("ClickButton");
         SceneManager.LoadScene("StartMenu");
+    }
+
+    void Cancel()
+    {
+        text.SetActive(false);
     }
 }

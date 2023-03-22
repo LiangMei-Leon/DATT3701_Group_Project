@@ -26,6 +26,9 @@ public class GhostMovement : MonoBehaviour
         if(!pauseShade.activeSelf){
             moveInput.x = Input.GetAxisRaw("Horizontal");
             moveInput.y = Input.GetAxisRaw("Vertical");
+        }else{
+            moveInput.x = 0;
+            moveInput.y = 0;
         }
         moveInput.Normalize();
         rb2d.velocity = moveInput* flySpeed;

@@ -11,7 +11,7 @@ public class ContentHolder : MonoBehaviour
     public int totalImages = 5;
     
     public GameObject TutorialPanel;
-    
+    private AudioManager audioManager;
     
     
     
@@ -21,6 +21,7 @@ public class ContentHolder : MonoBehaviour
     {
         index = 0;
         //TutorialPanel.gameObject.SetActive(false);
+        audioManager = FindObjectOfType<AudioManager>();
     }
 
     // Update is called once per frame
@@ -42,7 +43,7 @@ public class ContentHolder : MonoBehaviour
 
     public void Next(){
         
-        
+        audioManager.Play("ClickButton");
         index += 1;
         CheckIndex();
 
@@ -56,7 +57,7 @@ public class ContentHolder : MonoBehaviour
     }
 
     public void Back(){
-       
+        audioManager.Play("ClickButton");
         index -= 1;
         CheckIndex();
 
@@ -71,6 +72,7 @@ public class ContentHolder : MonoBehaviour
 
 
     public void Close(){
+        audioManager.Play("PanelToggle");
         index = 0;
         CheckIndex();
        for(int i=0; i< TutorialImages.Length; i++){

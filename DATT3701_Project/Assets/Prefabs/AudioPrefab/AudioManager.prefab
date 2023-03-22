@@ -117,3 +117,21 @@ MonoBehaviour:
     pitch: 1
     source: {fileID: 0}
     loop: 0
+  - name: Save
+    clip: {fileID: 8300000, guid: 207be7575051d074c97325c590d20480, type: 3}
+    volume: 0.5
+    pitch: 1
+    source: {fileID: 0}
+    loop: 0
+  - name: PanelToggle
+    clip: {fileID: 8300000, guid: f1f1c302eec054047913f09f7ef73df1, type: 3}
+    volume: 0.5
+    pitch: 1
+    source: {fileID: 0}
+    loop: 0
+  - name: ClickButton
+    clip: {fileID: 8300000, guid: ce84f18a3d96a07438bef9bd0b4d30ee, type: 3}
+    volume: 0.5
+    pitch: 1
+    source: {fileID: 0}
+    loop: 0
