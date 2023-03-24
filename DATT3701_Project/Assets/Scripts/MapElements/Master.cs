@@ -17,22 +17,26 @@ public class Master : MonoBehaviour
    
    private GameObject mark;
    public GameObject shade;
+   private AudioManager audioManager;
    
    void Start()
    {
         mark = this.gameObject.transform.GetChild(0).gameObject;
+        audioManager = FindObjectOfType<AudioManager>();
    }
     // Update is called once per frame
     void Update()
     {
         if(Input.GetKeyDown(KeyCode.I) && panelActiving == true)
         {
+            audioManager.Play("PanelToggle");
             panelActiving = false;
             playerIsClose = false;
             TutorialPanel.SetActive(false);
             shade.SetActive(false);
         }else if(Input.GetKeyDown(KeyCode.I) && panelActiving == false)
         {
+            audioManager.Play("PanelToggle");
             panelActiving = true;
         }
 
@@ -50,6 +54,7 @@ public class Master : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other){
         if(other.CompareTag("Player") && triggerEnable){
+            audioManager.Play("PanelToggle");
             triggerEnable = false;
             playerIsClose = true;
             TriggerDialogue();

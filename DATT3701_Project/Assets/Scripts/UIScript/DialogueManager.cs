@@ -18,12 +18,14 @@ public class DialogueManager : MonoBehaviour
     
     
     private Queue<string> sentences;
+    private AudioManager audioManager;
     
     
     // Start is called before the first frame update
     void Start()
     {
         sentences = new Queue<string>();
+        audioManager = FindObjectOfType<AudioManager>();
     }
 
     public void StartDialogue(Dialogue dialogue){
@@ -48,6 +50,7 @@ public class DialogueManager : MonoBehaviour
     }
 
     public void DisplayNextSentence(){
+        audioManager.Play("ClickButton");
         if (sentences.Count == 0){
             EndDialogue();
             return;

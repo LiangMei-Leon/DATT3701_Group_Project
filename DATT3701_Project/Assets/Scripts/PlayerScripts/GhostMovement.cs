@@ -10,6 +10,7 @@ public class GhostMovement : MonoBehaviour
     public float flySpeed = 3.0f;
     public Rigidbody2D rb2d;
     private Vector2 moveInput;
+    public GameObject pauseShade;
 
     // Start is called before the first frame update
     void Start()
@@ -22,9 +23,13 @@ public class GhostMovement : MonoBehaviour
     void Update()
     {
         //emotionStatus = playerEmotion.getFearStatus();
-        moveInput.x = Input.GetAxisRaw("Horizontal");
-        moveInput.y = Input.GetAxisRaw("Vertical");
-
+        if(!pauseShade.activeSelf){
+            moveInput.x = Input.GetAxisRaw("Horizontal");
+            moveInput.y = Input.GetAxisRaw("Vertical");
+        }else{
+            moveInput.x = 0;
+            moveInput.y = 0;
+        }
         moveInput.Normalize();
         rb2d.velocity = moveInput* flySpeed;
         Physics2D.IgnoreLayerCollision(7, 9, true);
