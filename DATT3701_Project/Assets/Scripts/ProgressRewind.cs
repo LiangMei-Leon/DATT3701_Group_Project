@@ -104,6 +104,7 @@ public class ProgressRewind : MonoBehaviour
                 slicef.RewindSlice();
             }
         }else{
+            audioManager.Play("ClickButton");
             warning.SetActive(true);
         }
     }
