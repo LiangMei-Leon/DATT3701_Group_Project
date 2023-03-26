@@ -12,11 +12,15 @@ public class GhostMovement : MonoBehaviour
     private Vector2 moveInput;
     public GameObject pauseShade;
 
+    private SpriteRenderer playerSprite;
+    private bool facingRight = true;
+
     // Start is called before the first frame update
     void Start()
     {
         // playerManager = GameObject.FindWithTag("PlayerManager");
         // playerEmotion= playerManager.GetComponent<PlayerEmotionStatus>();
+        playerSprite = gameObject.GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
@@ -29,6 +33,14 @@ public class GhostMovement : MonoBehaviour
         }else{
             moveInput.x = 0;
             moveInput.y = 0;
+        }
+        if(moveInput.x > 0 && !facingRight){
+            facingRight = true;
+            playerSprite.flipX = false;
+        }
+        if(moveInput.x < 0 && facingRight){
+            facingRight = false;
+            playerSprite.flipX = true;
         }
         moveInput.Normalize();
         rb2d.velocity = moveInput* flySpeed;
