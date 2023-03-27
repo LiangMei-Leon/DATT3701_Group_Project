@@ -6527,6 +6527,7 @@ MonoBehaviour:
   controller: {fileID: 627218908}
   runSpeed: 5
   horizontalMove: 0
+  pauseShade: {fileID: 1168437827}
 --- !u!114 &627218914
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8229,11 +8230,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1157174024407251032, guid: 68f405465783e604abe426d187b660e4, type: 3}
   m_PrefabInstance: {fileID: 1187288219}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &756301471 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4168837303410723439, guid: 38b0d93b6e72d464a910b06e7dc067af, type: 3}
-  m_PrefabInstance: {fileID: 1570091635}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &758638544 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4168837303014069410, guid: 38b0d93b6e72d464a910b06e7dc067af, type: 3}
@@ -8304,7 +8300,8 @@ MonoBehaviour:
   serenitySprite: {fileID: 21300000, guid: c60c52017bc17264cb93c63111bd0d18, type: 3}
   rageSprite: {fileID: 21300000, guid: d1869b2599c78da409580c36080f113b, type: 3}
   LemonAngel: {fileID: 0}
-  TEXT1: {fileID: 756301471}
+  Gameover: {fileID: 0}
+  pauseShade: {fileID: 0}
   TEXT2: {fileID: 107473635}
   tmp: {fileID: 107473637}
   Needle: {fileID: 1041577721}
@@ -14165,6 +14162,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   flySpeed: 3
   rb2d: {fileID: 1357895680}
+  pauseShade: {fileID: 0}
 --- !u!50 &1357895680
 Rigidbody2D:
   serializedVersion: 4

@@ -10,6 +10,7 @@ TagManager:
   - GhostPlayer
   - PauseShade
   - LemonSlices
+  - Master
   layers:
   - Default
   - TransparentFX
@@ -24,7 +25,7 @@ TagManager:
   - SpecialElements
   - Master
   - Turtle
-  - 
+  - button
   - 
   - 
   - 
@@ -44,6 +45,9 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: button
+    uniqueID: 2289304685
+    locked: 0
   - name: Background
     uniqueID: 519223945
     locked: 0
