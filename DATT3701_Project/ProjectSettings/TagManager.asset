@@ -10,6 +10,7 @@ TagManager:
   - GhostPlayer
   - PauseShade
   - LemonSlices
+  - Master
   layers:
   - Default
   - TransparentFX

@@ -164,13 +164,13 @@ public class PlayerEmotionStatus : MonoBehaviour
             isGhost = true;
         }
         if(isGhost && !respawnUsed){
-            foreach (Collider2D c in normalPlayer.GetComponents<Collider2D>())
-            {
-                if(c.enabled == true)
-                    c.enabled = false;
-                else
-                    c.enabled = true;
-            }
+            // foreach (Collider2D c in normalPlayer.GetComponents<Collider2D>())
+            // {
+            //     if(c.enabled == true)
+            //         c.enabled = false;
+            //     else
+            //         c.enabled = true;
+            // }
             if(TEXT2 != null)
                 TEXT2.SetActive(true);
             LemonAngel.SetActive(true);
@@ -204,13 +204,13 @@ public class PlayerEmotionStatus : MonoBehaviour
         respawnUsed = true;
         if(TEXT2 != null)
             TEXT2.SetActive(false);
-        foreach (Collider2D c in normalPlayer.GetComponents<Collider2D>())
-        {
-            if(c.enabled == true)
-                c.enabled = false;
-            else
-                c.enabled = true;
-        }
+        // foreach (Collider2D c in normalPlayer.GetComponents<Collider2D>())
+        // {
+        //     if(c.enabled == true)
+        //         c.enabled = false;
+        //     else
+        //         c.enabled = true;
+        // }
         ghostPlayer.SetActive(false);
     }
 
