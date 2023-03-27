@@ -17,7 +17,7 @@ public class ButtonPressed : MonoBehaviour
     private Vector3 originalPosition;
     private Vector3 targetPosition;
 
-    private bool isPressed;
+    private bool isPressed = false;
     public float returnSpeed = 1.0f;
 
     public float secound = 5;
@@ -33,7 +33,7 @@ public class ButtonPressed : MonoBehaviour
         targetPosition = originalPosition + new Vector3(0.0f, -spriteTransform.localScale.y * 0.5f, 0.0f);
 
         audioManager = FindObjectOfType<AudioManager>();
-        BoardText.GetComponent<TextMeshProUGUI>().color = Color.red;
+        BoardText.GetComponent<TextMeshPro>().color = Color.red;
     }
 
     void Update()
@@ -53,7 +53,7 @@ public class ButtonPressed : MonoBehaviour
 
     private void OnCollisionEnter2D(UnityEngine.Collision2D collision)
     {
-        if (((1 << collision.gameObject.layer) & PlayerLayer) != 0)
+        if (collision.gameObject.CompareTag("Player") && !isPressed)
         {
             isPressed = true;
             transform.position = targetPosition;
@@ -62,7 +62,7 @@ public class ButtonPressed : MonoBehaviour
 
     private void OnCollisionExit2D(UnityEngine.Collision2D collision)
     {
-        if (((1 << collision.gameObject.layer) & PlayerLayer) != 0)
+        if (collision.gameObject.CompareTag("Player") && isPressed)
         {
             isPressed = false;
         }
@@ -94,7 +94,7 @@ public class ButtonPressed : MonoBehaviour
             secound -= 1;
             Debug.Log(secound);
             nextTime = Time.time + 1;
-            BoardText.GetComponent<TextMeshProUGUI>().text = "" +secound;
+            BoardText.GetComponent<TextMeshPro>().text = "" +secound;
 
         }
     }
