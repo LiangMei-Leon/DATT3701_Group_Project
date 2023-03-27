@@ -12,6 +12,9 @@ public class ContentHolder : MonoBehaviour
     
     public GameObject TutorialPanel;
     private AudioManager audioManager;
+    private GameObject master;
+    private Master masterScript;
+    private GameObject pauseShade;
     
     
     
@@ -22,6 +25,9 @@ public class ContentHolder : MonoBehaviour
         index = 0;
         //TutorialPanel.gameObject.SetActive(false);
         audioManager = FindObjectOfType<AudioManager>();
+        master = GameObject.FindWithTag("Master");
+        masterScript = master.GetComponent<Master>();
+        pauseShade = GameObject.FindWithTag("PauseShade");
     }
 
     // Update is called once per frame
@@ -72,10 +78,12 @@ public class ContentHolder : MonoBehaviour
 
 
     public void Close(){
+        masterScript.panelActiving = false;
+        pauseShade.SetActive(false);
         audioManager.Play("PanelToggle");
         index = 0;
         CheckIndex();
-       for(int i=0; i< TutorialImages.Length; i++){
+        for(int i=0; i< TutorialImages.Length; i++){
             TutorialImages[i].gameObject.SetActive(false);
             TutorialImages[index].gameObject.SetActive(true);
         }

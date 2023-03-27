@@ -12,7 +12,7 @@ public class Master : MonoBehaviour
    
    
    public bool playerIsClose = false;
-   private bool panelActiving = false;
+   public bool panelActiving = false;
    private bool triggerEnable = true;
    
    private GameObject mark;

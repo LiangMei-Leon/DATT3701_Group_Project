@@ -25,8 +25,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6488417814463313961}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: -1.71, z: 0}
+  m_LocalScale: {x: 1.6806, y: 1.6806, z: 1.6806}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2857757274147438982}
@@ -59,6 +59,7 @@ GameObject:
   - component: {fileID: 8628835094925779119}
   - component: {fileID: 8628835094925779113}
   - component: {fileID: 6163276342942277319}
+  - component: {fileID: 9079589414578395458}
   m_Layer: 11
   m_Name: master
   m_TagString: Untagged
@@ -74,8 +75,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8628835094925779117}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.2598829, y: 0.2627325, z: 1}
+  m_LocalPosition: {x: -0.1, y: 0.3, z: 0}
+  m_LocalScale: {x: 0.13109769, y: 0.13253519, z: 0.5044491}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5686526424020462482}
@@ -123,12 +124,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: 21300000, guid: aa9d146a3d6f4814db3692d900cea278, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e884e86db53bb4a4bbe1d00ae7e8c25a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 4.4, y: 5.67}
+  m_Size: {x: 11.44, y: 11.08}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -149,9 +150,26 @@ MonoBehaviour:
   TutorialPanel: {fileID: 0}
   DialoguePanel: {fileID: 0}
   dialogue:
-    name: 
-    sentences: []
+    name: Lemon Master
+    sentences:
+    - 'GGWP!
+
+      Haha, just learn this new word from my daughter.
+
+'
+    - 'Here gives you some real challenges. '
+    - Do you see those blocks full of junk? Eww, gross.
+    - 'What I want you to do is cross those junk,
+
+      and try not to step on them
+      too long, then reach the destination!'
+    - 'Remember, the best way to eliminate fearness is to face it!
+
+'
+    - "Don\u2019t ask, just do it!\r\n"
   playerIsClose: 0
+  panelActiving: 0
+  shade: {fileID: 0}
 --- !u!61 &6163276342942277319
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -165,19 +183,39 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.018847466, y: 0.009319663}
+  m_Offset: {x: 0.100212574, y: -0.21656632}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 4.4, y: 5.67}
-    newSize: {x: 4.4, y: 5.67}
+    oldSize: {x: 11.44, y: 11.08}
+    newSize: {x: 11.44, y: 11.08}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2.5530844, y: 5.502227}
+  m_Size: {x: 5.941723, y: 6.086719}
   m_EdgeRadius: 0
+--- !u!95 &9079589414578395458
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8628835094925779117}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: fd0bc3e84564cd94a805b8838bafa653, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
 --- !u!1 &8628835095501091689
 GameObject:
   m_ObjectHideFlags: 0

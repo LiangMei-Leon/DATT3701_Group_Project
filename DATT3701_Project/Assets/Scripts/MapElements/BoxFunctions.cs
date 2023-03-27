@@ -62,7 +62,7 @@ public class BoxFunctions : MonoBehaviour
         if(boxLifespan == 1 && !audioPlayed01)
         {
             audioPlayed01 = true;
-            boxSprite.color = Color.red;
+            boxSprite.sprite = Resources.Load<Sprite>("box2");
             audioManager.Play("BoxCracked01");
             breakVFX1.Play();
         }
@@ -184,7 +184,8 @@ public class BoxFunctions : MonoBehaviour
             this.boxLifespan = savedBoxLife;
             audioPlayed01 = true;
             used = false;
-            boxSprite.color = Color.red;
+            boxSprite.sprite = Resources.Load<Sprite>("box2");
+            boxSprite.color =  Color.white;
             foreach (Collider2D c in this.GetComponents<Collider2D>())
             {
                 if(c.enabled == false)
@@ -195,7 +196,8 @@ public class BoxFunctions : MonoBehaviour
             this.boxLifespan = savedBoxLife;
             audioPlayed01 = false;
             used = false;
-            boxSprite.color = Color.white;
+            boxSprite.sprite = Resources.Load<Sprite>("box");
+            boxSprite.color =  Color.white;
             foreach (Collider2D c in this.GetComponents<Collider2D>())
             {
                 if(c.enabled == false)
@@ -205,7 +207,8 @@ public class BoxFunctions : MonoBehaviour
         }else if(this.boxLifespan == 1 && savedBoxLife == 2){
             this.boxLifespan = savedBoxLife;
             audioPlayed01 = false;
-            boxSprite.color = Color.white;
+            boxSprite.sprite = Resources.Load<Sprite>("box");
+            boxSprite.color =  Color.white;
             this.transform.position = savedBoxLoaction;
         }else if(this.boxLifespan == savedBoxLife){
             this.transform.position = savedBoxLoaction;

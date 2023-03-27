@@ -7,7 +7,7 @@ using TMPro;
 public class PlayerEmotionStatus : MonoBehaviour
 {
     [SerializeField] public float initialValue = 0.0f;
-    [SerializeField] private float emotionStatus;
+    [SerializeField] public float emotionStatus;
     [SerializeField] private float fearStatus;
     [SerializeField] private bool isGhost;
     [SerializeField] public float fearCountDown = 10.0f;
@@ -64,15 +64,18 @@ public class PlayerEmotionStatus : MonoBehaviour
     void Update()
     {
         _animator.SetFloat("Emotion", emotionStatus);
-        if(emotionStatus <= 0 && !audioManager.checkIsPlaying("SerenityTheme")){
+        if (emotionStatus <= 0 && !audioManager.checkIsPlaying("SerenityTheme"))
+        {
             audioManager.Stop("RageTheme");
             audioManager.Play("SerenityTheme");
-        }else if(emotionStatus > 0 && !audioManager.checkIsPlaying("RageTheme")){
+        }
+        else if (emotionStatus > 0 && !audioManager.checkIsPlaying("RageTheme"))
+        {
             audioManager.Stop("SerenityTheme");
             audioManager.Play("RageTheme");
         }
-        
-        if(Input.GetKeyDown("e"))
+
+        if (Input.GetKeyDown("e"))
         {
             IncreaseRage(10f);
             Debug.Log("Increase Rage for 10");
@@ -161,13 +164,13 @@ public class PlayerEmotionStatus : MonoBehaviour
             isGhost = true;
         }
         if(isGhost && !respawnUsed){
-            foreach (Collider2D c in normalPlayer.GetComponents<Collider2D>())
-            {
-                if(c.enabled == true)
-                    c.enabled = false;
-                else
-                    c.enabled = true;
-            }
+            // foreach (Collider2D c in normalPlayer.GetComponents<Collider2D>())
+            // {
+            //     if(c.enabled == true)
+            //         c.enabled = false;
+            //     else
+            //         c.enabled = true;
+            // }
             if(TEXT2 != null)
                 TEXT2.SetActive(true);
             LemonAngel.SetActive(true);
@@ -201,13 +204,13 @@ public class PlayerEmotionStatus : MonoBehaviour
         respawnUsed = true;
         if(TEXT2 != null)
             TEXT2.SetActive(false);
-        foreach (Collider2D c in normalPlayer.GetComponents<Collider2D>())
-        {
-            if(c.enabled == true)
-                c.enabled = false;
-            else
-                c.enabled = true;
-        }
+        // foreach (Collider2D c in normalPlayer.GetComponents<Collider2D>())
+        // {
+        //     if(c.enabled == true)
+        //         c.enabled = false;
+        //     else
+        //         c.enabled = true;
+        // }
         ghostPlayer.SetActive(false);
     }
 
