@@ -1693,7 +1693,7 @@ Transform:
   - {fileID: 774407597}
   - {fileID: 72624815}
   m_Father: {fileID: 2024254707}
-  m_RootOrder: 7
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &185299756 stripped
 Transform:
@@ -6352,7 +6352,7 @@ GameObject:
   - component: {fileID: 531477888}
   - component: {fileID: 531477889}
   m_Layer: 0
-  m_Name: ContentHolder
+  m_Name: TutorialManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6365,7 +6365,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 531477887}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -21164,9 +21164,9 @@ RectTransform:
   - {fileID: 2046663575}
   - {fileID: 1053740505}
   - {fileID: 549888372}
+  - {fileID: 172954602}
   - {fileID: 4919904811261657133}
   - {fileID: 7330491527313203498}
-  - {fileID: 172954602}
   m_Father: {fileID: 639178898}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -22847,7 +22847,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9218395660926017459, guid: 20268695f3b05d24aa63f44843477cb8, type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 9218395660926017459, guid: 20268695f3b05d24aa63f44843477cb8, type: 3}
       propertyPath: m_AnchorMax.x
@@ -23388,7 +23388,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 72013518536141445, guid: 183012bda1e8b924e8d25ee719ddc0ca, type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 72013518536141445, guid: 183012bda1e8b924e8d25ee719ddc0ca, type: 3}
       propertyPath: m_AnchorMax.x

@@ -79,7 +79,9 @@ public class ContentHolder : MonoBehaviour
             TutorialImages[i].gameObject.SetActive(false);
             TutorialImages[index].gameObject.SetActive(true);
         }
+        
         TutorialPanel.gameObject.SetActive(false);
+        // change the PanelActiving to false to fix panel close problem
     }
 
 
