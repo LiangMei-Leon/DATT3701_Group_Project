@@ -23,7 +23,7 @@ public class ContentHolder : MonoBehaviour
     void Start()
     {
         index = 0;
-        //TutorialPanel.gameObject.SetActive(false);
+        TutorialPanel.gameObject.SetActive(false);
         audioManager = FindObjectOfType<AudioManager>();
         master = GameObject.FindWithTag("Master");
         masterScript = master.GetComponent<Master>();
@@ -78,6 +78,7 @@ public class ContentHolder : MonoBehaviour
 
 
     public void Close(){
+        
         masterScript.panelActiving = false;
         pauseShade.SetActive(false);
         audioManager.Play("PanelToggle");
@@ -87,7 +88,9 @@ public class ContentHolder : MonoBehaviour
             TutorialImages[i].gameObject.SetActive(false);
             TutorialImages[index].gameObject.SetActive(true);
         }
+        
         TutorialPanel.gameObject.SetActive(false);
+        // change the PanelActiving to false to fix panel close problem
     }
 
 
