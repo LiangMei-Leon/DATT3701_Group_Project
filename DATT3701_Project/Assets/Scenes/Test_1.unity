@@ -12359,6 +12359,10 @@ PrefabInstance:
       propertyPath: TutorialPanel
       value: 
       objectReference: {fileID: 1169509652}
+    - target: {fileID: 8628835094925779117, guid: 29a02dc0859b5374fad4c214b9cd8b31, type: 3}
+      propertyPath: m_TagString
+      value: Master
+      objectReference: {fileID: 0}
     - target: {fileID: 8628835095501091689, guid: 29a02dc0859b5374fad4c214b9cd8b31, type: 3}
       propertyPath: m_Name
       value: Master

@@ -17,12 +17,15 @@ public class ButtonPressed : MonoBehaviour
     private Vector3 originalPosition;
     private Vector3 targetPosition;
 
+    [Tooltip("Setting, Credit, Exit, Level**")]
+    public string areaMode;
+
     private bool isPressed = false;
     public float returnSpeed = 1.0f;
 
-    public float secound = 5;
+    public float secound = 3;
     private float nextTime = 1;
-
+    private bool activated = false;
     private AudioManager audioManager;
 
 
@@ -33,7 +36,6 @@ public class ButtonPressed : MonoBehaviour
         targetPosition = originalPosition + new Vector3(0.0f, -spriteTransform.localScale.y * 0.5f, 0.0f);
 
         audioManager = FindObjectOfType<AudioManager>();
-        BoardText.GetComponent<TextMeshPro>().color = Color.red;
     }
 
     void Update()
@@ -41,17 +43,44 @@ public class ButtonPressed : MonoBehaviour
         if (!isPressed)
         {
             transform.position = Vector3.MoveTowards(transform.position, originalPosition, returnSpeed * Time.deltaTime);
-  
         }
         else
         {
-                Timing();
-            
+            Timing();
         }
-        
     }
 
-    private void OnCollisionEnter2D(UnityEngine.Collision2D collision)
+    private void Timing()
+    {
+        if (secound <= 0 && !activated)
+        {
+            if (areaMode == "Setting")
+            {
+                activated =  true;
+                Debug.Log("open setting panel");
+            }
+            if (areaMode == "Credit")
+            {
+                activated =  true;
+                Debug.Log("open credit panel");
+            }
+            if (areaMode == "Exit")
+            {
+                activated =  true;
+                Application.Quit();
+            }
+            return;
+        }else if(Time.time >= nextTime && !activated)
+        {
+            secound -= 1;
+            nextTime = Time.time + 1;
+            BoardText.GetComponent<TextMeshPro>().text = "" + secound;
+
+        }
+    }
+
+
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Player") && !isPressed)
         {
@@ -60,69 +89,26 @@ public class ButtonPressed : MonoBehaviour
         }
     }
 
-    private void OnCollisionExit2D(UnityEngine.Collision2D collision)
+    public void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Player") && isPressed)
         {
             isPressed = false;
-        }
-    }
-
-
-    private void Timing()
-    {
-        if (secound <= 0)
-        {
-            if (this.name == "start")
+            activated = false;
+            secound = 4;
+            nextTime = 1;
+            if (areaMode == "Setting")
             {
-                SceneManager.LoadScene("StartMenu 1");
-                GameObject.Find("PlayerManager").GetComponent<PlayerEmotionStatus>().emotionStatus = 0;
-                //if (audioManager.checkIsPlaying("SerenityTheme"))
-                //{
-                //    audioManager.Stop("SerenityTheme");
-                //}
+                BoardText.GetComponent<TextMeshPro>().text = "Setting";
             }
-            if (this.name == "exit")
+            if (areaMode == "Credit")
             {
-                Application.Quit();
+                BoardText.GetComponent<TextMeshPro>().text = "Credit";
             }
-            return;
-        }
-
-        if (Time.time >= nextTime)
-        {
-            secound -= 1;
-            Debug.Log(secound);
-            nextTime = Time.time + 1;
-            BoardText.GetComponent<TextMeshPro>().text = "" +secound;
-
-        }
-    }
-
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (this.name == "credits" && Prompt != null)
-        {
-            Prompt.SetActive(true);
-        }
-        if (this.name == "setting" && Set != null)
-        {
-            Set.SetActive(true);
-        }
-    }
-
-    public void OnTriggerExit2D(Collider2D collision)
-    {
-
-        if (this.name == "credits"&& Prompt != null)
-        {
-            Prompt.SetActive(false);
-        }
-
-        if (this.name == "setting" && Set != null)
-        {
-            Set.SetActive(false);
+            if (areaMode == "Exit")
+            {
+                BoardText.GetComponent<TextMeshPro>().text = "Exit";
+            }
         }
     }
 }
