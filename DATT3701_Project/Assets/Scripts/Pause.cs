@@ -2,18 +2,30 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Audio;
+using UnityEngine.UI;
 
 public class Pause : MonoBehaviour
 {
     private bool panelActivating = false;
     public GameObject pauseShade;
     public GameObject pausePanel;
+    public GameObject settingPanel;
 
     private AudioManager audioManager;
     // Start is called before the first frame update
+
+    public Slider volumeSlider;
+    public AudioMixer mixer;
+    private float value;
+
+
+
     void Start()
     {
         audioManager = FindObjectOfType<AudioManager>();
+        mixer.GetFloat("volume", out value);
+        volumeSlider.value = value;
     }
 
     // Update is called once per frame
@@ -57,5 +69,17 @@ public class Pause : MonoBehaviour
     public void OpenSetting()
     {
         audioManager.Play("ClickButton");
+        settingPanel.SetActive(true);
     }
+
+
+    public void SetVolume(){
+        mixer.SetFloat("volume", volumeSlider.value);
+        
+    }
+
+    public void PlayButtonSound(){
+        audioManager.Play("ClickButton");
+    }
+
 }
