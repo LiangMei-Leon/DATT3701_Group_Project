@@ -18,7 +18,7 @@ EditorBuildSettings:
     path: Assets/Scenes/tur2.unity
     guid: b4c6f29eb1b55d845ada385203862be2
   - enabled: 0
-    path: Assets/Scenes/Test_1.unity
+    path: Assets/Scenes/005_balance.unity
     guid: 3404559358028384b94651904c9d4828
   - enabled: 0
     path: Assets/Scenes/Test_1b.unity
