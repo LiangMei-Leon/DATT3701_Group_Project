@@ -7,11 +7,7 @@ using UnityEngine.UI;
 
 public class ButtonPressed : MonoBehaviour
 {
-
-    public LayerMask PlayerLayer;
     public GameObject BoardText;
-    public GameObject Prompt;
-    public GameObject Set;
     private Transform spriteTransform;
 
     private Vector3 originalPosition;
@@ -19,9 +15,11 @@ public class ButtonPressed : MonoBehaviour
 
     [Tooltip("Setting, Credit, Exit, Level**")]
     public string areaMode;
+    public GameObject settingPanel;
+    public GameObject pauseShade;
 
     private bool isPressed = false;
-    public float returnSpeed = 1.0f;
+    private float returnSpeed = 1.0f;
 
     public float secound = 3;
     private float nextTime = 1;
@@ -57,6 +55,9 @@ public class ButtonPressed : MonoBehaviour
             if (areaMode == "Setting")
             {
                 activated =  true;
+                audioManager.Play("PanelToggle");
+                settingPanel.SetActive(true);
+                pauseShade.SetActive(true);
                 Debug.Log("open setting panel");
             }
             if (areaMode == "Credit")
@@ -73,6 +74,7 @@ public class ButtonPressed : MonoBehaviour
         }else if(Time.time >= nextTime && !activated)
         {
             secound -= 1;
+            audioManager.Play("BigButton");
             nextTime = Time.time + 1;
             BoardText.GetComponent<TextMeshPro>().text = "" + secound;
 
@@ -85,6 +87,7 @@ public class ButtonPressed : MonoBehaviour
         if (collision.gameObject.CompareTag("Player") && !isPressed)
         {
             isPressed = true;
+            audioManager.Play("ClickButton");
             transform.position = targetPosition;
         }
     }

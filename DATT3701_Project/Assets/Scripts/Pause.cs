@@ -18,7 +18,7 @@ public class Pause : MonoBehaviour
     public Slider volumeSlider;
     public AudioMixer mixer;
     private float value;
-
+    public string scene = "others";
 
 
     void Start()
@@ -31,17 +31,20 @@ public class Pause : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Escape) && !panelActivating){
-            audioManager.Play("PanelToggle");
-            pauseShade.SetActive(true);
-            pausePanel.SetActive(true);
-            panelActivating = true;
-        }else if(Input.GetKeyDown(KeyCode.Escape) && panelActivating){
-            audioManager.Play("PanelToggle");
-            pauseShade.SetActive(false);
-            pausePanel.SetActive(false);
-            panelActivating = false;
+        if(scene != "startmenu"){
+            if(Input.GetKeyDown(KeyCode.Escape) && !panelActivating){
+                audioManager.Play("PanelToggle");
+                pauseShade.SetActive(true);
+                pausePanel.SetActive(true);
+                panelActivating = true;
+            }else if(Input.GetKeyDown(KeyCode.Escape) && panelActivating){
+                audioManager.Play("PanelToggle");
+                pauseShade.SetActive(false);
+                pausePanel.SetActive(false);
+                panelActivating = false;
+            }
         }
+        
     }
 
     public void Resume()
