@@ -12,9 +12,6 @@ public class SceneTransition : MonoBehaviour
     public GameObject text;
 
     void Update(){
-        if(Input.GetKeyDown(KeyCode.T)){
-            StartCoroutine(LoadScene());
-        }
     }
 
     IEnumerator LoadScene(){

@@ -4,6 +4,8 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using System.Collections;
+using System.Collections.Generic;
 
 public class ButtonPressed : MonoBehaviour
 {
@@ -27,6 +29,10 @@ public class ButtonPressed : MonoBehaviour
     private AudioManager audioManager;
 
 
+    private GameObject transitionAnim;
+    private Animator _traAnimator;
+
+
     void Start()
     {
         spriteTransform = GetComponent<Transform>();
@@ -34,6 +40,8 @@ public class ButtonPressed : MonoBehaviour
         targetPosition = originalPosition + new Vector3(0.0f, -spriteTransform.localScale.y * 0.5f, 0.0f);
 
         audioManager = FindObjectOfType<AudioManager>();
+        transitionAnim = GameObject.FindWithTag("Transition");
+        _traAnimator = transitionAnim .GetComponent<Animator>();
     }
 
     void Update()
@@ -67,36 +75,45 @@ public class ButtonPressed : MonoBehaviour
             }
             if (areaMode == "Exit")
             {
-                activated =  true;
+                
                 Application.Quit();
             }
             if (areaMode == "LEVEL-1")
             {
-                SceneManager.LoadScene("LEVEL-1");
+                activated =  true;
+                StartCoroutine(PlayAnim("LEVEL-1"));
+                
+                
             }
             if (areaMode == "LEVEL-2")
             {
-                SceneManager.LoadScene("LEVEL-2");
+                 activated =  true;
+                StartCoroutine(PlayAnim("LEVEL-2"));
             }
             if (areaMode == "LEVEL-3")
             {
-                SceneManager.LoadScene("LEVEL-3");
+                 activated =  true;
+                StartCoroutine(PlayAnim("LEVEL-3"));
             }
             if (areaMode == "LEVEL-5")
             {
-                SceneManager.LoadScene("LEVEL-5");
+                 activated =  true;
+                StartCoroutine(PlayAnim("LEVEL-5"));
             }
             if (areaMode == "LEVEL-7")
             {
-                SceneManager.LoadScene("LEVEL-7");
+                 activated =  true;
+                StartCoroutine(PlayAnim("LEVEL-7"));
             }
             if (areaMode == "LEVEL-8")
             {
-                SceneManager.LoadScene("LEVEL-8");
+                 activated =  true;
+                StartCoroutine(PlayAnim("LEVEL-8"));
             }
             if (areaMode == "LEVEL-9")
             {
-                SceneManager.LoadScene("LEVEL-9");
+                 activated =  true;
+                StartCoroutine(PlayAnim("LEVEL-9"));
             }
             return;
         }else if(Time.time >= nextTime && !activated)
@@ -142,32 +159,49 @@ public class ButtonPressed : MonoBehaviour
             }
             if (areaMode == "LEVEL-1")
             {
-                BoardText.GetComponent<TextMeshPro>().text = "LEVEL-1";
+                BoardText.GetComponent<TextMeshPro>().text = "LEVEL 1";
             }
             if (areaMode == "LEVEL-2")
             {
-                BoardText.GetComponent<TextMeshPro>().text = "LEVEL-2";
+                BoardText.GetComponent<TextMeshPro>().text = "LEVEL 2";
             }
             if (areaMode == "LEVEL-3")
             {
-                BoardText.GetComponent<TextMeshPro>().text = "LEVEL-3";
+                BoardText.GetComponent<TextMeshPro>().text = "LEVEL 3";
             }
             if (areaMode == "LEVEL-5")
             {
-                BoardText.GetComponent<TextMeshPro>().text = "LEVEL-5";
+                BoardText.GetComponent<TextMeshPro>().text = "LEVEL 5";
             }
             if (areaMode == "LEVEL-7")
             {
-                BoardText.GetComponent<TextMeshPro>().text = "LEVEL-7";
+                BoardText.GetComponent<TextMeshPro>().text = "LEVEL 7";
             }
             if (areaMode == "LEVEL-8")
             {
-                BoardText.GetComponent<TextMeshPro>().text = "LEVEL-8";
+                BoardText.GetComponent<TextMeshPro>().text = "LEVEL 8";
             }
             if (areaMode == "LEVEL-9")
             {
-                BoardText.GetComponent<TextMeshPro>().text = "LEVEL-9";
+                BoardText.GetComponent<TextMeshPro>().text = "LEVEL 9";
             }
         }
     }
+
+
+    IEnumerator PlayAnim(string levelName){
+        //Debug.Log("adasdsad");
+        _traAnimator.SetTrigger("end");
+        //text.SetActive(true);
+        yield return new WaitForSeconds(1.5f);
+        //Debug.Log("adasdsassssss22222s222d");
+        SceneManager.LoadScene(levelName);
+        
+    }
+
+
+
+
+
+
 }
