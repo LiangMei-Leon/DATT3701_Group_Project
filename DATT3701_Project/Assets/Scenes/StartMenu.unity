@@ -2416,13 +2416,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ff825ad6b9cf4d86a80f5ffa8989429, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlayerLayer:
-    serializedVersion: 2
-    m_Bits: 0
   BoardText: {fileID: 0}
-  Prompt: {fileID: 0}
-  Set: {fileID: 0}
-  returnSpeed: 1
+  areaMode: 
+  settingPanel: {fileID: 0}
+  pauseShade: {fileID: 0}
   secound: 5
 --- !u!1001 &171380383
 PrefabInstance:
@@ -12508,13 +12505,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ff825ad6b9cf4d86a80f5ffa8989429, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlayerLayer:
-    serializedVersion: 2
-    m_Bits: 64
   BoardText: {fileID: 1281717906}
-  Prompt: {fileID: 0}
-  Set: {fileID: 0}
-  returnSpeed: 1
+  areaMode: 
+  settingPanel: {fileID: 0}
+  pauseShade: {fileID: 0}
   secound: 5
 --- !u!212 &989446880
 SpriteRenderer:
@@ -17393,13 +17387,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ff825ad6b9cf4d86a80f5ffa8989429, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlayerLayer:
-    serializedVersion: 2
-    m_Bits: 64
   BoardText: {fileID: 1573909239}
-  Prompt: {fileID: 0}
-  Set: {fileID: 0}
-  returnSpeed: 1
+  areaMode: 
+  settingPanel: {fileID: 0}
+  pauseShade: {fileID: 0}
   secound: 5
 --- !u!212 &1307241004
 SpriteRenderer:
