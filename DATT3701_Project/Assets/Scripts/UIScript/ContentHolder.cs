@@ -15,6 +15,7 @@ public class ContentHolder : MonoBehaviour
     private GameObject master;
     private Master masterScript;
     private GameObject pauseShade;
+    public int initailIndex;
     
     
     
@@ -22,8 +23,8 @@ public class ContentHolder : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        index = 0;
-        TutorialPanel.gameObject.SetActive(false);
+        index = initailIndex;
+        TutorialPanel.gameObject.SetActive(true);
         audioManager = FindObjectOfType<AudioManager>();
         master = GameObject.FindWithTag("Master");
         masterScript = master.GetComponent<Master>();
