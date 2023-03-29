@@ -8498,6 +8498,7 @@ MonoBehaviour:
   settingPanel: {fileID: 2004833322}
   volumeSlider: {fileID: 1993340341}
   mixer: {fileID: 24100000, guid: f9ed79f2adf7a4342b2488a7193b60c2, type: 2}
+  scene: others
 --- !u!1001 &766268685
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -21229,7 +21230,7 @@ PrefabInstance:
       objectReference: {fileID: 1831152617}
     - target: {fileID: 6494828005918717975, guid: 61ab563b2cd26b54cb2dbe5018f9a2b4, type: 3}
       propertyPath: sceneName
-      value: Test_1b
+      value: LEVEL-8
       objectReference: {fileID: 0}
     - target: {fileID: 6494828005918717975, guid: 61ab563b2cd26b54cb2dbe5018f9a2b4, type: 3}
       propertyPath: transitionAnim

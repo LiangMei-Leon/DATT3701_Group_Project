@@ -70,6 +70,34 @@ public class ButtonPressed : MonoBehaviour
                 activated =  true;
                 Application.Quit();
             }
+            if (areaMode == "LEVEL-1")
+            {
+                SceneManager.LoadScene("LEVEL-1");
+            }
+            if (areaMode == "LEVEL-2")
+            {
+                SceneManager.LoadScene("LEVEL-2");
+            }
+            if (areaMode == "LEVEL-3")
+            {
+                SceneManager.LoadScene("LEVEL-3");
+            }
+            if (areaMode == "LEVEL-5")
+            {
+                SceneManager.LoadScene("LEVEL-5");
+            }
+            if (areaMode == "LEVEL-7")
+            {
+                SceneManager.LoadScene("LEVEL-7");
+            }
+            if (areaMode == "LEVEL-8")
+            {
+                SceneManager.LoadScene("LEVEL-8");
+            }
+            if (areaMode == "LEVEL-9")
+            {
+                SceneManager.LoadScene("LEVEL-9");
+            }
             return;
         }else if(Time.time >= nextTime && !activated)
         {
@@ -111,6 +139,34 @@ public class ButtonPressed : MonoBehaviour
             if (areaMode == "Exit")
             {
                 BoardText.GetComponent<TextMeshPro>().text = "Exit";
+            }
+            if (areaMode == "LEVEL-1")
+            {
+                BoardText.GetComponent<TextMeshPro>().text = "LEVEL-1";
+            }
+            if (areaMode == "LEVEL-2")
+            {
+                BoardText.GetComponent<TextMeshPro>().text = "LEVEL-2";
+            }
+            if (areaMode == "LEVEL-3")
+            {
+                BoardText.GetComponent<TextMeshPro>().text = "LEVEL-3";
+            }
+            if (areaMode == "LEVEL-5")
+            {
+                BoardText.GetComponent<TextMeshPro>().text = "LEVEL-5";
+            }
+            if (areaMode == "LEVEL-7")
+            {
+                BoardText.GetComponent<TextMeshPro>().text = "LEVEL-7";
+            }
+            if (areaMode == "LEVEL-8")
+            {
+                BoardText.GetComponent<TextMeshPro>().text = "LEVEL-8";
+            }
+            if (areaMode == "LEVEL-9")
+            {
+                BoardText.GetComponent<TextMeshPro>().text = "LEVEL-9";
             }
         }
     }
