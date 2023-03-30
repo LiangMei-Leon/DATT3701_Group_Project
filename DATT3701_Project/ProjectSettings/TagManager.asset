@@ -11,6 +11,7 @@ TagManager:
   - PauseShade
   - LemonSlices
   - Master
+  - Transition
   layers:
   - Default
   - TransparentFX
