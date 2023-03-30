@@ -40,7 +40,7 @@ Transform:
   - {fileID: 4135123482411696622}
   - {fileID: 4135123481495265782}
   m_Father: {fileID: 8121943091772890095}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &8121943091496314767
 MonoBehaviour:
@@ -87,8 +87,8 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 8121943091496314766}
   - {fileID: 8121943092312081276}
+  - {fileID: 8121943091496314766}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -190,7 +190,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8121943091772890095}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 150}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -426,7 +426,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5319904342693199371, guid: 2911e866a6538f34787b3ded19c92750, type: 3}
       propertyPath: m_fontColor32.rgba
-      value: 4278190335
+      value: 4278221823
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2911e866a6538f34787b3ded19c92750, type: 3}
