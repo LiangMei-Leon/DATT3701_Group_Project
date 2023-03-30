@@ -66,7 +66,7 @@ public class Pause : MonoBehaviour
     public void Back2MainMenu()
     {
         audioManager.Play("ClickButton");
-        SceneManager.LoadScene("StartMenu");
+        SceneManager.LoadScene("StartMenu1");
     }
 
     public void OpenSetting()
