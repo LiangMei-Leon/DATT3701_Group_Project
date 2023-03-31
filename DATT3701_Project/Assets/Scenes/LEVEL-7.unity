@@ -5556,6 +5556,7 @@ MonoBehaviour:
   reloadPanel: {fileID: 549888371}
   warning: {fileID: 1852090495}
   text: {fileID: 172954600}
+  unlocked: 1
 --- !u!114 &759416904
 MonoBehaviour:
   m_ObjectHideFlags: 0
