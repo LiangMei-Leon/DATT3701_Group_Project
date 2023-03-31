@@ -20,6 +20,7 @@ public class ProgressRewind : MonoBehaviour
     public GameObject reloadPanel;
     public GameObject warning;
     public GameObject text;
+    public bool unlocked = false;
 
     private AudioManager audioManager;
 
@@ -54,7 +55,7 @@ public class ProgressRewind : MonoBehaviour
             reloadPanel.SetActive(false);
             panelActivating = false;
         }
-        if(Input.GetKeyDown("c") && !playerEmotion.getFearStatus())
+        if(Input.GetKeyDown("c") && !playerEmotion.getFearStatus() && unlocked)
         {
             saved = true;
             audioManager.Play("Save");
