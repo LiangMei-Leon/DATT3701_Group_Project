@@ -6449,6 +6449,7 @@ MonoBehaviour:
   reloadPanel: {fileID: 549888371}
   warning: {fileID: 1852090495}
   text: {fileID: 172954600}
+  unlocked: 1
 --- !u!114 &759416904
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17483,6 +17484,10 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 519420031}
+    - target: {fileID: 8121943091772890090, guid: 41cd972a421cab8408dfd6e8fe570c50, type: 3}
+      propertyPath: m_SortingLayerID
+      value: -820217049
+      objectReference: {fileID: 0}
     - target: {fileID: 8121943091772890094, guid: 41cd972a421cab8408dfd6e8fe570c50, type: 3}
       propertyPath: m_Name
       value: TransiationCanvas
