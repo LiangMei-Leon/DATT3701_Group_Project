@@ -8282,6 +8282,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Destination
       objectReference: {fileID: 0}
+    - target: {fileID: 6494828005918717975, guid: 61ab563b2cd26b54cb2dbe5018f9a2b4, type: 3}
+      propertyPath: text
+      value: 
+      objectReference: {fileID: 8121943092119358565}
+    - target: {fileID: 6494828005918717975, guid: 61ab563b2cd26b54cb2dbe5018f9a2b4, type: 3}
+      propertyPath: sceneName
+      value: LEVEL-7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6494828005918717975, guid: 61ab563b2cd26b54cb2dbe5018f9a2b4, type: 3}
+      propertyPath: transitionAnim
+      value: 
+      objectReference: {fileID: 1015369497}
     - target: {fileID: 8529169898267658685, guid: 61ab563b2cd26b54cb2dbe5018f9a2b4, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -13035,3 +13047,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 41cd972a421cab8408dfd6e8fe570c50, type: 3}
+--- !u!1 &8121943092119358565 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8121943091496314765, guid: 41cd972a421cab8408dfd6e8fe570c50, type: 3}
+  m_PrefabInstance: {fileID: 8121943092119358564}
+  m_PrefabAsset: {fileID: 0}
