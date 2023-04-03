@@ -6399,19 +6399,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8628835094925779113, guid: 29a02dc0859b5374fad4c214b9cd8b31, type: 3}
       propertyPath: dialogue.sentences.Array.data[0]
-      value: 'GGWP!
-
-        Haha, just learn this new word from my daughter.
+      value: 'You did it! Now let''s see what''s a little more on this level.
 
 '
       objectReference: {fileID: 0}
     - target: {fileID: 8628835094925779113, guid: 29a02dc0859b5374fad4c214b9cd8b31, type: 3}
       propertyPath: dialogue.sentences.Array.data[1]
-      value: 'Here gives you some real challenges. '
+      value: See those bricks with the garbage inside? Try to spend as little time
+        as possible staying on them.
       objectReference: {fileID: 0}
     - target: {fileID: 8628835094925779113, guid: 29a02dc0859b5374fad4c214b9cd8b31, type: 3}
       propertyPath: dialogue.sentences.Array.data[2]
-      value: Do you see those blocks full of junk? Eww, gross.
+      value: It's just like staying away from some of the dumbasses in real life.
       objectReference: {fileID: 0}
     - target: {fileID: 8628835094925779113, guid: 29a02dc0859b5374fad4c214b9cd8b31, type: 3}
       propertyPath: dialogue.sentences.Array.data[3]
@@ -6422,13 +6421,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8628835094925779113, guid: 29a02dc0859b5374fad4c214b9cd8b31, type: 3}
       propertyPath: dialogue.sentences.Array.data[4]
-      value: 'Remember, the best way to eliminate fearness is to face it!
-
-'
+      value: 'See that cute lemon angel right there? When you feel fear, just go
+        find her. '
       objectReference: {fileID: 0}
     - target: {fileID: 8628835094925779113, guid: 29a02dc0859b5374fad4c214b9cd8b31, type: 3}
       propertyPath: dialogue.sentences.Array.data[5]
-      value: "Don\u2019t ask, just do it!\r\n"
+      value: 'Don''t ask, just go!
+
+'
       objectReference: {fileID: 0}
     - target: {fileID: 8628835094925779118, guid: 29a02dc0859b5374fad4c214b9cd8b31, type: 3}
       propertyPath: m_LocalPosition.x
@@ -7768,7 +7768,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8529169898267658685, guid: 61ab563b2cd26b54cb2dbe5018f9a2b4, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.250003
+      value: 2.28
       objectReference: {fileID: 0}
     - target: {fileID: 8529169898267658685, guid: 61ab563b2cd26b54cb2dbe5018f9a2b4, type: 3}
       propertyPath: m_LocalPosition.z

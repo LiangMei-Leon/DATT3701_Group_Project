@@ -15,6 +15,7 @@ public class LemonSlice : MonoBehaviour
 
     private AudioManager audioManager;
     private GameObject dialogText;
+    private GameObject dialogText2;
     private ParticleSystem sliceVFX1;
 
     // Start is called before the first frame update
@@ -25,7 +26,8 @@ public class LemonSlice : MonoBehaviour
         normalPlayer = GameObject.FindWithTag("Player");
         slice = GetComponent<SpriteRenderer>();
         audioManager = FindObjectOfType<AudioManager>();
-        dialogText = normalPlayer.transform.GetChild(1).GetChild(1).gameObject;
+        dialogText = normalPlayer.transform.GetChild(1).GetChild(1).GetChild(0).gameObject;
+        dialogText2 = normalPlayer.transform.GetChild(1).GetChild(1).GetChild(1).gameObject;
         sliceVFX1 = this.gameObject.transform.GetChild(0).gameObject.GetComponent<ParticleSystem>();
     }
 
@@ -38,22 +40,36 @@ public class LemonSlice : MonoBehaviour
     void OnTriggerEnter2D(Collider2D col)
     {
         if(col.gameObject.CompareTag("Player") && !used){
+            float random = Random.Range(-10f,10f);
             used = true;
             playerEmotion.IncreaseSerenity(IncreaseAmount);
             sliceVFX1.Play();
             audioManager.Play("LemonSlice");
-            if(dialogText != null){
-                dialogText.SetActive(true);
-                Invoke("Cancel2", 1.5f);
-            }
+            if(random >= 0f)
+                {
+                    if(dialogText != null){
+                        dialogText.SetActive(true);
+                        Invoke("Cancel", 1f);
+                    }
+                }else{
+                    if(dialogText2 != null){
+                        dialogText2.SetActive(true);
+                        Invoke("Cancel2", 1f);
+                    }
+                }
             slice.color = new Color(1,1,1,0);
             //Destroy(gameObject,1.5f);
         }
     }
 
-    void Cancel2()
+    void Cancel()
     {
         dialogText.SetActive(false);
+    }
+
+    void Cancel2()
+    {
+        dialogText2.SetActive(false);
     }
 
     public void UpdateSliceStatus()

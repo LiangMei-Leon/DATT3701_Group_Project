@@ -6963,25 +6963,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8628835094925779113, guid: 29a02dc0859b5374fad4c214b9cd8b31, type: 3}
       propertyPath: dialogue.sentences.Array.size
-      value: 7
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 8628835094925779113, guid: 29a02dc0859b5374fad4c214b9cd8b31, type: 3}
       propertyPath: dialogue.sentences.Array.data[0]
-      value: 'Welcome, welcome!
-
-        What brings you here, my child?'
+      value: You're finally here, son.
       objectReference: {fileID: 0}
     - target: {fileID: 8628835094925779113, guid: 29a02dc0859b5374fad4c214b9cd8b31, type: 3}
       propertyPath: dialogue.sentences.Array.data[1]
-      value: Wanna become stronger, huh?
+      value: See that white flower, that's where you'll end up.
       objectReference: {fileID: 0}
     - target: {fileID: 8628835094925779113, guid: 29a02dc0859b5374fad4c214b9cd8b31, type: 3}
       propertyPath: dialogue.sentences.Array.data[2]
-      value: Then you need wisdom, couragement, and a good wife...
+      value: Find a way to get there, I'm too tired to talk anymore.
       objectReference: {fileID: 0}
     - target: {fileID: 8628835094925779113, guid: 29a02dc0859b5374fad4c214b9cd8b31, type: 3}
       propertyPath: dialogue.sentences.Array.data[3]
-      value: hahahahahahahahahahahahahahahahaha
+      value: Don't ask, just go!
       objectReference: {fileID: 0}
     - target: {fileID: 8628835094925779113, guid: 29a02dc0859b5374fad4c214b9cd8b31, type: 3}
       propertyPath: dialogue.sentences.Array.data[4]
@@ -7081,17 +7079,29 @@ PrefabInstance:
       propertyPath: transitionAnim
       value: 
       objectReference: {fileID: 1455627954}
+    - target: {fileID: 7185967464243085521, guid: 61ab563b2cd26b54cb2dbe5018f9a2b4, type: 3}
+      propertyPath: m_Size.y
+      value: 6.968359
+      objectReference: {fileID: 0}
+    - target: {fileID: 7185967464243085521, guid: 61ab563b2cd26b54cb2dbe5018f9a2b4, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.29596722
+      objectReference: {fileID: 0}
+    - target: {fileID: 7185967464243085534, guid: 61ab563b2cd26b54cb2dbe5018f9a2b4, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 0f463fa21887c5c41855b46898cb1313, type: 3}
     - target: {fileID: 8529169898267658685, guid: 61ab563b2cd26b54cb2dbe5018f9a2b4, type: 3}
       propertyPath: m_RootOrder
       value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 8529169898267658685, guid: 61ab563b2cd26b54cb2dbe5018f9a2b4, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 11.250015
+      value: 11.255
       objectReference: {fileID: 0}
     - target: {fileID: 8529169898267658685, guid: 61ab563b2cd26b54cb2dbe5018f9a2b4, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.000004
+      value: 3.01
       objectReference: {fileID: 0}
     - target: {fileID: 8529169898267658685, guid: 61ab563b2cd26b54cb2dbe5018f9a2b4, type: 3}
       propertyPath: m_LocalPosition.z
