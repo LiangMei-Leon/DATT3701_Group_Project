@@ -911,6 +911,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TutorialPanel
       objectReference: {fileID: 0}
+    - target: {fileID: 114546223925725808, guid: 67ccd4a79503a764c892584500ddf3d1, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 114546223925725809, guid: 67ccd4a79503a764c892584500ddf3d1, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -10824,7 +10828,7 @@ PrefabInstance:
     - target: {fileID: 6392265213361649300, guid: 6fb79ba76b4df8342937b5e83ba19826, type: 3}
       propertyPath: Tip2
       value: 
-      objectReference: {fileID: 6392265214602073513}
+      objectReference: {fileID: 6392265214602073512}
     - target: {fileID: 6392265213361649300, guid: 6fb79ba76b4df8342937b5e83ba19826, type: 3}
       propertyPath: Tip3
       value: 
@@ -10833,6 +10837,14 @@ PrefabInstance:
       propertyPath: PauseShade
       value: 
       objectReference: {fileID: 1168437827}
+    - target: {fileID: 6392265213630472736, guid: 6fb79ba76b4df8342937b5e83ba19826, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -640.5414
+      objectReference: {fileID: 0}
+    - target: {fileID: 6392265213630472736, guid: 6fb79ba76b4df8342937b5e83ba19826, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 93.68033
+      objectReference: {fileID: 0}
     - target: {fileID: 6392265213630472737, guid: 6fb79ba76b4df8342937b5e83ba19826, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -10945,12 +10957,7 @@ PrefabInstance:
   m_SourcePrefab: {fileID: 100100000, guid: 6fb79ba76b4df8342937b5e83ba19826, type: 3}
 --- !u!1 &6392265214602073512 stripped
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 1708190564103458020, guid: 6fb79ba76b4df8342937b5e83ba19826, type: 3}
-  m_PrefabInstance: {fileID: 6392265214602073511}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &6392265214602073513 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6152169494523478962, guid: 6fb79ba76b4df8342937b5e83ba19826, type: 3}
+  m_CorrespondingSourceObject: {fileID: 6392265213630472737, guid: 6fb79ba76b4df8342937b5e83ba19826, type: 3}
   m_PrefabInstance: {fileID: 6392265214602073511}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7297226527444093871
