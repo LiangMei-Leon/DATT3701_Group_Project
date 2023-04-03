@@ -7234,17 +7234,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8628835094925779113, guid: 29a02dc0859b5374fad4c214b9cd8b31, type: 3}
       propertyPath: dialogue.sentences.Array.size
-      value: 7
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8628835094925779113, guid: 29a02dc0859b5374fad4c214b9cd8b31, type: 3}
       propertyPath: dialogue.sentences.Array.data[0]
-      value: 'Welcome, welcome!
-
-        What brings you here, my child?'
+      value: Not bad! Now let's up the difficulty a bit.
       objectReference: {fileID: 0}
     - target: {fileID: 8628835094925779113, guid: 29a02dc0859b5374fad4c214b9cd8b31, type: 3}
       propertyPath: dialogue.sentences.Array.data[1]
-      value: Wanna become stronger, huh?
+      value: Don't ask, just go!
       objectReference: {fileID: 0}
     - target: {fileID: 8628835094925779113, guid: 29a02dc0859b5374fad4c214b9cd8b31, type: 3}
       propertyPath: dialogue.sentences.Array.data[2]
@@ -7352,9 +7350,29 @@ PrefabInstance:
       propertyPath: transitionAnim
       value: 
       objectReference: {fileID: 1455627954}
+    - target: {fileID: 7185967464243085521, guid: 61ab563b2cd26b54cb2dbe5018f9a2b4, type: 3}
+      propertyPath: m_Size.y
+      value: 6.9679623
+      objectReference: {fileID: 0}
+    - target: {fileID: 7185967464243085521, guid: 61ab563b2cd26b54cb2dbe5018f9a2b4, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.29616547
+      objectReference: {fileID: 0}
     - target: {fileID: 8529169898267658685, guid: 61ab563b2cd26b54cb2dbe5018f9a2b4, type: 3}
       propertyPath: m_RootOrder
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8529169898267658685, guid: 61ab563b2cd26b54cb2dbe5018f9a2b4, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.1095825
+      objectReference: {fileID: 0}
+    - target: {fileID: 8529169898267658685, guid: 61ab563b2cd26b54cb2dbe5018f9a2b4, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.1095825
+      objectReference: {fileID: 0}
+    - target: {fileID: 8529169898267658685, guid: 61ab563b2cd26b54cb2dbe5018f9a2b4, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.14611
       objectReference: {fileID: 0}
     - target: {fileID: 8529169898267658685, guid: 61ab563b2cd26b54cb2dbe5018f9a2b4, type: 3}
       propertyPath: m_LocalPosition.x
@@ -7362,7 +7380,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8529169898267658685, guid: 61ab563b2cd26b54cb2dbe5018f9a2b4, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.250003
+      value: 2.3
       objectReference: {fileID: 0}
     - target: {fileID: 8529169898267658685, guid: 61ab563b2cd26b54cb2dbe5018f9a2b4, type: 3}
       propertyPath: m_LocalPosition.z
