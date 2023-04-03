@@ -82,8 +82,6 @@ public class ButtonPressed : MonoBehaviour
             {
                 activated =  true;
                 StartCoroutine(PlayAnim("LEVEL-1"));
-                
-                
             }
             if (areaMode == "LEVEL-2")
             {
@@ -95,10 +93,20 @@ public class ButtonPressed : MonoBehaviour
                  activated =  true;
                 StartCoroutine(PlayAnim("LEVEL-3"));
             }
+            if (areaMode == "LEVEL-4")
+            {
+                 activated =  true;
+                StartCoroutine(PlayAnim("LEVEL-4"));
+            }
             if (areaMode == "LEVEL-5")
             {
                  activated =  true;
                 StartCoroutine(PlayAnim("LEVEL-5"));
+            }
+            if (areaMode == "LEVEL-6")
+            {
+                 activated =  true;
+                StartCoroutine(PlayAnim("LEVEL-6"));
             }
             if (areaMode == "LEVEL-7")
             {
@@ -169,9 +177,17 @@ public class ButtonPressed : MonoBehaviour
             {
                 BoardText.GetComponent<TextMeshPro>().text = "LEVEL 3";
             }
+            if (areaMode == "LEVEL-4")
+            {
+                BoardText.GetComponent<TextMeshPro>().text = "LEVEL 4";
+            }
             if (areaMode == "LEVEL-5")
             {
                 BoardText.GetComponent<TextMeshPro>().text = "LEVEL 5";
+            }
+            if (areaMode == "LEVEL-6")
+            {
+                BoardText.GetComponent<TextMeshPro>().text = "LEVEL 6";
             }
             if (areaMode == "LEVEL-7")
             {
