@@ -2938,7 +2938,7 @@ GameObject:
   - component: {fileID: 389591294}
   - component: {fileID: 389591293}
   m_Layer: 0
-  m_Name: contentImage0 (1)
+  m_Name: contentImage1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2984,7 +2984,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: f5bbc7ce5f3005340b25261f175a7f8b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e15f268e99dc15f4ebc7a48fe8c25a77, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -9879,7 +9879,7 @@ GameObject:
   - component: {fileID: 1267120575}
   - component: {fileID: 1267120574}
   m_Layer: 0
-  m_Name: contentImage0 (2)
+  m_Name: contentImage3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9898,7 +9898,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 299185747}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -9925,7 +9925,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: aea6decc8300e5046b522fcf0969f954, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 0b11835b9a9433b4a9c36e44776b9e6c, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -10954,7 +10954,7 @@ GameObject:
   - component: {fileID: 1398891336}
   - component: {fileID: 1398891335}
   m_Layer: 0
-  m_Name: contentImage0 (4)
+  m_Name: contentImage2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10973,7 +10973,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 299185747}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -11000,7 +11000,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 538c8883d2525e649b6ea20468da8c16, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ed21cdc2ab03dc54a92cf517356efe71, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -12118,7 +12118,7 @@ GameObject:
   - component: {fileID: 1558649570}
   - component: {fileID: 1558649569}
   m_Layer: 0
-  m_Name: contentImage0 (3)
+  m_Name: contentImage4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12164,7 +12164,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 451290c45cf2384409d6a8587abad008, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d9c289e7b6dea4f48883160073092612, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -14289,12 +14289,20 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.x
       value: 32.4
       objectReference: {fileID: 0}
+    - target: {fileID: 114546224931949779, guid: 67ccd4a79503a764c892584500ddf3d1, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 27bb35cd980472543a736435b5249d90, type: 3}
     - target: {fileID: 114546225099600613, guid: 67ccd4a79503a764c892584500ddf3d1, type: 3}
       propertyPath: totalImages
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 114546225099600613, guid: 67ccd4a79503a764c892584500ddf3d1, type: 3}
       propertyPath: initailIndex
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 114546225099600613, guid: 67ccd4a79503a764c892584500ddf3d1, type: 3}
+      propertyPath: initialIndex
       value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 114546225099600613, guid: 67ccd4a79503a764c892584500ddf3d1, type: 3}
@@ -14308,11 +14316,11 @@ PrefabInstance:
     - target: {fileID: 114546225099600613, guid: 67ccd4a79503a764c892584500ddf3d1, type: 3}
       propertyPath: TutorialImages.Array.data[2]
       value: 
-      objectReference: {fileID: 1267120572}
+      objectReference: {fileID: 1398891333}
     - target: {fileID: 114546225099600613, guid: 67ccd4a79503a764c892584500ddf3d1, type: 3}
       propertyPath: TutorialImages.Array.data[3]
       value: 
-      objectReference: {fileID: 1398891333}
+      objectReference: {fileID: 1267120572}
     - target: {fileID: 114546225099600613, guid: 67ccd4a79503a764c892584500ddf3d1, type: 3}
       propertyPath: TutorialImages.Array.data[4]
       value: 

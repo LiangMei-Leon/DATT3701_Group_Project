@@ -686,7 +686,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 12755dc6c71e3ac46841cbdeed3564a6, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 27bb35cd980472543a736435b5249d90, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -750,7 +750,7 @@ MonoBehaviour:
   index: 0
   totalImages: 1
   TutorialPanel: {fileID: 114546223925725808}
-  initailIndex: 0
+  initialIndex: 0
 --- !u!1 &114546225191664372
 GameObject:
   m_ObjectHideFlags: 0
