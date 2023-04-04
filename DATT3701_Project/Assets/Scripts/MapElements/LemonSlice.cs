@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class LemonSlice : MonoBehaviour
 {
-    public float IncreaseAmount = 10f;
+    public float IncreaseAmount = 20f;
     private GameObject playerManager;
     private PlayerEmotionStatus playerEmotion;
     private float emotionStatus;
