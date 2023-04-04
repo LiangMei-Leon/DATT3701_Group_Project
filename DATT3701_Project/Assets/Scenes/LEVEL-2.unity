@@ -8701,6 +8701,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114546224931949779, guid: 67ccd4a79503a764c892584500ddf3d1, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 27bb35cd980472543a736435b5249d90, type: 3}
     - target: {fileID: 114546225099600613, guid: 67ccd4a79503a764c892584500ddf3d1, type: 3}
       propertyPath: totalImages
       value: 2
@@ -10295,7 +10299,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: f5bbc7ce5f3005340b25261f175a7f8b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e15f268e99dc15f4ebc7a48fe8c25a77, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

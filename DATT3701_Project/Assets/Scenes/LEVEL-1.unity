@@ -13226,6 +13226,10 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114546224931949779, guid: 67ccd4a79503a764c892584500ddf3d1, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 27bb35cd980472543a736435b5249d90, type: 3}
     - target: {fileID: 114546225099600613, guid: 67ccd4a79503a764c892584500ddf3d1, type: 3}
       propertyPath: pauseShade
       value: 

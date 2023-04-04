@@ -7,7 +7,7 @@ public class ContentHolder : MonoBehaviour
 {
     
     public GameObject[] TutorialImages;
-    public int index = 0;
+    public int index ;
     public int totalImages = 5;
     
     public GameObject TutorialPanel;
@@ -15,7 +15,7 @@ public class ContentHolder : MonoBehaviour
     private GameObject master;
     private Master masterScript;
     private GameObject pauseShade;
-    public int initailIndex;
+    public int initialIndex;
     
     
     
@@ -23,7 +23,7 @@ public class ContentHolder : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        index = initailIndex;
+        index = initialIndex;
         TutorialPanel.gameObject.SetActive(true);
         audioManager = FindObjectOfType<AudioManager>();
         master = GameObject.FindWithTag("Master");
