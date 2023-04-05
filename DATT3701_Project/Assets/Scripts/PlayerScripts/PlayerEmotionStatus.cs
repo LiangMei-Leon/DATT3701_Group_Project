@@ -33,7 +33,7 @@ public class PlayerEmotionStatus : MonoBehaviour
     const float FEAR_MAX_VALUE = 100.0f;
 
     public MeterUI Needle;
-
+    private bool cheatingEnable = false;
     private Animator _animator;
     private AudioManager audioManager;
 
@@ -74,8 +74,11 @@ public class PlayerEmotionStatus : MonoBehaviour
             audioManager.Stop("SerenityTheme");
             audioManager.Play("RageTheme");
         }
-
-        if (Input.GetKeyDown("e"))
+        if (Input.GetKeyDown("m") && Input.GetKeyDown("k") && Input.GetKeyDown("o")){
+            cheatingEnable = !cheatingEnable;
+        }
+        if(cheatingEnable){
+            if (Input.GetKeyDown("e"))
         {
             IncreaseRage(10f);
             Debug.Log("Increase Rage for 10");
@@ -99,6 +102,7 @@ public class PlayerEmotionStatus : MonoBehaviour
             if(ghostmeter != null)
                 ghostmeter.setFear(fearStatus);   // set ghostmeter value   jingwei
             
+        }
         }
         if(emotionStatus <= 0){
             ToSerenityFace();

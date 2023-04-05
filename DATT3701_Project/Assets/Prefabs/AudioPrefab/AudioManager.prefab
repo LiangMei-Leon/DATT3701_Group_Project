@@ -157,3 +157,10 @@ MonoBehaviour:
     loop: 0
     group: {fileID: 24300002, guid: f9ed79f2adf7a4342b2488a7193b60c2, type: 2}
     source: {fileID: 0}
+  - name: PickFlower
+    clip: {fileID: 8300000, guid: e07338afd4e93634f86ea6ceb2907cef, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    group: {fileID: 24300002, guid: f9ed79f2adf7a4342b2488a7193b60c2, type: 2}
+    source: {fileID: 0}

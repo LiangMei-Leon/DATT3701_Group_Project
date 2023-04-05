@@ -10,11 +10,18 @@ public class SceneTransition : MonoBehaviour
 
     public int sceneBuildIndex;
     public GameObject text;
+    public bool isFinalLevel = false;
+    public GameObject congratsPanel;
+    public GameObject pauseShade;
 
-    void Update(){
+    private AudioManager audioManager;
+
+    void Start(){
+        audioManager = FindObjectOfType<AudioManager>();
     }
 
     IEnumerator LoadScene(){
+        audioManager.Play("PickFlower");
         transitionAnim.SetTrigger("end");
         text.SetActive(true);
         yield return new WaitForSeconds(5f);
@@ -24,8 +31,11 @@ public class SceneTransition : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other){
         print("Trigger Entered");
-        if(other.tag == "Player"){
+        if(other.tag == "Player" & !isFinalLevel){
             StartCoroutine(LoadScene());
+        }else if(other.tag == "Player" & isFinalLevel){
+            pauseShade.SetActive(true);
+            congratsPanel.SetActive(true);
         }
     }
 
