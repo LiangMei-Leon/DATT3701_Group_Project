@@ -25,7 +25,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6488417814463313961}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -1.71, z: 0}
+  m_LocalPosition: {x: 0, y: -2.6, z: 0}
   m_LocalScale: {x: 1.6806, y: 1.6806, z: 1.6806}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -265,11 +265,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5319904341603570005, guid: 2911e866a6538f34787b3ded19c92750, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 0.05
       objectReference: {fileID: 0}
     - target: {fileID: 5319904341603570005, guid: 2911e866a6538f34787b3ded19c92750, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.38
+      value: 4.61
       objectReference: {fileID: 0}
     - target: {fileID: 5319904341603570005, guid: 2911e866a6538f34787b3ded19c92750, type: 3}
       propertyPath: m_LocalPosition.z
@@ -305,11 +305,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5319904342693199368, guid: 2911e866a6538f34787b3ded19c92750, type: 3}
       propertyPath: m_SortingLayer
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5319904342693199368, guid: 2911e866a6538f34787b3ded19c92750, type: 3}
       propertyPath: m_SortingLayerID
-      value: 0
+      value: -1369463095
       objectReference: {fileID: 0}
     - target: {fileID: 5319904342693199371, guid: 2911e866a6538f34787b3ded19c92750, type: 3}
       propertyPath: m_text
@@ -317,7 +317,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5319904342693199371, guid: 2911e866a6538f34787b3ded19c92750, type: 3}
       propertyPath: m_fontSize
-      value: 12
+      value: 24
       objectReference: {fileID: 0}
     - target: {fileID: 5319904342693199371, guid: 2911e866a6538f34787b3ded19c92750, type: 3}
       propertyPath: m_fontColor.b
@@ -333,7 +333,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5319904342693199371, guid: 2911e866a6538f34787b3ded19c92750, type: 3}
       propertyPath: m_fontSizeBase
-      value: 12
+      value: 24
       objectReference: {fileID: 0}
     - target: {fileID: 5319904342693199371, guid: 2911e866a6538f34787b3ded19c92750, type: 3}
       propertyPath: m_fontColor32.rgba

@@ -120,6 +120,7 @@ GameObject:
   - component: {fileID: 4168837303014069412}
   - component: {fileID: 4168837303014069415}
   - component: {fileID: 4168837303014069410}
+  - component: {fileID: 1402652777477494165}
   m_Layer: 5
   m_Name: GhostMeter_fill
   m_TagString: Untagged
@@ -251,6 +252,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   GhostMeter: {fileID: 4168837303014069415}
   testSlider: {fileID: 0}
+--- !u!114 &1402652777477494165
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4168837303014069433}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2566d16b5e194e546a72be770e17748a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4168837303089376089
 GameObject:
   m_ObjectHideFlags: 0

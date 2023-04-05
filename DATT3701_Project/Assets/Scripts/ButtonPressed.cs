@@ -18,6 +18,7 @@ public class ButtonPressed : MonoBehaviour
     [Tooltip("Setting, Credit, Exit, Level**")]
     public string areaMode;
     public GameObject settingPanel;
+    public GameObject creditPanel;
     public GameObject pauseShade;
 
     private bool isPressed = false;
@@ -71,6 +72,9 @@ public class ButtonPressed : MonoBehaviour
             if (areaMode == "Credit")
             {
                 activated =  true;
+                audioManager.Play("PanelToggle");
+                creditPanel.SetActive(true);
+                pauseShade.SetActive(true);
                 Debug.Log("open credit panel");
             }
             if (areaMode == "Exit")
