@@ -9,6 +9,7 @@ public class Master : MonoBehaviour
    public GameObject DialoguePanel;
 
    public Dialogue dialogue;
+   private GameObject panel;
    
    
    public bool playerIsClose = false;
@@ -23,6 +24,7 @@ public class Master : MonoBehaviour
    {
         mark = this.gameObject.transform.GetChild(0).gameObject;
         audioManager = FindObjectOfType<AudioManager>();
+        panel = GameObject.FindWithTag("Dialogue");
    }
     // Update is called once per frame
     void Update()
@@ -57,6 +59,7 @@ public class Master : MonoBehaviour
             audioManager.Play("PanelToggle");
             triggerEnable = false;
             playerIsClose = true;
+            panel.SetActive(true);
             TriggerDialogue();
         }
     }

@@ -12,6 +12,7 @@ TagManager:
   - LemonSlices
   - Master
   - Transition
+  - Dialogue
   layers:
   - Default
   - TransparentFX
