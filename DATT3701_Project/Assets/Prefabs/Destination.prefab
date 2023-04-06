@@ -75,7 +75,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: 0f463fa21887c5c41855b46898cb1313, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -129,6 +129,9 @@ MonoBehaviour:
   sceneName: 
   sceneBuildIndex: 0
   text: {fileID: 0}
+  isFinalLevel: 0
+  congratsPanel: {fileID: 0}
+  pauseShade: {fileID: 0}
 --- !u!95 &4237920845236952730
 Animator:
   serializedVersion: 5

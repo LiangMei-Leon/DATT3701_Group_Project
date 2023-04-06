@@ -218,7 +218,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: ed21cdc2ab03dc54a92cf517356efe71, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d1e05a94d68a1d44bbd6a7436036a302, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -389,7 +389,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 114546223925725808, guid: 67ccd4a79503a764c892584500ddf3d1, type: 3}
       propertyPath: m_Name
-      value: TutorialPanel
+      value: TutorialPanel_all
       objectReference: {fileID: 0}
     - target: {fileID: 114546223925725808, guid: 67ccd4a79503a764c892584500ddf3d1, type: 3}
       propertyPath: m_IsActive
