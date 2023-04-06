@@ -87,7 +87,7 @@ public class ProgressRewind : MonoBehaviour
             warning.SetActive(false);
             reloadPanel.SetActive(false);
             panelActivating = false;
-            playerEmotion.IncreaseFear(30);
+            //playerEmotion.IncreaseFear(30);
             if(player_Savedemotion <= emotionStatus){
                 playerEmotion.IncreaseSerenity(emotionStatus - player_Savedemotion);
             }else{
@@ -119,7 +119,7 @@ public class ProgressRewind : MonoBehaviour
     public void Back()
     {
         audioManager.Play("ClickButton");
-        SceneManager.LoadScene("StartMenu");
+        SceneManager.LoadScene("StartMenu1");
     }
 
     public void Close()
