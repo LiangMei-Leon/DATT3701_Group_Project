@@ -7246,6 +7246,7 @@ MonoBehaviour:
   pauseShade: {fileID: 1168437827}
   TEXT2: {fileID: 107473635}
   tmp: {fileID: 107473637}
+  warningText: {fileID: 1570091636}
   Needle: {fileID: 1041577721}
 --- !u!114 &759416903
 MonoBehaviour:
@@ -14125,6 +14126,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 639178898}
     m_Modifications:
+    - target: {fileID: 3417737641203471405, guid: 38b0d93b6e72d464a910b06e7dc067af, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 479
+      objectReference: {fileID: 0}
     - target: {fileID: 4168837302825910912, guid: 38b0d93b6e72d464a910b06e7dc067af, type: 3}
       propertyPath: m_Camera
       value: 
@@ -14357,8 +14362,17 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 483.05005
       objectReference: {fileID: 0}
+    - target: {fileID: 4768391596655768243, guid: 38b0d93b6e72d464a910b06e7dc067af, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 38b0d93b6e72d464a910b06e7dc067af, type: 3}
+--- !u!1 &1570091636 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4768391596655768243, guid: 38b0d93b6e72d464a910b06e7dc067af, type: 3}
+  m_PrefabInstance: {fileID: 1570091635}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1571021540
 PrefabInstance:
   m_ObjectHideFlags: 0

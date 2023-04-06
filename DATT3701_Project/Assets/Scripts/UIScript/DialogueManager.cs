@@ -14,6 +14,7 @@ public class DialogueManager : MonoBehaviour
     public Animator animator;
 
     public GameObject shade;
+    private GameObject panel;
     
     
     
@@ -26,11 +27,12 @@ public class DialogueManager : MonoBehaviour
     {
         sentences = new Queue<string>();
         audioManager = FindObjectOfType<AudioManager>();
+        panel = GameObject.FindWithTag("Dialogue");
     }
 
     public void StartDialogue(Dialogue dialogue){
         
-    
+        panel.SetActive(true);
         animator.SetBool("isOpen", true);
         
         Debug.Log ("Starting conversation with" + dialogue.name);
@@ -45,6 +47,7 @@ public class DialogueManager : MonoBehaviour
 
         DisplayNextSentence();
         shade.SetActive(true);
+        
 
         
     }
@@ -71,8 +74,10 @@ public class DialogueManager : MonoBehaviour
     }
 
     void EndDialogue(){
+        
         Debug.Log("End of Concersation");
         animator.SetBool("isOpen", false);
+        panel.SetActive(false);
         shade.SetActive(false);
     }
 

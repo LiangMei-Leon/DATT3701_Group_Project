@@ -32,6 +32,7 @@ public class PlayerEmotionStatus : MonoBehaviour
     const float RAGE_MAX_VALUE = 100.0f;       //change value range:   -100(serenity)-------0-------100(rage)
     const float FEAR_MAX_VALUE = 100.0f;
 
+    public GameObject warningText;
     public MeterUI Needle;
     private bool cheatingEnable = false;
     private Animator _animator;
@@ -203,11 +204,14 @@ public class PlayerEmotionStatus : MonoBehaviour
 
     public void ReturnNormal(){
         fearStatus = 0;
+        ghostmeter.setFear(fearStatus);
         respawnable = true;
         isGhost = false;
         respawnUsed = true;
         if(TEXT2 != null)
             TEXT2.SetActive(false);
+        if(warningText != null)
+            warningText.SetActive(true);
         // foreach (Collider2D c in normalPlayer.GetComponents<Collider2D>())
         // {
         //     if(c.enabled == true)
