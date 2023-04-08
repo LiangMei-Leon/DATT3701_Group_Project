@@ -6332,6 +6332,9 @@ MonoBehaviour:
   sceneName: Test_1T
   sceneBuildIndex: 0
   text: {fileID: 0}
+  isFinalLevel: 0
+  congratsPanel: {fileID: 0}
+  pauseShade: {fileID: 0}
 --- !u!4 &489981447 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1157174024407251032, guid: 68f405465783e604abe426d187b660e4, type: 3}
@@ -8408,7 +8411,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 627218905}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.13998604, y: -3.3200123, z: 0}
+  m_LocalPosition: {x: 0.13998604, y: -3.6, z: 0}
   m_LocalScale: {x: 0.1324351, y: 0.14022541, z: 0.42034608}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -10264,6 +10267,7 @@ MonoBehaviour:
   pauseShade: {fileID: 0}
   TEXT2: {fileID: 0}
   tmp: {fileID: 0}
+  warningText: {fileID: 0}
   Needle: {fileID: 0}
 --- !u!114 &759416903
 MonoBehaviour:
