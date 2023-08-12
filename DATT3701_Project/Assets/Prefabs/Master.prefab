@@ -167,9 +167,9 @@ MonoBehaviour:
 
 '
     - "Don\u2019t ask, just do it!\r\n"
-  playerIsClose: 0
   panelActiving: 0
   shade: {fileID: 0}
+  playerNearby: 0
 --- !u!61 &6163276342942277319
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -183,7 +183,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.100212574, y: -0.21656632}
+  m_Offset: {x: -0.017108679, y: -3.4271898}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -194,7 +194,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 5.941723, y: 6.086719}
+  m_Size: {x: 15.249039, y: 12.507967}
   m_EdgeRadius: 0
 --- !u!95 &9079589414578395458
 Animator:
@@ -311,13 +311,21 @@ PrefabInstance:
       propertyPath: m_SortingLayerID
       value: -1369463095
       objectReference: {fileID: 0}
+    - target: {fileID: 5319904342693199370, guid: 2911e866a6538f34787b3ded19c92750, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 5319904342693199370, guid: 2911e866a6538f34787b3ded19c92750, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 5319904342693199371, guid: 2911e866a6538f34787b3ded19c92750, type: 3}
       propertyPath: m_text
-      value: '!'
+      value: Press [E] to interact
       objectReference: {fileID: 0}
     - target: {fileID: 5319904342693199371, guid: 2911e866a6538f34787b3ded19c92750, type: 3}
       propertyPath: m_fontSize
-      value: 24
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 5319904342693199371, guid: 2911e866a6538f34787b3ded19c92750, type: 3}
       propertyPath: m_fontColor.b
@@ -333,7 +341,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5319904342693199371, guid: 2911e866a6538f34787b3ded19c92750, type: 3}
       propertyPath: m_fontSizeBase
-      value: 24
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 5319904342693199371, guid: 2911e866a6538f34787b3ded19c92750, type: 3}
       propertyPath: m_fontColor32.rgba
