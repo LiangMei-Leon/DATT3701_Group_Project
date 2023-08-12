@@ -8621,6 +8621,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8628835094925779119, guid: 29a02dc0859b5374fad4c214b9cd8b31, type: 3}
+      propertyPath: m_FlipX
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8628835095501091689, guid: 29a02dc0859b5374fad4c214b9cd8b31, type: 3}
       propertyPath: m_Name
       value: Master
@@ -8631,7 +8635,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8628835095501091690, guid: 29a02dc0859b5374fad4c214b9cd8b31, type: 3}
       propertyPath: m_LocalScale.x
-      value: -1.1414
+      value: 1.1414
       objectReference: {fileID: 0}
     - target: {fileID: 8628835095501091690, guid: 29a02dc0859b5374fad4c214b9cd8b31, type: 3}
       propertyPath: m_LocalPosition.x
@@ -12109,35 +12113,35 @@ Transform:
   - {fileID: 351570510}
   - {fileID: 967524839}
   - {fileID: 1849216080}
-  - {fileID: 86830997}
   - {fileID: 1203239408}
+  - {fileID: 455480679}
   - {fileID: 496022064}
   - {fileID: 1960357259}
   - {fileID: 848178979}
   - {fileID: 1031080619}
   - {fileID: 1220348157}
+  - {fileID: 1267683474}
   - {fileID: 1521980527}
   - {fileID: 161058715}
   - {fileID: 1341233026}
-  - {fileID: 1103979038}
+  - {fileID: 792456131}
   - {fileID: 1224715889}
-  - {fileID: 254783775}
+  - {fileID: 1304445001}
   - {fileID: 1538495506}
   - {fileID: 780967625}
-  - {fileID: 729394755}
-  - {fileID: 1267683474}
-  - {fileID: 2046512845}
+  - {fileID: 1103979038}
   - {fileID: 1613358296}
-  - {fileID: 560598536}
-  - {fileID: 1304445001}
-  - {fileID: 792456131}
-  - {fileID: 689932589}
-  - {fileID: 455480679}
-  - {fileID: 2039126479}
+  - {fileID: 2046512845}
+  - {fileID: 86830997}
+  - {fileID: 729394755}
+  - {fileID: 254783775}
   - {fileID: 1571289035}
-  - {fileID: 1586580364}
-  - {fileID: 1527641237}
+  - {fileID: 560598536}
+  - {fileID: 2039126479}
+  - {fileID: 689932589}
   - {fileID: 1315786279}
+  - {fileID: 1527641237}
+  - {fileID: 1586580364}
   - {fileID: 1168440645}
   - {fileID: 1559174349}
   m_Father: {fileID: 17199242}
