@@ -35,7 +35,7 @@ public class LemonAngel : MonoBehaviour
     {
         if(col.gameObject.CompareTag("GhostPlayer")){
             playerEmotion.ReturnNormal();
-            Destroy(gameObject);
+            this.gameObject.SetActive(false);
         }
     }
 }
