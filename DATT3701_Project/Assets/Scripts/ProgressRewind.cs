@@ -8,7 +8,14 @@ public class ProgressRewind : MonoBehaviour
     private GameObject playerManager;
     private PlayerEmotionStatus playerEmotion;
     private float emotionStatus;
+
     private bool isGhost;
+    private float fearStatus;
+    private bool respawnable = false;
+    private bool respawnUsed = false;
+    public GameObject LemonAngel;
+    public GameObject warningText;
+
     private GameObject player;
     private PlayerMovement playerInput;
     private float player_Savedemotion;
@@ -64,6 +71,10 @@ public class ProgressRewind : MonoBehaviour
                 Invoke("Cancel", 1f);
             }
             player_Savedemotion = playerEmotion.getEmotionStatus();
+            fearStatus = playerEmotion.fearStatus;
+            respawnable = playerEmotion.respawnable;
+            respawnUsed = playerEmotion.respawnUsed;
+
             playerInput.UpdatePlayerLocation();
             foreach (GameObject box in boxes)
             {
@@ -92,6 +103,18 @@ public class ProgressRewind : MonoBehaviour
                 playerEmotion.IncreaseSerenity(emotionStatus - player_Savedemotion);
             }else{
                 playerEmotion.IncreaseRage(player_Savedemotion - emotionStatus);
+            }
+            if(fearStatus <= playerEmotion.fearStatus){
+                playerEmotion.IncreaseFear(fearStatus - playerEmotion.fearStatus);
+            }else{
+                playerEmotion.IncreaseFear(fearStatus - playerEmotion.fearStatus);
+            }
+            playerEmotion.respawnable = respawnable;
+            if(!respawnUsed){
+                playerEmotion.respawnUsed = false;
+                playerEmotion.fearCountDown = 10f;
+                LemonAngel.SetActive(true);
+                warningText.SetActive(false);
             }
             playerInput.RewindPlayerLocation();
             foreach (GameObject box in boxes)

@@ -9136,6 +9136,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1385615bf12aa14da4b13d6ef798829, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  LemonAngel: {fileID: 1326221250}
+  warningText: {fileID: 1570091636}
   pauseShade: {fileID: 1168437827}
   reloadPanel: {fileID: 549888371}
   warning: {fileID: 1852090495}

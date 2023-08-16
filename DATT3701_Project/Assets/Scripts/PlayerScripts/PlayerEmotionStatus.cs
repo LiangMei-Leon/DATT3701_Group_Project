@@ -8,8 +8,8 @@ public class PlayerEmotionStatus : MonoBehaviour
 {
     [SerializeField] public float initialValue = 0.0f;
     [SerializeField] public float emotionStatus;
-    [SerializeField] private float fearStatus;
-    [SerializeField] private bool isGhost;
+    [SerializeField] public float fearStatus;
+    [SerializeField] public bool isGhost;
     [SerializeField] public float fearCountDown = 10.0f;
     private float fearTimer = 0f;
     [SerializeField] public bool respawnable = false;
@@ -165,6 +165,11 @@ public class PlayerEmotionStatus : MonoBehaviour
     public void IncreaseFear(float value)
     {
         fearStatus += value;
+        if(fearStatus < 0){
+            fearStatus = 0;
+        }else if(fearStatus > 100){
+            fearStatus = 99;
+        }
         if(fearStatus >= 100 && !respawnUsed){
             isGhost = true;
         }
