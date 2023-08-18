@@ -19,6 +19,7 @@ public class Master : MonoBehaviour
     private AudioManager audioManager;
 
     public bool playerNearby = false;
+    public bool dialogueCheck = false;
 
     void Start()
     {
@@ -31,13 +32,17 @@ public class Master : MonoBehaviour
     {
         if (playerNearby)
         {
-            if (Input.GetKeyDown(KeyCode.E))
+            if (Input.GetKeyDown(KeyCode.E)&& dialogueCheck == false)
             {
                 Debug.Log("Interact");
                 audioManager.Play("PanelToggle");
                 triggerEnable = false;
                 panel.SetActive(true);
                 TriggerDialogue();
+                dialogueCheck = true;
+            }else if(Input.GetKeyDown(KeyCode.E)&& dialogueCheck == true)
+            {
+                TriggerNextDialogue();
             }
             mark.SetActive(true);
         }else{
@@ -84,6 +89,10 @@ public class Master : MonoBehaviour
     public void TriggerDialogue()
     {
         FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
+    }
+    public void TriggerNextDialogue()
+    {
+        FindObjectOfType<DialogueManager>().DisplayNextSentence();
     }
 
 }
