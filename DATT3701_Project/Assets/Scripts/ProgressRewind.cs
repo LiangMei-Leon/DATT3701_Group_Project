@@ -35,7 +35,7 @@ public class ProgressRewind : MonoBehaviour
     void Start()
     {
         playerManager = GameObject.FindWithTag("PlayerManager");
-        playerEmotion= playerManager.GetComponent<PlayerEmotionStatus>();
+        playerEmotion = playerManager.GetComponent<PlayerEmotionStatus>();
         player = GameObject.FindWithTag("Player");
         playerInput = player.GetComponent<PlayerMovement>();
         audioManager = FindObjectOfType<AudioManager>();
@@ -50,23 +50,27 @@ public class ProgressRewind : MonoBehaviour
     void Update()
     {
         emotionStatus = playerEmotion.getEmotionStatus();
-        if(Input.GetKeyDown("r") && !panelActivating && !playerEmotion.getFearStatus()){
+        if (Input.GetKeyDown("r") && !panelActivating && !playerEmotion.getFearStatus())
+        {
             audioManager.Play("PanelToggle");
             pauseShade.SetActive(true);
             reloadPanel.SetActive(true);
             panelActivating = true;
-        }else if(Input.GetKeyDown("r") && panelActivating && !playerEmotion.getFearStatus()){
+        }
+        else if (Input.GetKeyDown("r") && panelActivating && !playerEmotion.getFearStatus())
+        {
             audioManager.Play("PanelToggle");
             pauseShade.SetActive(false);
             warning.SetActive(false);
             reloadPanel.SetActive(false);
             panelActivating = false;
         }
-        if(Input.GetKeyDown("c") && !playerEmotion.getFearStatus() && unlocked)
+        if (Input.GetKeyDown("c") && !playerEmotion.getFearStatus() && unlocked)
         {
             saved = true;
             audioManager.Play("Save");
-            if(text != null){
+            if (text != null)
+            {
                 text.SetActive(true);
                 Invoke("Cancel", 1f);
             }
@@ -88,10 +92,35 @@ public class ProgressRewind : MonoBehaviour
             }
         }
     }
+    public void save()
+    {
+        saved = true;
+        audioManager.Play("Save");
+        if (text != null)
+        {
+            text.SetActive(true);
+            Invoke("Cancel", 1f);
+        }
+        player_Savedemotion = playerEmotion.getEmotionStatus();
+        fearStatus = playerEmotion.fearStatus;
+        respawnable = playerEmotion.respawnable;
+        respawnUsed = playerEmotion.respawnUsed;
 
+        playerInput.UpdatePlayerLocation();
+        foreach (GameObject box in boxes)
+        {
+            BoxFunctions boxf = box.GetComponent<BoxFunctions>();
+            boxf.UpdateBoxStatus();
+        }
+        foreach (GameObject slice in slices)
+        {
+            LemonSlice slicef = slice.GetComponent<LemonSlice>();
+            slicef.UpdateSliceStatus();
+        }
+    }
     public void Rewind()
     {
-        if(saved)
+        if (saved)
         {
             audioManager.Play("ClickButton");
             pauseShade.SetActive(false);
@@ -99,18 +128,25 @@ public class ProgressRewind : MonoBehaviour
             reloadPanel.SetActive(false);
             panelActivating = false;
             //playerEmotion.IncreaseFear(30);
-            if(player_Savedemotion <= emotionStatus){
+            if (player_Savedemotion <= emotionStatus)
+            {
                 playerEmotion.IncreaseSerenity(emotionStatus - player_Savedemotion);
-            }else{
+            }
+            else
+            {
                 playerEmotion.IncreaseRage(player_Savedemotion - emotionStatus);
             }
-            if(fearStatus <= playerEmotion.fearStatus){
+            if (fearStatus <= playerEmotion.fearStatus)
+            {
                 playerEmotion.IncreaseFear(fearStatus - playerEmotion.fearStatus);
-            }else{
+            }
+            else
+            {
                 playerEmotion.IncreaseFear(fearStatus - playerEmotion.fearStatus);
             }
             playerEmotion.respawnable = respawnable;
-            if(!respawnUsed){
+            if (!respawnUsed)
+            {
                 playerEmotion.respawnUsed = false;
                 playerEmotion.fearCountDown = 10f;
                 LemonAngel.SetActive(true);
@@ -127,7 +163,9 @@ public class ProgressRewind : MonoBehaviour
                 LemonSlice slicef = slice.GetComponent<LemonSlice>();
                 slicef.RewindSlice();
             }
-        }else{
+        }
+        else
+        {
             audioManager.Play("ClickButton");
             warning.SetActive(true);
         }
