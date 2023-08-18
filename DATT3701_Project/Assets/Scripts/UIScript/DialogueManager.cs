@@ -29,7 +29,8 @@ public class DialogueManager : MonoBehaviour
         audioManager = FindObjectOfType<AudioManager>();
         panel = GameObject.FindWithTag("Dialogue");
     }
-
+   
+   
     public void StartDialogue(Dialogue dialogue){
         
         panel.SetActive(true);
@@ -47,6 +48,8 @@ public class DialogueManager : MonoBehaviour
 
         DisplayNextSentence();
         shade.SetActive(true);
+
+        
         
 
         
@@ -55,6 +58,7 @@ public class DialogueManager : MonoBehaviour
     public void DisplayNextSentence(){
         audioManager.Play("ClickButton");
         if (sentences.Count == 0){
+            FindObjectOfType<Master>().dialogueCheck = false;
             EndDialogue();
             return;
         }
