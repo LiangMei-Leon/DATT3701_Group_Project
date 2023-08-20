@@ -31,6 +31,14 @@ public class ContentHolder : MonoBehaviour
         pauseShade = GameObject.FindWithTag("PauseShade");
     }
 
+
+     void Update(){
+        if(Input.GetKeyDown(KeyCode.LeftArrow) ){
+          Back();
+        }else if(Input.GetKeyDown(KeyCode.RightArrow)){
+            Next();
+        }
+    }
     // Update is called once per frame
     void CheckIndex()
     {
