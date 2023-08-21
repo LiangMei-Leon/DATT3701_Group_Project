@@ -102,10 +102,17 @@ public class ProgressRewind : MonoBehaviour
             Invoke("Cancel", 1f);
         }
         player_Savedemotion = playerEmotion.getEmotionStatus();
-        fearStatus = playerEmotion.fearStatus;
-        respawnable = playerEmotion.respawnable;
-        respawnUsed = playerEmotion.respawnUsed;
-
+        // fearStatus = playerEmotion.fearStatus;
+        // respawnable = playerEmotion.respawnable;
+        // respawnUsed = playerEmotion.respawnUsed;
+        respawnable = true;
+        fearStatus = 0f;
+        respawnUsed = false;
+        playerEmotion.respawnable = true;
+        playerEmotion.respawnUsed = false;
+        playerEmotion.fearStatus = 0f;
+        LemonAngel.SetActive(true);
+        playerEmotion.fearCountDown = 10f;
         playerInput.UpdatePlayerLocation();
         foreach (GameObject box in boxes)
         {
@@ -150,7 +157,7 @@ public class ProgressRewind : MonoBehaviour
                 playerEmotion.respawnUsed = false;
                 playerEmotion.fearCountDown = 10f;
                 LemonAngel.SetActive(true);
-                warningText.SetActive(false);
+                //warningText.SetActive(false);
             }
             playerInput.RewindPlayerLocation();
             foreach (GameObject box in boxes)

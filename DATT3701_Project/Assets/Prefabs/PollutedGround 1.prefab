@@ -100,7 +100,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.017801702, y: 1.4075918}
+  m_Offset: {x: 0.012012392, y: 1.2165425}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -111,7 +111,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2.219367, y: 0.478158}
+  m_Size: {x: 1.9067419, y: 0.09605932}
   m_EdgeRadius: 0
 --- !u!114 &1826323187434000412
 MonoBehaviour:
@@ -125,7 +125,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6260d3b24af30124596a3d0d45786a5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IncreaseAmount: 5
+  IncreaseAmount: 100
   cooldown: 1
 --- !u!1 &7543891970797181134
 GameObject:
