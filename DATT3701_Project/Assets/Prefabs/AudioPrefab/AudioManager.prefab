@@ -130,7 +130,7 @@ MonoBehaviour:
     group: {fileID: 24300002, guid: f9ed79f2adf7a4342b2488a7193b60c2, type: 2}
     source: {fileID: 0}
   - name: Save
-    clip: {fileID: 8300000, guid: 207be7575051d074c97325c590d20480, type: 3}
+    clip: {fileID: 8300000, guid: b946dcfbf087fa44c87e51d9d9d79f8a, type: 3}
     volume: 0.5
     pitch: 1
     loop: 0
