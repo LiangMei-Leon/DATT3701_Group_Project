@@ -58,8 +58,8 @@ GameObject:
   - component: {fileID: 8628835094925779118}
   - component: {fileID: 8628835094925779119}
   - component: {fileID: 8628835094925779113}
-  - component: {fileID: 6163276342942277319}
   - component: {fileID: 9079589414578395458}
+  - component: {fileID: 7657547031555323909}
   m_Layer: 11
   m_Name: master
   m_TagString: Master
@@ -170,32 +170,7 @@ MonoBehaviour:
   panelActiving: 0
   shade: {fileID: 0}
   playerNearby: 0
---- !u!61 &6163276342942277319
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8628835094925779117}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.3797779, y: -3.4271898}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 11.44, y: 11.08}
-    newSize: {x: 11.44, y: 11.08}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 10.486397, y: 12.507967}
-  m_EdgeRadius: 0
+  dialogueCheck: 0
 --- !u!95 &9079589414578395458
 Animator:
   serializedVersion: 5
@@ -216,6 +191,22 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
+--- !u!70 &7657547031555323909
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8628835094925779117}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.033672355, y: -1.4987191}
+  m_Size: {x: 8.274998, y: 11.116077}
+  m_Direction: 0
 --- !u!1 &8628835095501091689
 GameObject:
   m_ObjectHideFlags: 0
