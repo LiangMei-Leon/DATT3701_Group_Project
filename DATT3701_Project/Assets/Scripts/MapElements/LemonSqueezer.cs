@@ -63,7 +63,7 @@ public class LemonSqueezer : MonoBehaviour
 
     void OnTriggerStay2D(Collider2D col)
     {
-        if(col.gameObject.CompareTag("Player")){
+        if(col.gameObject.CompareTag("Player") && !playerEmotion.getFearStatus()){
             if(isAbleToHit){
                 float random = Random.Range(-10f,10f);
                 audioManager.randomVolumeAndPitch("LemonSqueezed");

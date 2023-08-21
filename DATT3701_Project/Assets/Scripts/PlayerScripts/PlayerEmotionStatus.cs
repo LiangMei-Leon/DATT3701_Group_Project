@@ -168,10 +168,11 @@ public class PlayerEmotionStatus : MonoBehaviour
         if(fearStatus < 0){
             fearStatus = 0;
         }else if(fearStatus > 100){
-            fearStatus = 99;
+            fearStatus = 100;
         }
         if(fearStatus >= 100 && !respawnUsed){
             isGhost = true;
+            respawnable = false;
         }
         if(isGhost && !respawnUsed){
             // foreach (Collider2D c in normalPlayer.GetComponents<Collider2D>())
@@ -215,8 +216,8 @@ public class PlayerEmotionStatus : MonoBehaviour
         respawnUsed = true;
         if(TEXT2 != null)
             TEXT2.SetActive(false);
-        if(warningText != null)
-            warningText.SetActive(true);
+        // if(warningText != null)
+        //     warningText.SetActive(true);
         // foreach (Collider2D c in normalPlayer.GetComponents<Collider2D>())
         // {
         //     if(c.enabled == true)

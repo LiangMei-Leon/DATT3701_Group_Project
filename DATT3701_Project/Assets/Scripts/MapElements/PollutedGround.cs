@@ -9,6 +9,8 @@ public class PollutedGround : MonoBehaviour
     private PlayerEmotionStatus playerEmotion;
     private float emotionStatus;
 
+    //public bool playerOnTop = false;
+
     public float cooldown = 1f;
     private float timer = 0f;
     private bool isAbleToHit = false;
@@ -31,14 +33,22 @@ public class PollutedGround : MonoBehaviour
         }
     }
 
-    void OnTriggerStay2D(Collider2D col)
+    // void OnTriggerStay2D(Collider2D col)
+    // {
+    //     if(col.gameObject.CompareTag("Player") &&){
+    //         if(isAbleToHit && !playerEmotion.getFearStatus()){
+    //             playerEmotion.IncreaseFear(IncreaseAmount);
+    //             timer = cooldown;
+    //             //Debug.Log("hit");
+    //         }
+    //     }
+    // }
+
+    void OnTriggerEnter2D(Collider2D col)
     {
         if(col.gameObject.CompareTag("Player")){
-            if(isAbleToHit && !playerEmotion.getFearStatus()){
-                playerEmotion.IncreaseFear(IncreaseAmount);
-                timer = cooldown;
-                //Debug.Log("hit");
-            }
+            //playerOnTop = true;
+            playerEmotion.IncreaseFear(IncreaseAmount);
         }
     }
 }
