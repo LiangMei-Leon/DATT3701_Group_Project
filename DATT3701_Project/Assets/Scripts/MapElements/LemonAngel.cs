@@ -10,6 +10,7 @@ public class LemonAngel : MonoBehaviour
 
     private ParticleSystem VFX;
     private bool vfxplaying = false;
+    public float playDuration = 0.5f;
 
     // Start is called before the first frame update
     void Start()
@@ -37,5 +38,18 @@ public class LemonAngel : MonoBehaviour
             playerEmotion.ReturnNormal();
             this.gameObject.SetActive(false);
         }
+    }
+
+    public IEnumerator PlayAndStopParticleSystem()
+    {
+        Debug.Log("Starting Particle System");
+        // Play the particle system
+        VFX.Play();
+
+        // Wait for the specified duration
+        yield return new WaitForSeconds(playDuration);
+
+        // Stop the particle system
+        VFX.Stop();
     }
 }

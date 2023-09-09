@@ -13,8 +13,8 @@ public class ProgressRewind : MonoBehaviour
     private float fearStatus;
     private bool respawnable = false;
     private bool respawnUsed = false;
-    public GameObject LemonAngel;
-    public GameObject warningText;
+    public GameObject Lemonangel;
+    private LemonAngel angelScript;
 
     private GameObject player;
     private PlayerMovement playerInput;
@@ -25,7 +25,9 @@ public class ProgressRewind : MonoBehaviour
     private bool panelActivating = false;
     public GameObject pauseShade;
     public GameObject reloadPanel;
+    public GameObject restartPanel;
     public GameObject warning;
+    public GameObject warning2;
     public GameObject text;
     public bool unlocked = false;
 
@@ -39,6 +41,7 @@ public class ProgressRewind : MonoBehaviour
         player = GameObject.FindWithTag("Player");
         playerInput = player.GetComponent<PlayerMovement>();
         audioManager = FindObjectOfType<AudioManager>();
+        angelScript = Lemonangel.GetComponent<LemonAngel>();
 
         if (boxes == null)
             boxes = GameObject.FindGameObjectsWithTag("Boxes");
@@ -65,32 +68,32 @@ public class ProgressRewind : MonoBehaviour
             reloadPanel.SetActive(false);
             panelActivating = false;
         }
-        if (Input.GetKeyDown("c") && !playerEmotion.getFearStatus() && unlocked)
-        {
-            saved = true;
-            audioManager.Play("Save");
-            if (text != null)
-            {
-                text.SetActive(true);
-                Invoke("Cancel", 1f);
-            }
-            player_Savedemotion = playerEmotion.getEmotionStatus();
-            fearStatus = playerEmotion.fearStatus;
-            respawnable = playerEmotion.respawnable;
-            respawnUsed = playerEmotion.respawnUsed;
+        // if (Input.GetKeyDown("c") && !playerEmotion.getFearStatus() && unlocked)
+        // {
+        //     saved = true;
+        //     audioManager.Play("Save");
+        //     if (text != null)
+        //     {
+        //         text.SetActive(true);
+        //         Invoke("Cancel", 1f);
+        //     }
+        //     player_Savedemotion = playerEmotion.getEmotionStatus();
+        //     fearStatus = playerEmotion.fearStatus;
+        //     respawnable = playerEmotion.respawnable;
+        //     respawnUsed = playerEmotion.respawnUsed;
 
-            playerInput.UpdatePlayerLocation();
-            foreach (GameObject box in boxes)
-            {
-                BoxFunctions boxf = box.GetComponent<BoxFunctions>();
-                boxf.UpdateBoxStatus();
-            }
-            foreach (GameObject slice in slices)
-            {
-                LemonSlice slicef = slice.GetComponent<LemonSlice>();
-                slicef.UpdateSliceStatus();
-            }
-        }
+        //     playerInput.UpdatePlayerLocation();
+        //     foreach (GameObject box in boxes)
+        //     {
+        //         BoxFunctions boxf = box.GetComponent<BoxFunctions>();
+        //         boxf.UpdateBoxStatus();
+        //     }
+        //     foreach (GameObject slice in slices)
+        //     {
+        //         LemonSlice slicef = slice.GetComponent<LemonSlice>();
+        //         slicef.UpdateSliceStatus();
+        //     }
+        // }
     }
     public void save()
     {
@@ -111,7 +114,8 @@ public class ProgressRewind : MonoBehaviour
         playerEmotion.respawnable = true;
         playerEmotion.respawnUsed = false;
         playerEmotion.fearStatus = 0f;
-        LemonAngel.SetActive(true);
+        Lemonangel.SetActive(true);
+        StartCoroutine(angelScript.PlayAndStopParticleSystem());
         playerEmotion.fearCountDown = 10f;
         playerInput.UpdatePlayerLocation();
         foreach (GameObject box in boxes)
@@ -133,6 +137,7 @@ public class ProgressRewind : MonoBehaviour
             pauseShade.SetActive(false);
             warning.SetActive(false);
             reloadPanel.SetActive(false);
+            restartPanel.SetActive(false);
             panelActivating = false;
             //playerEmotion.IncreaseFear(30);
             if (player_Savedemotion <= emotionStatus)
@@ -152,11 +157,15 @@ public class ProgressRewind : MonoBehaviour
                 playerEmotion.IncreaseFear(fearStatus - playerEmotion.fearStatus);
             }
             playerEmotion.respawnable = respawnable;
+            if(playerEmotion.getFearStatus())
+            {
+                playerEmotion.ReturnNormal();
+            }
             if (!respawnUsed)
             {
                 playerEmotion.respawnUsed = false;
                 playerEmotion.fearCountDown = 10f;
-                LemonAngel.SetActive(true);
+                Lemonangel.SetActive(true);
                 //warningText.SetActive(false);
             }
             playerInput.RewindPlayerLocation();
@@ -175,6 +184,7 @@ public class ProgressRewind : MonoBehaviour
         {
             audioManager.Play("ClickButton");
             warning.SetActive(true);
+            warning2.SetActive(true);
         }
     }
 

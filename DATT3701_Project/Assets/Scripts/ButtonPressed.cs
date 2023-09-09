@@ -127,6 +127,16 @@ public class ButtonPressed : MonoBehaviour
                  activated =  true;
                 StartCoroutine(PlayAnim("LEVEL-9"));
             }
+            if (areaMode == "LEVEL-10")
+            {
+                 activated =  true;
+                StartCoroutine(PlayAnim("LEVEL-10"));
+            }
+            if (areaMode == "LEVEL-11")
+            {
+                 activated =  true;
+                StartCoroutine(PlayAnim("LEVEL-11"));
+            }
             return;
         }else if(Time.time >= nextTime && !activated)
         {
@@ -205,6 +215,14 @@ public class ButtonPressed : MonoBehaviour
             {
                 BoardText.GetComponent<TextMeshPro>().text = "LEVEL 9";
             }
+            if (areaMode == "LEVEL-10")
+            {
+                BoardText.GetComponent<TextMeshPro>().text = "LEVEL 10";
+            }
+            if (areaMode == "LEVEL-11")
+            {
+                BoardText.GetComponent<TextMeshPro>().text = "LEVEL 11";
+            }
         }
     }
 
@@ -218,10 +236,4 @@ public class ButtonPressed : MonoBehaviour
         SceneManager.LoadScene(levelName);
         
     }
-
-
-
-
-
-
 }

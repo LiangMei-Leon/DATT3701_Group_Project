@@ -13,6 +13,8 @@ TagManager:
   - Master
   - Transition
   - Dialogue
+  - restartPanel
+  - TutorialPanel
   layers:
   - Default
   - TransparentFX

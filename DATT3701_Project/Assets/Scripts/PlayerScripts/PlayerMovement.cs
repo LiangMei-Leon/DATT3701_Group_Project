@@ -51,6 +51,7 @@ public class PlayerMovement : MonoBehaviour
             horizontalMove = 0;
             animator.SetFloat("Speed", Mathf.Abs(horizontalMove));
         }
+
         
     }
 

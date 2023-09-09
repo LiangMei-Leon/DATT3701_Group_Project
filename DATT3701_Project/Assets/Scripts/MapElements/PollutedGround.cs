@@ -8,6 +8,7 @@ public class PollutedGround : MonoBehaviour
     private GameObject playerManager;
     private PlayerEmotionStatus playerEmotion;
     private float emotionStatus;
+    private ParticleSystem VFX;
 
     //public bool playerOnTop = false;
 
@@ -20,6 +21,7 @@ public class PollutedGround : MonoBehaviour
     {
         playerManager = GameObject.FindWithTag("PlayerManager");
         playerEmotion = playerManager.GetComponent<PlayerEmotionStatus>();
+        VFX = this.GetComponent<ParticleSystem>();
     }
 
     // Update is called once per frame
@@ -46,9 +48,17 @@ public class PollutedGround : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D col)
     {
-        if(col.gameObject.CompareTag("Player")){
+        if(col.gameObject.CompareTag("Player") && isAbleToHit && !playerEmotion.getFearStatus()){
             //playerOnTop = true;
             playerEmotion.IncreaseFear(IncreaseAmount);
+            VFX.Stop();
+        }
+    }
+
+    void OnTriggerExit2D(Collider2D col){
+        if(col.gameObject.CompareTag("Player")){
+            timer = cooldown;
+            VFX.Play();
         }
     }
 }

@@ -11,7 +11,7 @@ public class Master : MonoBehaviour
     public Dialogue dialogue;
     private GameObject panel;
 
-    public bool panelActiving = false;
+    public bool panelActiving = true;
     private bool triggerEnable = true;
 
     private GameObject mark;
@@ -49,14 +49,14 @@ public class Master : MonoBehaviour
             mark.SetActive(false);
         }
 
-        if (Input.GetKeyDown(KeyCode.I) && panelActiving == true)
+        if ((Input.GetKeyDown(KeyCode.I) || Input.GetKeyDown(KeyCode.X))&& panelActiving == true)
         {
             audioManager.Play("PanelToggle");
             panelActiving = false;
             TutorialPanel.SetActive(false);
             shade.SetActive(false);
         }
-        else if (Input.GetKeyDown(KeyCode.I) && panelActiving == false)
+        else if (Input.GetKeyDown(KeyCode.I)&& panelActiving == false)
         {
             audioManager.Play("PanelToggle");
             panelActiving = true;
